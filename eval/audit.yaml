@@ -1,0 +1,1135 @@
+# Audit: for each item, read the intent, title and abstract, then set your_grade to
+# 2 (relevant), 1 (partly relevant) or 0 (not relevant). The judges' reasons may help.
+- query_id: q038
+  query: pulse profile modeling NICER neutron star radius
+  intent: 'Papers that infer neutron star masses and radii from X-ray pulse profile modelling (NICER,
+    XMM) and use them to constrain the dense matter equation of state. Not relevant: equation of state
+    constraints only from gravitational waves or nuclear theory.'
+  arxiv_id: '2412.05923'
+  url: https://arxiv.org/abs/2412.05923
+  title: Implications of latest NICER data for the neutron star equation of state
+  abstract: 'As an update to our previously performed Bayesian inference analyses of the neutron star
+    matter equation-of-state and related quantities, the additional impact of the recently published NICER
+    data of PSR J0437-4751 is examined. Including the mass and radius distributions of this pulsar in
+    our data base results in modest shifts from previously inferred median posterior values of radii $R$
+    and central densities $n_c$ for representative $1.4\,M_\odot$ and $2.1\,M_\odot$ neutron stars: radii
+    are reduced by about $0.2-0.3$ km to values of $R_{1.4} = 12.1\pm 0.5$ km and $R_{2.1} = 11.9^{+0.5}_{-0.6}$
+    km (at the 68\% level), and central densities increase slightly to values of $n_c(1.4\,M_\odot)/n_0
+    = 2.8\pm 0.3$ and $n_c(2.1\,M_\odot)/n_0 = 3.8_{-0.7}^{+0.6}$ (in units of equilibrium nuclear matter
+    density, $n_0 = 0.16$ fm$^{-3}$), i.e., they still fall below five times nuclear saturation density
+    at the 68\% level. As a further significant result, the evidence established by analyzing Bayes factors
+    for a negative trace anomaly measure, $Δ= 1/3-P/\varepsilon < 0$, inside heavy neutron stars is raised
+    to strong.'
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the inference of neutron star radii and masses from X-ray pulse
+        profile modeling, specifically using NICER data, which is relevant to the intent.
+    gemma4_12b:
+      grade: 1
+      reason: The paper uses NICER data to constrain the neutron star equation of state, but the abstract
+        does not explicitly state that the NICER data used was derived from pulse profile modeling (it
+        could be from a different technique like a period measurement or a different X-ray analysis).
+    llama3.1_8b:
+      grade: 2
+      reason: The paper directly addresses the intent by inferring neutron star masses and radii from
+        NICER data and using them to constrain the neutron star equation of state.
+  final_grade: 2
+  your_grade: null
+- query_id: q026
+  query: why are there so many bright galaxies at z>10
+  intent: 'Papers that address the overabundance of UV-bright galaxies at very high redshift seen by JWST,
+    through bursty star formation, high star formation efficiency, top-heavy IMF, low dust or cosmology.
+    Not relevant: high-redshift galaxy catalogues with no comparison to model expectations.'
+  arxiv_id: '2507.06292'
+  url: https://arxiv.org/abs/2507.06292
+  title: 'Exploring Cosmic Dawn with PANORAMIC I: The Bright End of the UVLF at $z\sim9 -17$'
+  abstract: In its first two years of operation, the James Webb Space Telescope has enabled the discovery
+    of a surprising number of UV-bright galaxies at $z\sim10-14$. Their number density is still relatively
+    uncertain, due to cosmic variance effects, and the limited survey area with deep imaging. Here, we
+    combine pure parallel imaging from the PANORAMIC survey with data from legacy fields to constrain
+    the bright end (M$_{\rm UV}<-18.5$) of the UV luminosity function (UVLF) over $0.28\,$deg$^2$ of NIRCam
+    imaging in 6 or more filters, and along 35 independent lines of sight. Using conservative color selections,
+    we compile robust dropout samples at $z\sim10$, $z\sim13$, and $z\sim17$, and identify 16 new candidates
+    from PANORAMIC. Our inferred UVLFs at $z\sim10$ are consistent with literature results and we confirm
+    the high abundance of galaxies at the bright end (M$_{\rm UV}\lesssim-21$) with better number statistics.
+    We find somewhat lower number densities at $z\sim13$ compared to previous studies, and no robust candidates
+    at $z\sim17$, indicating a rapid evolution of the galaxy population from $z\sim10-17$. The improved
+    upper limits at $z\sim17$ imply that the cosmic UV luminosity density drops by at least a factor $\sim50$
+    from $z\sim10$ to $z\sim17$. Comparing our results to models proposed to explain the abundance of
+    UV-bright galaxies at $z\gtrsim10$, we conclude that a modest increase in the star formation efficiency,
+    or in the burstiness of star formation, a more top-heavy initial mass function, a lack of dust attenuation,
+    or a combination of these effects at $z\gtrsim10$, is sufficient to match our observational constraints.
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the overabundance of UV-bright galaxies at high redshift, which
+        is the main focus of the query.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the overabundance of UV-bright galaxies at $z>10$ and explicitly
+        evaluates the specific physical mechanisms (bursty star formation, top-heavy IMF, etc.) mentioned
+        in the user's intent.
+  final_grade: 2
+  your_grade: null
+- query_id: q038
+  query: pulse profile modeling NICER neutron star radius
+  intent: 'Papers that infer neutron star masses and radii from X-ray pulse profile modelling (NICER,
+    XMM) and use them to constrain the dense matter equation of state. Not relevant: equation of state
+    constraints only from gravitational waves or nuclear theory.'
+  arxiv_id: '2507.12540'
+  url: https://arxiv.org/abs/2507.12540
+  title: Systematics from NICER Pulse Profiles Drive Uncertainty in Multi-Messenger Inference of the Neutron
+    Star Equation of State
+  abstract: 'We present new constraints on the neutron star equation of state (EOS) and mass distribution
+    using a unified Bayesian inference framework that incorporates latest NICER measurements, including
+    PSR J0614$-$3329, alongside gravitational wave data, radio pulsar masses, and nuclear theory. By systematically
+    comparing four inference scenarios--varying in the inclusion of PSR J0614$-$3329 and in the pulse
+    profile model used for PSR J0030+0451--we quantify the impact of observational and modeling choices
+    on dense matter inference. We find that pulse profile systematics dominate EOS uncertainties: the
+    choice of hot spot geometry for PSR J0030+0451 leads to significant shifts in the inferred stiffness
+    of the EOS and maximum neutron star mass. In contrast, PSR J0614$-$3329 mildly softens the EOS at
+    low densities, reducing the radius at \(1.4\,M_\odot\) by \(\sim 100\)~m. A Bayesian model comparison
+    yields a Bayes factor of $\log_{10} \mathrm{BF} \approx 1.58$ in favor of the ST+PDT model over PDT-U,
+    providing strong evidence that multi-messenger EOS inference can statistically discriminate between
+    competing NICER pulse profile models. These results highlight the critical role of NICER systematics
+    in dense matter inference and the power of joint analyses in breaking modeling degeneracies.'
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper discusses the impact of pulse profile systematics on the inference of the neutron
+        star equation of state using NICER data, which is directly relevant to the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the use of NICER pulse profile modeling to infer neutron star
+        properties and subsequently constrain the dense matter equation of state.
+  final_grade: 2
+  your_grade: null
+- query_id: q025
+  query: what are the little red dots in JWST images
+  intent: 'Papers that characterise or explain "little red dots", the compact red sources at high redshift
+    discovered with JWST, whether as dust-reddened AGN, compact starbursts, black hole stars or dense
+    gas envelopes. Not relevant: general high-redshift AGN or dusty galaxies that do not address this
+    population.'
+  arxiv_id: '2606.02539'
+  url: https://arxiv.org/abs/2606.02539
+  title: JWST's Little Red Dots as collapsed Supermassive Dark Stars
+  abstract: 'The nature of the ``Little Red Dots'''' (LRDs) is one of the most profound mysteries posed
+    by the JWST data. One promising class of models that can reproduce the observed LRDs spectra and morphology
+    are quasi-stars: massive envelopes surrounding accreting black holes formed via the collapse of supermassive
+    stars (SMSs). However, the canonical SMS pathway relies on a highly restricted set of environmental
+    and structural conditions: strong Lyman--Werner (LW) backgrounds to suppress H$_2$ cooling, high and
+    sustained gas inflow rates to enforce entropy stratified envelopes, and assume non-zero rotational
+    support in order to prevent GR instability collapse before $\sim 10^6 M_{\odot}$. Here we show that
+    supermassive dark stars (SMDSs), powered by dark matter (DM) annihilation rather than nuclear burning,
+    naturally satisfy the key structural and energetic requirements for quasi-star (QS) formation while
+    relaxing {\it all} of those restrictive conditions listed above. Moreover, quasi-stars formed through
+    the SMDS pathway are born with prompt BH masses ($\gtrsim 10\%$) of the progenitor mass. They therefore
+    enter directly into a late-stage quasi-star regime; subsequently the envelope expands and cools until
+    its photosphere reaches the zero-metallicity opacity limit $(T_{\rm eff}\sim3000$-$6000\,{\rm K}$).
+    Those cool, optically thick, unresolved photospheres can reproduce key features of many JWST LRDs.'
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the nature of 'Little Red Dots' in JWST images, proposing a
+        model that could explain their observed characteristics.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the 'Little Red Dots' (LRDs) identified by JWST and proposes
+        a specific physical model (supermassive dark stars/quasi-stars) to explain their observed spectra
+        and morphology.
+  final_grade: 2
+  your_grade: null
+- query_id: q022
+  query: ultra diffuse galaxies globular clusters
+  intent: 'Papers that study globular cluster populations of ultra-diffuse galaxies, including counts,
+    kinematics and what they imply about halo mass and formation. Not relevant: ultra-diffuse galaxies
+    with no globular cluster analysis, or Milky Way globular clusters.'
+  arxiv_id: '2501.04088'
+  url: https://arxiv.org/abs/2501.04088
+  title: Signs of `Everything Everywhere All At Once' formation in low surface brightness globular cluster-rich
+    dwarf galaxies
+  abstract: Only two ultra-diffuse galaxies (UDGs) have spatially resolved stellar population properties,
+    both showing radially flat-to-rising metallicity profiles, indicative of a different formation pathway
+    to most dwarf galaxies. The scarcity of other low surface brightness (LSB) dwarfs with a similar analysis
+    prevents a deeper understanding on this behaviour. We investigate the radial profiles of the ages,
+    metallicities and star formation histories of four globular cluster (GC) rich LSB dwarfs, newly observed
+    within the 'Analysis of Galaxies At The Extremes' (AGATE) collaboration. DFX1 and DF07 are bona-fide
+    UDGs, while PUDG-R27 and VCC1448 are nearly UDGs (NUDGes). Comparing their and DF44's results to simulations,
+    we aim to reveal their formation pathways. We use pPXF to fit different spectra extracted in annular
+    apertures to recover the stellar population properties and compute their gradients. We compare those
+    with a sample of literature classical dwarfs and simulations, in particular with simulated UDGs. Our
+    five LSB dwarfs present flat age and flat-to-rising metallicity profiles. The flat age gradients are
+    compatible with those of classical dwarfs (both observed and from cosmological simulations), but the
+    metallicity gradient diverges. All of our LSB dwarfs (except for PUDG-R27, showing a pronounced increasing
+    metallicity profile) are compatible with being the extreme tail of the age-metallicity gradient relation,
+    with a preference to co-eval formation forming the galaxy all at once. This sample of GC-rich LSB
+    dwarfs with spatially resolved properties confirms that they seem to follow a different formation
+    path than classical dwarfs. However, larger samples with higher S/N spectra and varying amounts of
+    GC richness are required to set robust constraints on the formation pathways of LSB dwarf galaxies.
+  judges:
+    qwen2.5_7b:
+      grade: 1
+      reason: The paper focuses on the formation pathways of ultra-diffuse galaxies (UDGs) and their globular
+        cluster populations, but does not provide detailed information on counts, kinematics, or the implications
+        for halo mass and formation, which are key aspects of the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper specifically analyzes the stellar populations and formation pathways of globular
+        cluster-rich ultra-diffuse galaxies (UDGs) and nearly UDGs, directly addressing the core components
+        of the user's intent.
+    llama3.1_8b:
+      grade: 1
+      reason: The paper studies the globular cluster populations of ultra-diffuse galaxies, but focuses
+        on their formation pathways and comparisons to simulations, rather than directly addressing the
+        intent's focus on halo mass and kinematics.
+  final_grade: 1
+  your_grade: null
+- query_id: q004
+  query: ACT DR6 lensing
+  intent: 'Papers that use or present CMB lensing measurements from the Atacama Cosmology Telescope Data
+    Release 6, including cross-correlations with galaxy surveys and the resulting constraints on S8, neutrino
+    mass or structure growth. Not relevant: Planck- or SPT-only lensing analyses, or ACT papers on clusters
+    or primary CMB with no lensing.'
+  arxiv_id: '2409.02109'
+  url: https://arxiv.org/abs/2409.02109
+  title: 'The Atacama Cosmology Telescope: Multi-probe cosmology with unWISE galaxies and ACT DR6 CMB
+    lensing'
+  abstract: We present a joint analysis of the CMB lensing power spectra measured from the Data Release
+    6 of the Atacama Cosmology Telescope and Planck PR4, cross-correlations between the ACT and Planck
+    lensing reconstruction and galaxy clustering from unWISE, and the unWISE clustering auto-spectrum.
+    We obtain 1.5% constraints on the matter density fluctuations at late times parametrised by the best
+    constrained parameter combination $S_8^{\rm 3x2pt}\equivσ_8 (Ω_m/0.3)^{0.4}=0.815\pm0.012$. The commonly
+    used $S_8\equivσ_8 (Ω_m/0.3)^{0.5}$ parameter is constrained to $S_8=0.816\pm0.015$. In combination
+    with baryon acoustic oscillation (BAO) measurements we find $σ_8=0.815\pm 0.012$. We also present
+    sound-horizon-independent estimates of the present day Hubble rate of $H_0=66.4^{+3.2}_{-3.7} \,\mathrm{km}\,\mathrm{s}^{-1}\mathrm{Mpc}^{-1}$
+    from our large scale structure data alone and $H_0=64.3^{+2.1}_{-2.4}\,\mathrm{km}\,\mathrm{s}^{-1}\mathrm{Mpc}^{-1}$
+    in combination with uncalibrated supernovae from Pantheon+. Using parametric estimates of the evolution
+    of matter density fluctuations, we place constraints on cosmic structure in a range of high redshifts
+    typically inaccessible with cross-correlation analyses. Combining lensing cross- and auto-correlations,
+    we derive a 3.3% constraint on the integrated matter density fluctuations above $z=2.4$, one of the
+    tightest constraints in this redshift range and fully consistent with a $Λ$CDM model fit to the primary
+    CMB from Planck. Combining with primary CMB observations and using the extended low redshift coverage
+    of these combined data sets we derive constraints on a variety of extensions to the $Λ$CDM model including
+    massive neutrinos, spatial curvature, and dark energy. We find in flat $Λ$CDM $\sum m_ν<0.12$ eV at
+    95% confidence using the LSS data, BAO measurements from SDSS and primary CMB observations.
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the use of ACT DR6 CMB lensing measurements, including cross-correlations
+        with galaxy surveys, and provides constraints on S8 and neutrino mass, which aligns with the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly uses ACT DR6 CMB lensing data in cross-correlation with galaxy surveys
+        to provide constraints on $S_8$ and neutrino mass.
+  final_grade: 2
+  your_grade: null
+- query_id: q003
+  query: DESI DR2 neutrino mass bound
+  intent: 'Papers that derive upper limits or preferences on the sum of neutrino masses using DESI DR2
+    BAO data, alone or combined with CMB and supernovae, including discussion of the preference for negative
+    or very small effective neutrino mass. Not relevant: DESI dark energy analyses that do not report
+    neutrino mass results, or laboratory neutrino experiments.'
+  arxiv_id: '2507.12401'
+  url: https://arxiv.org/abs/2507.12401
+  title: 'Cosmological neutrino mass: a frequentist overview in light of DESI'
+  abstract: We derive constraints on the neutrino mass using a variety of recent cosmological datasets,
+    including DESI BAO, the full-shape analysis of the DESI matter power spectrum and the one-dimensional
+    power spectrum of the Lyman-$α$ forest (P1D) from eBOSS quasars as well as the cosmic microwave background
+    (CMB). The constraints are obtained in the frequentist formalism by constructing profile likelihoods
+    and applying the Feldman-Cousins prescription to compute confidence intervals. This method avoids
+    potential prior and volume effects that may arise in a comparable Bayesian analysis. Parabolic fits
+    to the profiles allow one to distinguish changes in the upper limits from variations in the constraining
+    power $σ$ of the different data combinations. We find that all profiles in the $Λ$CDM model are cut
+    off by the $\sum m_ν\geq 0$ bound, meaning that the corresponding parabolas reach their minimum in
+    the unphysical sector. The most stringent 95% C.L. upper limit is obtained by the combination of DESI
+    DR2 BAO, Planck PR4 and CMB lensing at 53 meV, below the minimum of 59 meV set by the normal ordering.
+    Extending $Λ$CDM to non-zero curvature and $w_0w_\mathrm{a}$CDM relaxes the constraints past 59 meV
+    again, but only $w_0w_\mathrm{a}$CDM exhibits profiles with a minimum at a positive value. Using a
+    combination of DESI DR1 full-shape, BBN and eBOSS Lyman-$α$ P1D, we successfully constrain the neutrino
+    mass independently of the CMB. This combination yields $\sum m_ν\leq 285$ meV (95% C.L.). The addition
+    of DESI full-shape or Lyman-$α$ P1D to CMB and DESI BAO results in small but noticeable improvement
+    of the constraining power of the data. Lyman-$α$ free-streaming measurements especially improve the
+    constraint. Since they are based on eBOSS data, this sets a promising precedent for upcoming DESI
+    data.
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper discusses constraints on neutrino mass using DESI BAO data, which is directly
+        relevant to the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the intent by providing frequentist constraints on the sum
+        of neutrino masses using DESI DR2 BAO data combined with CMB data, specifically discussing the
+        behavior of the likelihood profiles near the physical boundary.
+  final_grade: 2
+  your_grade: null
+- query_id: q027
+  query: galaxies that stopped making stars very early on
+  intent: 'Papers on massive quiescent galaxies at redshift 3 or above, including spectroscopic confirmation,
+    number densities, star formation histories and quenching mechanisms. Not relevant: quenching of low-redshift
+    or satellite galaxies, or dusty star-forming galaxies.'
+  arxiv_id: '2508.10987'
+  url: https://arxiv.org/abs/2508.10987
+  title: A massive and evolved slow-rotating galaxy in the early Universe
+  abstract: In the contemporary Universe, most galaxies are supported by ordered rotation, yet a significant
+    subset of the most massive and quiescent systems are dominated by random stellar motions and classified
+    as slow rotators. These galaxies are widely thought to arise through processes that remove angular
+    momentum and erase disk-like structures, but when and how this transformation occurs remains uncertain.
+    Slow rotators are expected to be rare at early cosmic times, and observational studies of massive
+    galaxies at high redshift have so far revealed only rapidly rotating systems. Here we report James
+    Webb Space Telescope near-infrared integral field spectroscopy of XMM-VID1-2075, a massive quiescent
+    galaxy at $z=3.449$. The galaxy displays disturbed low-surface-brightness features and a low stellar
+    spin parameter, $λ_{R_e} = 0.123^{+0.073}_{-0.023}$, consistent with dispersion-dominated kinematics.
+    These results demonstrate that the formation of slow-rotating massive galaxies was already underway
+    when the Universe was less than 2 Gyr old.
+  judges:
+    qwen2.5_7b:
+      grade: 1
+      reason: The paper focuses on the formation of slow-rotating massive galaxies at high redshift, which
+        is relevant to the search for early quiescent galaxies, but it does not provide detailed spectroscopic
+        confirmation, number densities, star formation histories, or quenching mechanisms as explicitly
+        requested. However, it does address the early formation of quiescent galaxies, which is a significant
+        part of the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper describes a massive quiescent galaxy at $z=3.449$ with spectroscopic confirmation
+        of its kinematics, directly addressing the intent of finding early-universe galaxies that stopped
+        forming stars.
+    llama3.1_8b:
+      grade: 2
+      reason: The paper focuses on a massive quiescent galaxy at high redshift, providing spectroscopic
+        confirmation and discussing its kinematics, which aligns with the intent's requirements.
+  final_grade: 2
+  your_grade: null
+- query_id: q037
+  query: x-ray flashes repeating every few hours from galaxy nuclei
+  intent: 'Papers on quasi-periodic eruptions (QPEs) from galactic nuclei, including discoveries, timing
+    and models such as star-disk collisions or links to tidal disruption events. Not relevant: QPOs in
+    X-ray binaries or ordinary AGN variability.'
+  arxiv_id: '2410.03850'
+  url: https://arxiv.org/abs/2410.03850
+  title: GX 301-2 pre-periastron and apastron flares with MAXI
+  abstract: The bright high-mass X-ray binary GX 301-2 exhibits two periodic flare episodes along its
+    orbit which are produced when the neutron star is close to the apastron and periastron passages. Time-resolved
+    spectra were extracted and several models applied to describe all of them. The best description was
+    obtained with a blackbody continuum modified by the Fe K-shell absorption edge, absorbed by a large
+    column density on the order of $10^{23}$ cm$^{-2}$ and, if present, a Fe K$α$ fluorescent emission
+    line. Three of the nine apastron flares were as bright as the pre-periastron flare and two of them
+    coincided with spin-up episodes of the neutron star. This fact points to the presence of a transient
+    disc around the neutron star as it passes through the apastron that increases the accretion process.
+    The size of emitting region on the neutron star surface showed some variability but quite consistent
+    with a hot spot.
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The paper focuses on periodic flares in a high-mass X-ray binary, which is not directly
+        related to quasi-periodic eruptions from galactic nuclei as intended.
+    gemma4_12b:
+      grade: 0
+      reason: The paper describes a high-mass X-ray binary (HMXB) system, which is explicitly excluded
+        by the user's intent as a
+  final_grade: 0
+  your_grade: null
+- query_id: q003
+  query: DESI DR2 neutrino mass bound
+  intent: 'Papers that derive upper limits or preferences on the sum of neutrino masses using DESI DR2
+    BAO data, alone or combined with CMB and supernovae, including discussion of the preference for negative
+    or very small effective neutrino mass. Not relevant: DESI dark energy analyses that do not report
+    neutrino mass results, or laboratory neutrino experiments.'
+  arxiv_id: '2412.03546'
+  url: https://arxiv.org/abs/2412.03546
+  title: Revisiting the impact of neutrino mass hierarchies on neutrino mass constraints in light of recent
+    DESI data
+  abstract: Recent results from DESI combined with cosmic microwave background data give the tightest
+    constraints on the sum of neutrino masses to date. However, these analyses approximate the neutrino
+    mass hierarchy by three degenerate-mass (DM) neutrinos, instead of the normal (NH) and inverted hierarchies
+    (IH) informed by terrestrial neutrino oscillation experiments. Given the stringency of the upper limits
+    from DESI data, we test explicitly whether the inferred neutrino constraints are robust to the choice
+    of neutrino mass ordering using both Bayesian and frequentist methods. For Planck data alone, we find
+    that the DM hierarchy presents a good approximation to the physically motivated hierarchies while
+    showing a strong dependence on the assumed lower bound of the prior, confirming previous studies.
+    For the combined Planck and DESI baryon acoustic oscillation data, we find that assuming NH ($M_\mathrm{tot}
+    < 0.13\,\mathrm{eV}$) or IH ($M_\mathrm{tot} < 0.16\,\mathrm{eV}$) loosens the Bayesian upper limits
+    compared to the DM approximation ($M_\mathrm{tot} < 0.086\,\mathrm{eV}$). The frequentist analysis
+    shows that the different neutrino models fit the data equally well and the loosening of the constraints
+    can thus be attributed to the lower bounds induced by NH and IH. Overall, we find that the DM hierarchy
+    presents a good approximation to the physically motivated hierarchies also for Planck+DESI data as
+    long as the corresponding lower neutrino mass bounds are imposed.
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The paper does not directly derive upper limits or preferences on the sum of neutrino masses
+        using DESI DR2 BAO data, but rather discusses the robustness of neutrino mass hierarchy constraints
+        from combined Planck and DESI data.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the derivation of neutrino mass constraints using DESI data
+        combined with CMB data, specifically discussing the impact of mass hierarchies on these bounds.
+    llama3.1_8b:
+      grade: 1
+      reason: The paper discusses the impact of neutrino mass hierarchies on constraints using DESI data,
+        but does not derive upper limits or preferences on the sum of neutrino masses as requested.
+  final_grade: 1
+  your_grade: null
+- query_id: q053
+  query: Betelgeuse companion
+  intent: 'Papers that detect, search for or model a companion star to Betelgeuse, including its link
+    to the long secondary period and the star''s variability. Not relevant: Betelgeuse''s Great Dimming
+    or supernova predictions with no discussion of a companion.'
+  arxiv_id: '2507.15749'
+  url: https://arxiv.org/abs/2507.15749
+  title: The Probable Direct-Imaging Detection of the Stellar Companion to Betelgeuse
+  abstract: 'Betelgeuse -- the closest M-supergiant to the Sun -- has recently been predicted to host
+    a lower-mass stellar companion that orbits the primary with a period of $\sim 6$ years. The putative
+    stellar companion is thought to cause the long photometric modulation observed in Betelgeuse, which
+    cannot be explained by stellar pulsations. Additionally, radial velocity and astrometric data also
+    point to a stellar companion. Here we present diffraction-limited optical speckle imaging observations
+    obtained on the 8.1-meter Gemini North telescope in 2020 and 2024. The 2020 observations were taken
+    during the Great Dimming event, and at a time when the stellar companion was predicted to be unobservable
+    because it was directly in-line with Betelgeuse itself. The 2024 observations were taken three days
+    after the predicted time of greatest elongation for the companion. A comparison of the 2020 and 2024
+    data reveal no companion in 2020 (as expected) and the probable detection of a companion in 2024.
+    The presumed stellar companion has an angular separation and position angle of 52 mas and $115^\circ$
+    east of north, respectively, which is in excellent agreement with predictions from dynamical considerations.
+    The detected companion is roughly six magnitudes fainter than Betelgeuse at 466 nm.\bf{While this
+    is only a 1.5$σ$ detection, the results are in reasonable agreement with the predictions: the appearance
+    of the companion at quadrature; the angular separation from Betelgeuse; the position angle with respect
+    to Betelgeuse; the magnitude difference; and the estimated mass of the companion.'
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the search for a companion star to Betelgeuse, including its
+        orbital period and the star's variability, which aligns with the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the detection and modeling of a stellar companion to Betelgeuse,
+        specifically linking it to the long-period photometric modulation and providing observational
+        evidence for its existence.
+  final_grade: 2
+  your_grade: null
+- query_id: q001
+  query: cosmic birefringence from CMB polarization
+  intent: 'Papers that measure, constrain or interpret isotropic or anisotropic cosmic birefringence (rotation
+    of the CMB polarization plane, EB correlations), including work on miscalibrated polarization angles
+    and axion-like field explanations. Not relevant: general CMB polarization or B-mode searches for primordial
+    gravitational waves that do not address polarization rotation.'
+  arxiv_id: '2608.24456'
+  url: https://arxiv.org/abs/2608.24456
+  title: CMB Birefringence from Axion String Networks Calibrated to an AMR Simulation
+  abstract: A cosmological network of axion strings may exist in the Universe today. If axion-like particles
+    couple to electromagnetism, such a network induces spatially varying birefringence in the polarization
+    of the cosmic microwave background (CMB), which can be probed by current and next-generation CMB experiments.
+    We calibrate a loop-crossing model against a large-scale adaptive-mesh-refinement (AMR) simulation
+    of axion-string network dynamics in the early Universe and use the calibrated model to predict CMB
+    birefringence from recombination to today. We find that the non-detection of anisotropic birefringence
+    in CMB observations places a strong upper bound on the electromagnetic anomaly coefficient $\mathcal{A}$
+    that enters the axion-photon coupling $g_{aγγ} = - \mathcal{A} α_\mathrm{em} / πf_a$. A joint analysis
+    of available anisotropic birefringence measurements constrains $|\mathcal{A}| < 0.24$ at 95% C.L.,
+    which is independent of the Peccei-Quinn scale $f_a$, assuming that the axions are hyperlight so that
+    the network survives until today. This limit strongly restricts the high-energy embedding of hyperlight
+    axions, excluding the minimal Grand Unified Theory prediction for the electromagnetic anomaly coefficient
+    at high significance. In addition, we discuss the implications of an axion-string origin for the recently
+    reported evidence of isotropic birefringence.
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the measurement and constraints of cosmic birefringence from
+        CMB polarization, including the calibration of the model and the interpretation of the results.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses both the interpretation of cosmic birefringence through axion-like
+        fields and the specific constraints on isotropic and anisotropic rotation of the CMB polarization
+        plane.
+  final_grade: 2
+  your_grade: null
+- query_id: q054
+  query: T Coronae Borealis nova eruption
+  intent: 'Papers on the recurrent nova T CrB, including predictions of its next eruption, pre-eruption
+    behaviour, multiwavelength observations and system parameters. Not relevant: other recurrent novae
+    or nova population studies that do not discuss T CrB.'
+  arxiv_id: '2609.06201'
+  url: https://arxiv.org/abs/2609.06201
+  title: 'The First Multi-Messenger Nova: External Shocks, TeV Photons, and Neutrinos in the Next Eruption
+    of T CrB'
+  abstract: T Coronae Borealis is the most compelling anticipated Galactic recurrent nova and one of the
+    best opportunities to test whether nova eruptions can become genuine multi-messenger transients. Recent
+    observational work on classical novae has shown that the GeV $γ$-ray luminosity correlates strongly
+    with the differential velocity between interacting outflows, suggesting that shock power depends strongly
+    on velocity contrast. We apply this empirical framework to T CrB and compare it with the 2021 eruption
+    of RS Ophiuchi, the only nova securely detected at TeV energies. We argue that T CrB may lie at the
+    extreme high-$Δv$ end of the nova population and that its strongest shock should arise at the external
+    interaction between the nova ejecta and the slow circumbinary medium. This makes the external shock
+    the most likely site of any TeV emission, while the GeV signal may contain contributions from both
+    internal, if present, and external shocks. Because T CrB is substantially closer than RS Oph, it is
+    an especially favorable target for TeV detection. The neutrino case is promising but more uncertain
+    because it depends sensitively on the density and structure of the circumbinary material. We also
+    revisit the recurrence time of T CrB. Using the observed scatter of better-sampled recurrent novae,
+    we infer a representative population-scale recurrence of $T_{\rm rec}\simeq80\pm12$ yr. Taken together,
+    its proximity and potentially extreme shock velocities make T CrB perhaps the best opportunity for
+    a nova to become the first securely established multi-messenger nova.
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper focuses on T CrB, discussing its potential for multi-messenger detection and recurrence
+        time, which aligns with the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses T CrB, specifically discussing its next eruption, multiwavelength
+        (gamma-ray/neutrino) observations, and its recurrence period.
+  final_grade: 2
+  your_grade: null
+- query_id: q060
+  query: red supergiant problem is not real
+  intent: 'Papers arguing that the apparent lack of high-mass red supergiant progenitors of Type II-P
+    supernovae is a statistical or systematic artefact, or otherwise disputing the claimed missing progenitors.
+    Not relevant: papers that assume failed supernovae explain the problem, or progenitor detections without
+    population discussion.'
+  arxiv_id: '2507.15965'
+  url: https://arxiv.org/abs/2507.15965
+  title: Red Supergiants -- The Other Side of the H-R Diagram
+  abstract: Red supergiants are the largest stars known with some of the highest mass loss rates observed.
+    They are the final stage in the evolution of the majority of massive stars. The unexpected discovery
+    of high mass loss episodes in many red supergiants have posed questions about the role of mass loss
+    on their final stages. The papers in this volume are timely reviews of our current understanding of
+    this often surprising population of massive stars. This introductory paper is a brief summary of their
+    observed properties and a historical perspective on some of the current problems on mass loss, their
+    circumstellar environments, and their evolutionary state.
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The abstract does not address the specific issue of the apparent lack of high-mass red supergiant
+        progenitors of Type II-P supernovae, nor does it discuss statistical or systematic artefacts.
+        Instead, it focuses on the properties and evolution of red supergiants.
+    gemma4_12b:
+      grade: 0
+      reason: The paper is a general review of red supergiant properties and mass loss, but it does not
+        specifically address the
+  final_grade: 0
+  your_grade: null
+- query_id: q051
+  query: stripped stars in massive binaries
+  intent: 'Papers on helium stars stripped of their envelopes by binary interaction, including searches,
+    spectroscopic characterisation and their role in ionizing radiation or stripped-envelope supernovae.
+    Not relevant: single-star Wolf-Rayet wind stripping without binary interaction.'
+  arxiv_id: '2608.05276'
+  url: https://arxiv.org/abs/2608.05276
+  title: A Galactic intermediate-mass stripped star with a Wolf-Rayet-like wind
+  abstract: Binary interaction in massive stars is expected to produce a large population of intermediate-mass
+    ($2$-$8$ M$_\odot$) envelope-stripped stars, yet such objects have remained elusive in the Milky Way.
+    We report the identification of an unambiguous Galactic example in a short-period ($P=5.94$ d), double-lined
+    spectroscopic binary, discovered in the SDSS-V Milky Way Mapper survey. The system consists of a rapidly
+    rotating O-type star and a hotter, lower-mass companion, which shows He II and N IV emission lines
+    with large radial velocity variations, revealing its binary nature. Combined orbital constraints and
+    joint spectroscopic and photometric modelling show that the companion is a hot ($T_\ast \approx 60$
+    kK), helium-rich star with a mass of $3.2$-$5.8$ M$_\odot$, placing it squarely in the intermediate-mass
+    regime and below values typically inferred for classical Wolf-Rayet (WR) stars. The system's short
+    period, negligible eccentricity, and rapidly rotating O-star point to a post-interaction configuration
+    following efficient mass transfer and spin-up of the accretor. Comparison with binary evolution models
+    suggests that the stripped star is observed in a brief inflated phase following mass transfer, which
+    increases its optical flux contribution and facilitates its detection. The inferred mass-loss rate
+    $\log \dot{M} = -6.3 \pm 0.1$ is in line with mass-loss rates observed for classical WR stars in the
+    Milky Way and exceeds those measured for intermediate-mass stripped stars in the Magellanic Clouds,
+    with the caveat that our target selection is biased towards systems with stronger emission features.
+    As an unambiguous and well-characterised intermediate-mass stripped star, this system provides a key
+    benchmark for models of binary evolution at solar metallicity, stripped-envelope supernova progenitors,
+    and the formation of compact-object binaries.
+  judges:
+    qwen2.5_7b:
+      grade: 1
+      reason: The paper discusses intermediate-mass stripped stars resulting from binary interactions,
+        which aligns with the intent, though it does not focus on helium stars or stripped-envelope supernovae
+        specifically.
+    gemma4_12b:
+      grade: 2
+      reason: The paper describes a helium-rich star stripped by binary interaction, specifically identifying
+        it as an intermediate-mass stripped star and discussing its role as a progenitor for stripped-envelope
+        supernovae.
+    llama3.1_8b:
+      grade: 2
+      reason: The paper specifically discusses a stripped star in a binary system, which matches the intent
+        of the search query, and provides detailed characterization of the star's properties and its implications
+        for binary evolution models.
+  final_grade: 2
+  your_grade: null
+- query_id: q026
+  query: why are there so many bright galaxies at z>10
+  intent: 'Papers that address the overabundance of UV-bright galaxies at very high redshift seen by JWST,
+    through bursty star formation, high star formation efficiency, top-heavy IMF, low dust or cosmology.
+    Not relevant: high-redshift galaxy catalogues with no comparison to model expectations.'
+  arxiv_id: '2504.12504'
+  url: https://arxiv.org/abs/2504.12504
+  title: CAPERS Observations of Two UV-Bright Galaxies at z>10. More Evidence for Bursting Star Formation
+    in the Early Universe
+  abstract: We present the first results from the CAPERS survey, utilizing PRISM observations with the
+    JWST/NIRSpec MSA in the PRIMER-UDS field. With just 14 % of the total planned data volume, we spectroscopically
+    confirm two new bright galaxies ($M_{\rm UV}\sim -20.4$) at redshifts $z = 10.562\pm0.034$ and $z
+    = 11.013\pm0.028$. We examine their physical properties, morphologies, and star formation histories,
+    finding evidence for recent bursting star formation in at least one galaxy thanks to the detection
+    of strong (EW$_0\sim70$ A) H$γ$ emission. Combining our findings with previous studies of similarly
+    bright objects at high-$z$, we further assess the role of stochastic star formation processes in shaping
+    early galaxy populations. Our analysis finds that the majority of bright ($M_{\rm UV}\lesssim -20$)
+    spectroscopically-confirmed galaxies at $z>10$ were likely observed during a starburst episode, characterized
+    by a median SFR$_{10}$/SFR$_{100}\sim2$, although with substantial scatter. Our work also finds tentative
+    evidence that $z>10$ galaxies are more preferentially in a bursting phase than similarly bright $z\sim6$
+    galaxies. We finally discuss the prospects of deeper spectroscopic observations of a statistically
+    significant number of bright galaxies to quantify the true impact of bursting star formation on the
+    evolution of the bright end of the ultraviolet luminosity function at these early epochs.
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the overabundance of UV-bright galaxies at high redshift through
+        evidence of bursting star formation, which aligns with the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the
+  final_grade: 2
+  your_grade: null
+- query_id: q018
+  query: gaussian process stellar activity mitigation radial velocity
+  intent: 'Papers developing or applying methods (Gaussian processes, line-by-line analysis, activity
+    indicators, machine learning) to separate stellar activity signals from planetary radial velocity
+    signals. Not relevant: radial velocity planet detections that apply standard techniques without methodological
+    focus.'
+  arxiv_id: '2410.12698'
+  url: https://arxiv.org/abs/2410.12698
+  title: A Gaussian process model for stellar activity in 2-D line profile time-series
+  abstract: Stellar active regions like spots and faculae can distort the shapes of spectral lines, inducing
+    variations in the radial velocities that are often orders of magnitude larger than the signals from
+    Earth-like planets. Efforts to mitigate these activity signals have hitherto focused on either the
+    time or the velocity (wavelength) domains. We present a physics-driven Gaussian process (GP) framework
+    to model activity signals directly in time series of line profiles or Cross-Correlation Functions
+    (CCFs). Unlike existing methods which correct activity signals in line profile time series, our approach
+    exploits the time correlation between velocity (wavelength) bins in the line profile variations, and
+    is based on a simplified but physically motivated model for the origin of these variations. When tested
+    on both synthetic and real data sets with signal-to-noise ratios down to $\sim$ 100, our method was
+    able to separate the planetary signal from the activity signal, even when their periods were identical.
+    We also conducted injection/recovery tests using two years of realistically sampled HARPS-N solar
+    data, demonstrating the ability of the method to accurately recover a signal induced by a 1.5-Earth
+    mass planet with a semi-amplitude of 0.3 m/s and a period of 33 days during high solar activity.
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the use of Gaussian processes for mitigating stellar activity
+        signals in radial velocity measurements, which aligns well with the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the intent by proposing and testing a physics-driven Gaussian
+        process framework specifically designed to separate and mitigate stellar activity signals from
+        planetary radial velocity signals.
+  final_grade: 2
+  your_grade: null
+- query_id: q051
+  query: stripped stars in massive binaries
+  intent: 'Papers on helium stars stripped of their envelopes by binary interaction, including searches,
+    spectroscopic characterisation and their role in ionizing radiation or stripped-envelope supernovae.
+    Not relevant: single-star Wolf-Rayet wind stripping without binary interaction.'
+  arxiv_id: '2410.12541'
+  url: https://arxiv.org/abs/2410.12541
+  title: Stripping of a neutron star in a close binary system in a pair with a black hole
+  abstract: We consider the final evolutionary stages of a neutron star-black hole pair. According to
+    the current paradigm, such systems eventually coalesce, which in some cases is accompanied by neutron-star
+    tidal disruption. Using analytical methods, we show that the scenario of slow (of the order of several
+    seconds) neutron-star stripping by the black hole is also possible, depending on the system parameters
+    (the initial masses and intrinsic angular momenta of the components, the equation of state for the
+    neutron star). Reaching the lower mass limit (about one tenth of the solar mass), the neutron star
+    explodes to produce a comparatively powerful electromagnetic transient. Our population calculations
+    show that the stripping mechanism is possible in 50-90% of the cases among all coalescing neutron
+    star-black hole pairs, depending on the model assumptions about the evolution of close binary systems
+    (the common-envelope efficiency parameter, the supernova explosion mechanism) and the initial metallicity
+    of the stellar population. Because of the large mass of the ejected material, the kilonova emission
+    in this scenario has good prospects of detection.
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The paper focuses on neutron stars in binary systems with black holes, not on helium stars
+        or their stripping in massive binaries.
+    gemma4_12b:
+      grade: 0
+      reason: The paper discusses the tidal stripping of a neutron star by a black hole, which is a compact
+        object interaction, rather than the stripping of a massive star's envelope to form a helium star.
+  final_grade: 0
+  your_grade: null
+- query_id: q045
+  query: how to remove galactic foregrounds from 21cm intensity mapping
+  intent: 'Papers developing or testing foreground removal or avoidance for 21-cm intensity mapping or
+    EoR experiments (PCA, GPR, ICA, deep learning, wedge avoidance), including instrument systematics
+    coupling. Not relevant: 21-cm cosmological interpretation that does not address foregrounds.'
+  arxiv_id: '2606.14682'
+  url: https://arxiv.org/abs/2606.14682
+  title: Impact of 21-cm foreground mitigation strategies on reionization power spectrum constraints
+  abstract: 'The 21-cm signal probes the intergalactic medium during the Epoch of Reionization (EoR) but
+    is overwhelmed by astrophysical foregrounds orders of magnitude stronger than the cosmological signal.
+    We evaluate two mitigation strategies: (i) Foreground Avoidance, restricting analysis to the EoR window
+    in Fourier space, and (ii) Foreground Removal via Gaussian Process Regression, which exploits spectral
+    smoothness to statistically separate contaminants and reclaim modes within the contaminated wedge.
+    Both introduce systematic biases of up to $\approx$1$σ$ in astrophysical parameters such as the minimum
+    star-forming halo mass and ionising escape fraction, with avoidance posteriors consistently broader
+    than removal owing to its restricted visibility coverage. The global reionization history is recovered
+    within the 95% credible interval, though the neutral fraction at late reionization epochs shows a
+    persistent bias reflecting the difficulty of its inference from the power spectrum alone. Multi-redshift
+    inference is susceptible to contamination from poorly mitigated bins. Excluding such bins significantly
+    reduces parameter biases, but identifying them requires independent quality metrics. When restricted
+    to identical length scales, both strategies recover similar power spectra, yielding posteriors in
+    similar regions.'
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses foreground removal strategies, which is a key aspect of the
+        intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the intent by evaluating and comparing two specific foreground
+        mitigation techniques (Foreground Avoidance and Gaussian Process Regression) for 21-cm observations.
+  final_grade: 2
+  your_grade: null
+- query_id: q040
+  query: fast radio bursts not from magnetars
+  intent: 'Papers arguing that some or all fast radio bursts arise from sources other than magnetars,
+    such as old stellar populations, compact binaries, accreting systems or globular clusters, or challenging
+    magnetar models. Not relevant: papers that assume a magnetar origin, or FRB localisation without source
+    discussion.'
+  arxiv_id: '2508.13419'
+  url: https://arxiv.org/abs/2508.13419
+  title: 'Hyperactive Magnetar Eruptions: Giant Flares, Baryon Ejections, and Fast Radio Bursts'
+  abstract: Young neutron stars born with magnetic fields $B\gtrsim 10^{16}$ G become hyperactive as the
+    field inside the star evolves through ambipolar diffusion on a timescale $\sim 10^9$ s. We simulate
+    this process numerically and find that it can eject magnetic loops from the star. The internal magnetic
+    field first diffuses to the crust surrounding the liquid core and then erupts from the surface, taking
+    a significant amount of crustal material with it. The eruption involves magnetic reconnection, generating
+    a giant gamma-ray flare. A significant fraction of the eruption energy is carried by the neutron-rich
+    crustal material, which must go through a phase of decompression and nuclear heating. The massive
+    ejecta should produce additional emission components after the giant flare, including radioactively
+    powered gamma-rays, optical emission, and much later a radio afterglow. The predicted eruptions may
+    rarely happen in observed magnetars in our galaxy, which are relatively old and rarely produce giant
+    flares. The model can, however, explain the extremely powerful flare from SGR 1806-20 in December
+    2004, its ejecta mass, and afterglow. More active, younger magnetars may produce frequent crustal
+    eruptions and form unusual nebulae. Such hyperactive magnetars are candidates for the central engines
+    of cosmological fast radio bursts (FRBs). We argue that each eruption launches an ultrarelativistic
+    magnetosonic pulse leading the ejecta and steepening into a relativistic shock capable of emitting
+    an FRB.
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The paper discusses hyperactive magnetars as a potential source of fast radio bursts, which
+        does not align with the intent of papers arguing against magnetars as the source.
+    gemma4_12b:
+      grade: 0
+      reason: The paper argues that FRBs are produced by hyperactive magnetars, which directly contradicts
+        the user's intent to find sources other than magnetars.
+  final_grade: 0
+  your_grade: null
+- query_id: q009
+  query: field level inference galaxy clustering
+  intent: 'Papers that perform or develop field-level (map-level) Bayesian inference of cosmological parameters
+    or initial conditions from galaxy or matter density fields, for example with forward models and Hamiltonian
+    Monte Carlo. Not relevant: standard power spectrum or bispectrum analyses, or simulation-based inference
+    on summary statistics only.'
+  arxiv_id: '2608.07339'
+  url: https://arxiv.org/abs/2608.07339
+  title: Sample Variance Cancellation for Future Spectroscopic Surveys
+  abstract: 'High-redshift spectroscopic galaxy surveys will be the scientific engines of the next generation
+    of large-scale structure cosmology. The clustering signal of high redshift, star-forming Lyman-$α$
+    emitters (LAEs) will be of key importance for obtaining high-redshift constraints on the growth of
+    structure and redshift-space distortions. The complex radiative transfer (RT) of Lyman-$α$ photons
+    alters the symmetry group respected by the overdensity field constructed from these galaxies, and
+    so the observed large-scale clustering of LAEs may have an angular dependence that differs significantly
+    from that of linear theory, possibly biasing inference of cosmological parameters. While such an effect
+    has been seen in simulations, its amplitude in nature and its detailed form remains unclear. In the
+    restricted context of a linear, Gaussian model, we outline a procedure for pinning down the type and
+    amplitude of such changes in angular dependence on large scales due to unknown RT or a more general
+    unmodeled angular effect in the hypothetical scenario in which an observer is presented with LAE data
+    containing such an effect. We show that if a second tracer without the modified angular dependence
+    is available for cross correlation with the LAEs at the same redshifts (e.g., Lyman-break galaxies),
+    then, with a high redshift survey of modest size, it is possible to rapidly identify: 1) the presence
+    of a nontrivial angular functional form of radiative transfer (by a conditional field-level realization),
+    2) the functional form itself (with an optimal filter that we derive), and 3) the value of its amplitude
+    with an uncertainty (via an adaptation of the standard quadratic estimator). Such sample-variance-cancellation
+    strategies therefore provide a statistical solution to unknown astrophysical or systematic angular
+    clustering dependence, including from RT.'
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The paper focuses on sample variance cancellation in high-redshift spectroscopic surveys,
+        which is not directly related to field-level Bayesian inference of cosmological parameters from
+        galaxy clustering.
+    gemma4_12b:
+      grade: 0
+      reason: The paper focuses on using cross-correlations and quadratic estimators to mitigate systematic
+        effects in clustering, rather than performing field-level Bayesian inference of cosmological parameters
+        or initial conditions.
+  final_grade: 0
+  your_grade: null
+- query_id: q036
+  query: what powers ultraluminous x-ray sources
+  intent: 'Papers that investigate the nature of ultraluminous X-ray sources, including super-Eddington
+    accretion onto neutron stars or stellar black holes, pulsating ULXs, outflows and beaming. Not relevant:
+    ordinary sub-Eddington X-ray binaries or AGN.'
+  arxiv_id: '2510.11415'
+  url: https://arxiv.org/abs/2510.11415
+  title: Probing spectral variability in NGC 4490 ULX-8 over 24 years of XMM-Newton, Chandra and Swift-XRT
+    observations
+  abstract: We present a spectral variability study of the ultraluminous X-ray source NGC 4490 ULX-8 based
+    on 14 Chandra, 6 XMM-Newton and 19 Swift-XRT observations obtained between 2000 and 2024. The X-ray
+    spectra are modelled using absorbed power-law and absorbed multicolour disc blackbody models. The
+    best-fit photon indices span 0.9-2.7, while the inferred inner disc temperatures lie in the range
+    1.0-1.6 keV. We detect pronounced long-term variability in the unabsorbed X-ray luminosity on multi-year
+    timescales, while variability within individual observations is comparatively modest. A Hardness-Intensity
+    Diagram of the source shows no clear transition between hard and soft states; however, two recent
+    observations taken on 2022 December 1 and 2024 May 4 show a sharp increase in brightness. The spectra
+    across all observations are dominated by smooth, single-component curvature in the 0.3-10 keV band,
+    consistent with the broadened-disc regime of ultraluminous X-ray sources. A correlation analysis reveals
+    a weak positive X-ray luminosity-photon index trend that remains statistically supported after controlling
+    for related degeneracies, indicating that it is not driven solely by fitting covariance. The luminosity-inner
+    disc temperature relation is only weakly constrained, but remains compatible, within uncertainties,
+    with both thin-disc and slim-disc scalings. Using disc parameters derived from higher-quality XMM-Newton
+    spectra, we obtain model-dependent estimates of the characteristic inner disc radius and compact-object
+    mass as functions of inclination and spin. The reported results are consistent with a stellar-mass
+    black hole accretor operating at or near the Eddington limit.
+  judges:
+    qwen2.5_7b:
+      grade: 1
+      reason: The paper focuses on the spectral variability and luminosity of a specific ultraluminous
+        X-ray source over a long period, which is relevant to the nature of ULXs, but does not directly
+        address the mechanisms powering them.
+    gemma4_12b:
+      grade: 2
+      reason: The paper investigates the physical nature of a specific ULX (NGC 4490 ULX-8) and discusses
+        its accretion regime (broadened-disc, near-Eddington), which directly relates to the mechanisms
+        powering these sources.
+    llama3.1_8b:
+      grade: 2
+      reason: The paper investigates the spectral variability of a specific ultraluminous X-ray source,
+        NGC 4490 ULX-8, and its properties, which are directly related to the nature of ultraluminous
+        X-ray sources.
+  final_grade: 2
+  your_grade: null
+- query_id: q002
+  query: primordial black holes as dark matter constraints
+  intent: 'Papers that constrain or argue for primordial black holes making up some or all of the dark
+    matter, using microlensing, gravitational waves, CMB, dwarf galaxy dynamics or evaporation limits.
+    Not relevant: PBH formation models with no dark matter abundance constraint, or astrophysical black
+    hole populations.'
+  arxiv_id: '2509.17692'
+  url: https://arxiv.org/abs/2509.17692
+  title: Molecular clouds as a tool to constraint sub-GeV dark matter and primordial black holes
+  abstract: Despite decades of direct and indirect searches within the Weakly Interacting Massive Particle
+    (WIMP) framework, no conclusive results have been found in the GeV--TeV range. This has motivated
+    exploring alternatives, including new particles and macroscopic objects. Two well-motivated scenarios
+    are sub-GeV DM and Primordial Black Holes (PBHs). Molecular clouds (MCs), typically studied as star-forming
+    sites, can serve as astrophysical laboratories to probe these candidates via their ionization rates.
+    Observations show ionization levels exceeding expectations from known CR fluxes, pointing to an additional
+    ionizing component. Here, we consider electrons and positrons from annihilating and decaying MeV DM
+    particles, as well as Hawking radiation from evaporating PBHs, as possible contributors. We model
+    transport driven by energy losses within the clouds. By comparing predicted ionization rates with
+    observations, conservative constraints are set on the thermally averaged cross section $\langleσv\rangle$,
+    decay lifetime $τ$ and PBH abundances $f_{PBH}$. The analysis assumes all the observed ionization
+    comes from DM and adopts a 95% confidence level. Results show that, even in the most conservative
+    case of local MCs such as L1551, these constraints are very close to the most competitive bounds from
+    X-ray observations, while inner-Galaxy clouds like DRAGON or G1.4--1.8+87 provide stronger limits,
+    sometimes improving X-ray and cosmological constraints. For sub-GeV DM, MCs exclude parameter space
+    competitive with the one tested by NuSTAR, INTEGRAL, or Voyager, especially below $\sim$30 MeV. In
+    the PBH case, asteroid-mass black holes are restricted to a low fraction of DM, with optimistic scenarios
+    getting close to the strongest limits. This demonstrates the potential of MCs as a novel probe in
+    indirect DM searches.
+  judges:
+    qwen2.5_7b:
+      grade: 1
+      reason: The paper discusses constraints on sub-GeV dark matter and primordial black holes using
+        molecular clouds, which is relevant to the intent but focuses more on sub-GeV dark matter than
+        primordial black holes.
+    gemma4_12b:
+      grade: 2
+      reason: The paper specifically addresses the abundance of primordial black holes ($f_{PBH}$) as
+        a component of dark matter and provides constraints based on ionization rates in molecular clouds.
+    llama3.1_8b:
+      grade: 2
+      reason: The paper explores the use of molecular clouds to constrain primordial black holes and sub-GeV
+        dark matter, which aligns with the intent of using various methods to constrain PBHs as dark matter.
+  final_grade: 2
+  your_grade: null
+- query_id: q001
+  query: cosmic birefringence from CMB polarization
+  intent: 'Papers that measure, constrain or interpret isotropic or anisotropic cosmic birefringence (rotation
+    of the CMB polarization plane, EB correlations), including work on miscalibrated polarization angles
+    and axion-like field explanations. Not relevant: general CMB polarization or B-mode searches for primordial
+    gravitational waves that do not address polarization rotation.'
+  arxiv_id: '2411.05002'
+  url: https://arxiv.org/abs/2411.05002
+  title: Extracting Axion String Network Parameters from Simulated CMB Birefringence Maps using Convolutional
+    Neural Networks
+  abstract: Axion-like particles may form a network of cosmic strings in the Universe today that can rotate
+    the plane of polarization of cosmic microwave background (CMB) photons. Future CMB observations with
+    improved sensitivity might detect this axion-string-induced birefringence effect, thereby revealing
+    an as-yet unseen constituent of the Universe and offering a new probe of particles and forces that
+    are beyond the Standard Model of Elementary Particle Physics. In this work, we explore how spherical
+    convolutional neural networks (SCNNs) may be used to extract information about the axion string network
+    from simulated birefringence maps. We construct a pipeline to simulate the anisotropic birefringence
+    that would arise from an axion string network, and we train SCNNs to estimate three parameters related
+    to the cosmic string length, the cosmic string abundance, and the axion-photon coupling. Our results
+    demonstrate that neural networks are able to extract information from a birefringence map that is
+    inaccessible with two-point statistics alone (i.e., the angular power spectrum). We also assess the
+    impact of noise on the accuracy of our SCNN estimators, demonstrating that noise at the level anticipated
+    for Stage IV (CMB-S4) measurements would significantly bias parameter estimation for SCNNs trained
+    on noiseless simulated data, and necessitate modeling the noise in the training data.
+  judges:
+    qwen2.5_7b:
+      grade: 1
+      reason: The paper focuses on using neural networks to extract parameters from simulated birefringence
+        maps, which is relevant to the detection and analysis of cosmic birefringence. However, it does
+        not directly measure, constrain, or interpret isotropic or anisotropic cosmic birefringence, nor
+        does it address miscalibrated polarization angles or EB correlations.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the interpretation of cosmic birefringence in the CMB as a
+        signature of axion-like fields, specifically focusing on the rotation of the polarization plane.
+    llama3.1_8b:
+      grade: 2
+      reason: The paper specifically addresses the detection and interpretation of anisotropic cosmic
+        birefringence from axion-like field explanations, which directly aligns with the intent.
+  final_grade: 2
+  your_grade: null
+- query_id: q019
+  query: transit timing variations planet masses
+  intent: 'Papers that use transit timing variations (or transit duration variations) to detect planets
+    or to measure masses and eccentricities in multi-planet systems. Not relevant: TTVs used solely for
+    orbital decay of hot Jupiters, or planet masses from radial velocities only.'
+  arxiv_id: '2412.05609'
+  url: https://arxiv.org/abs/2412.05609
+  title: 'TOI-4504: Exceptionally large Transit Timing Variations induced by two resonant warm gas giants
+    in a three planet system'
+  abstract: 'We present a joint analysis of TTVs and Doppler data for the transiting exoplanet system
+    TOI-4504. TOI-4504 c is a warm Jupiter-mass planet that exhibits the largest known transit timing
+    variations (TTVs), with a peak-to-node amplitude of $\sim$ 2 days, the largest value ever observed,
+    and a super-period of $\sim$ 930 d. TOI-4504 b and c were identified in public TESS data, while the
+    TTVs observed in TOI-4504 c, together with radial velocity (RV) data collected with FEROS, allowed
+    us to uncover a third, non-transiting planet in this system, TOI-4504 d. We were able to detect transits
+    of TOI-4504 b in the TESS data with a period of 2.4261$\pm 0.0001$ days and derive a radius of 2.69$\pm
+    0.19$ R$_{\oplus}$. The RV scatter of TOI-4504 was too large to constrain the mass of TOI-4504 b,
+    but the RV signals of TOI-4504 c \& d were sufficiently large to measure their masses. The TTV+RV
+    dynamical model we apply confirms TOI-4504 c as a warm Jupiter planet with an osculating period of
+    82.54$\pm 0.02$ d, mass of 3.77$\pm 0.18$ M$_{\rm J}$ and a radius of 0.99$\pm 0.05$ R$_{\rm J}$,
+    while the non-transiting planet TOI-4504 d, has an orbital period of 40.56$\pm 0.04$ days and mass
+    of 1.42$_{-0.06}^{+0.07}$ M$_{\rm J}$. We present the discovery of a system with three exoplanets:
+    a hot sub-Neptune and two warm Jupiter planets. The gas giant pair is stable and likely locked in
+    a first-order 2:1 mean-motion resonance (MMR). The TOI-4504 system is an important addition to MMR
+    pairs, whose increasing occurrence supports a smooth migration into a resonant configuration during
+    the protoplanetary disk phase.'
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the use of transit timing variations to detect planets and
+        measure their masses in a multi-planet system.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly uses transit timing variations (TTVs) in a multi-planet system to characterize
+        the masses and orbital dynamics of the planets.
+  final_grade: 2
+  your_grade: null
+- query_id: q019
+  query: transit timing variations planet masses
+  intent: 'Papers that use transit timing variations (or transit duration variations) to detect planets
+    or to measure masses and eccentricities in multi-planet systems. Not relevant: TTVs used solely for
+    orbital decay of hot Jupiters, or planet masses from radial velocities only.'
+  arxiv_id: '2606.18045'
+  url: https://arxiv.org/abs/2606.18045
+  title: Transit timing and starspot-induced transit depth variations in the $\sim$17 Myr old HIP 67522
+    system
+  abstract: HIP 67522 is a one of the youngest multi-planetary systems discovered to date. The 17 Myr-old,
+    Sun-like star is part of the Scorpius-Centarus OB association and is known to host two Saturn-sized
+    planets in near 2:1 mean motion resonance. We analysed photometric transits observed with the CHaracterising
+    ExOPlanet Satellite (CHEOPS), the Transiting Exoplanets Survey Satellite (TESS) and multiple ground-based
+    facilities to search for transit timing variations induced by planet-planet gravitational interactions,
+    as well as transit depth variations, linked with the changing coverage of active regions on the stellar
+    surface. We do not detect any transit timing variations for HIP 67522 b exceeding two minutes, contrary
+    to previous results from the James Webb Space Telescope. In addition, we found that the observed transit
+    depth of planet b changes strongly over time, with a >30\% variation in amplitude. The high sensitivity
+    and blue bandpass of the CHEOPS satellite also enabled us to identify multiple starspot crossings
+    and measure their properties, including spot temperatures and sizes. We also measured the shear of
+    the host star's differential rotation by modelling the out-of-transit photometric variability and
+    concluded that HIP 67522 exhibits a supersolar differential rotation. Based on internal structure
+    models and planet formation simulations, we find that HIP 67522 b likely have more than 20\% of their
+    mass made of gaseous envelopes at their current age. Evolutionary simulations further indicate that
+    both planets in the system will experience significant photoevaporation, evolving into either Earth
+    size planets with completely stripped atmospheres or sub-Neptune-sized planets.
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The paper discusses transit timing variations but focuses on the lack of detection and other
+        phenomena, not on using TTVs to measure planet masses or eccentricities in a multi-planet system.
+    gemma4_12b:
+      grade: 2
+      reason: The paper specifically investigates transit timing variations (TTVs) induced by planet-planet
+        gravitational interactions in a multi-planet system to characterize the system, which aligns with
+        the user's intent.
+    llama3.1_8b:
+      grade: 1
+      reason: The paper uses transit timing variations to detect and measure masses in a multi-planet
+        system, but focuses on the system's properties and evolution rather than the detection of planets
+        or measurement of masses as a primary goal.
+  final_grade: 1
+  your_grade: null
+- query_id: q011
+  query: helium triplet atmospheric escape hot neptunes
+  intent: 'Papers that observe or model escaping exoplanet atmospheres using the metastable helium 10830
+    Angstrom line, especially for Neptune-sized or sub-Neptune planets. Not relevant: escape studied only
+    with Lyman-alpha or H-alpha, or hot Jupiter atmospheric composition without escape.'
+  arxiv_id: '2610.07202'
+  url: https://arxiv.org/abs/2610.07202
+  title: Exploring the ultrahot Neptune LTT 9779 b with CRIRES+. Non-detection of helium transmission
+    spectra and detection of H$_2$O on the dayside
+  abstract: Ultrahot Neptunes reside in the most extreme irradiation regime of the hot Neptune desert
+    and remain challenging targets for atmospheric characterization because of their low planet-to-star
+    flux ratios. We present high-resolution transit and dayside thermal emission spectroscopy of the ultrahot
+    Neptune LTT 9779 b obtained with CRIRES$^+$, to probe atmospheric escape and dayside molecular emission.
+    No significant absorption is detected in the metastable He I $λ1083$ nm triplet during transit, yielding
+    a $3σ$ upper limit of 0.45% on the excess helium absorption depth and supporting previous non-detections
+    that suggest weak ongoing atmospheric escape. For the dayside emission spectra in the $K$ band, our
+    cross-correlation analysis reveals an $\mathrm{H_2O}$ absorption signal and a tentative $\mathrm{CO}$
+    feature, with the combined signal reaching a detection significance of $4.8σ$. Both the CRIRES$^+$
+    and previous JWST data favor a non-inverted temperature structure, providing no evidence of a thermal
+    inversion on the planetary dayside. We further perform a joint atmospheric retrieval combining the
+    CRIRES$^+$ high-resolution spectra with JWST/NIRISS SOSS secondary-eclipse observations. The joint
+    retrieval yields a low $\mathrm{H_2O}$ abundance, while the $\mathrm{CO}$ abundance remains weakly
+    constrained. The inferred planetary equatorial rotational velocity, $v_{\rm eq}=4.9^{+4.4}_{-3.0}~\mathrm{km\,s^{-1}}$,
+    is consistent within $1σ$ with the synchronous rotation velocity expected for a tidally locked planet
+    ($\sim2.8~\mathrm{km\,s^{-1}}$). However, the large uncertainties prevent us from placing strong constraints
+    on the planet's rotation state. Future phase-resolved CRIRES$^+$ observations with broader orbital-phase
+    coverage and higher signal-to-noise ratios would improve the abundance constraints and probe the atmospheric
+    dynamics of this rare ultrahot Neptune.
+  judges:
+    qwen2.5_7b:
+      grade: 2
+      reason: The paper directly addresses the search query by observing the escaping atmosphere of a
+        hot Neptune using the metastable helium line, which is the primary focus of the intent.
+    gemma4_12b:
+      grade: 2
+      reason: The paper specifically targets an ultrahot Neptune and investigates atmospheric escape using
+        the metastable helium 10830 Å line, even though it reports a non-detection.
+  final_grade: 2
+  your_grade: null
+- query_id: q015
+  query: do rocky planets around red dwarfs keep their atmospheres
+  intent: 'Papers that test whether terrestrial planets orbiting M dwarfs retain atmospheres, through
+    JWST thermal emission or secondary eclipse measurements, transmission spectra, or escape modelling
+    (the "cosmic shoreline"). Not relevant: gas giants around M dwarfs, or habitability papers that assume
+    an atmosphere without addressing retention.'
+  arxiv_id: '2608.25451'
+  url: https://arxiv.org/abs/2608.25451
+  title: Assessing the Climate and Habitability of Tidally Locked Rocky Exoplanets
+  abstract: 'Tidally locked exoplanets orbiting M dwarf stars are prime targets in the search for habitable
+    worlds, yet their complex climate dynamics challenge conventional models of habitability. We homogeneously
+    estimated the liquid-water habitability of exoplanets with the highest up-to-date Earth-similarity
+    index. We modified the climate model PLASIM to apply it to tidally locked exoplanets across a range
+    of parameters. We systematically classified and compared potentially habitable exoplanets and selected
+    among the ones featuring the highest Earth-similarity index in the conservative sample of the Habitable
+    Wolds Catalog, both relative to each other and as a function of atmospheric pressure. Our analysis
+    revealed three main climate regimes: Snowball, Hot, and Eyeball planets-the latter having a warm and
+    habitable substellar region with T > 273 K and a localized hydrological cycle. Although surface temperature
+    generally increases with pressure, Eyeball planet climates remain stable in a wide pressure range.
+    Complex atmospheric dynamics govern the behavior of the climate, highlighting the need for detailed
+    climate simulations to guide future observations.'
+  judges:
+    qwen2.5_7b:
+      grade: 1
+      reason: The paper focuses on the climate and habitability of tidally locked exoplanets, but does
+        not specifically address the retention of atmospheres through methods such as JWST thermal emission
+        or secondary eclipse measurements.
+    gemma4_12b:
+      grade: 0
+      reason: The paper focuses on climate modeling and habitability indices rather than the physical
+        mechanisms of atmospheric retention or escape processes (like the cosmic shoreline) for planets
+        around M dwarfs.
+    llama3.1_8b:
+      grade: 0
+      reason: The paper focuses on the habitability of tidally locked exoplanets, but does not specifically
+        address the retention of atmospheres around rocky planets orbiting red dwarfs.
+  final_grade: 0
+  your_grade: null
+- query_id: q028
+  query: Jeans anisotropic modelling IFU stellar kinematics
+  intent: 'Papers applying or developing Jeans anisotropic or Schwarzschild dynamical models to integral
+    field stellar kinematics to measure mass profiles, dark matter fractions, black hole masses or orbital
+    structure. Not relevant: gas kinematic modelling of rotation curves, or IFU studies of stellar populations
+    only.'
+  arxiv_id: '2605.09373'
+  url: https://arxiv.org/abs/2605.09373
+  title: Axisymmetric Jeans modelling systematically overestimates the circular speed in the inner Milky
+    Way
+  abstract: We quantify systematic biases in rotation curves inferred from steady, axisymmetric Jeans
+    modelling when the underlying stellar velocity field is non-axisymmetric. Using a high-resolution
+    $N$-body/hydrodynamic simulation of an isolated Milky Way-like disk galaxy, we construct mock stellar-kinematic
+    measurements for two observer azimuths relative to the bar. One observer is placed at a Solar-like
+    viewing angle of $25^\circ$ from the bar major axis, and the other at $115^\circ$. For each configuration,
+    we analyse multiple snapshots and compare the Jeans-inferred circular-speed curve, $V_{\rm c,Jeans}(R)$,
+    with a reference axisymmetric circular-speed curve, $V_{\rm c,axi}(R)$, defined from the azimuthally
+    averaged ($m=0$) component of the gravitational field. The Jeans analysis is performed in a wedge-shaped
+    mock observational volume that mimics limited sky coverage. For the $25^\circ$ configuration, the
+    mean azimuthal streaming is typically higher than the azimuthally averaged expectation by $\approx
+    10$--$15~\mathrm{km\,s^{-1}}$, which leads to an average overestimate of the axisymmetrically defined
+    circular speed by $\approx 4\%$ ($\approx 10~\mathrm{km\,s^{-1}}$) in the inner disk. Across snapshots,
+    the mean offset corresponds to a $\sim 1.5$--$2σ$ systematic deviation of $V_{\rm c,Jeans}$ from $V_{\rm
+    c,axi}$. For the $115^\circ$ configuration, the bias reverses sign and $V_{\rm c,Jeans}$ tends to
+    underestimate $V_{\rm c,axi}$. Under the usual spherical approximation, a $\approx 4\%$ bias in $V_{\rm
+    c}$ corresponds to an $\approx 8\%$ bias in the enclosed dynamical mass at fixed radius. These results
+    imply that steady, axisymmetric Jeans modelling of Milky Way stellar kinematics can overestimate the
+    axisymmetrically defined circular-speed curve at the percent level unless non-axisymmetric streaming
+    is modelled explicitly or included in the error budget.
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The paper focuses on systematic biases in Jeans modelling of stellar kinematics, specifically
+        in the context of axisymmetric models, and does not address the development or application of
+        Jeans or Schwarzschild models to measure mass profiles, dark matter fractions, black hole masses,
+        or orbital structure.
+    gemma4_12b:
+      grade: 2
+      reason: The paper directly addresses the application of Jeans modelling to stellar kinematics to
+        derive mass profiles and circular speeds, specifically addressing the systematic biases inherent
+        in the method.
+    llama3.1_8b:
+      grade: 1
+      reason: The paper focuses on the systematic biases in axisymmetric Jeans modelling, which is a specific
+        application of Jeans anisotropic models, but does not directly address the application of these
+        models to integral field stellar kinematics to measure mass profiles, dark matter fractions, black
+        hole masses or orbital structure.
+  final_grade: 1
+  your_grade: null
+- query_id: q055
+  query: how do stars lose spin as they get older
+  intent: 'Papers on stellar angular momentum loss and spin-down, including magnetic braking, weakened
+    braking in older stars and the calibration of gyrochronology. Not relevant: rotation of massive stars
+    from mergers, or stellar rotation catalogues with no spin-down analysis.'
+  arxiv_id: '2603.04102'
+  url: https://arxiv.org/abs/2603.04102
+  title: 'Saturn''s rings age I.: Reconsideration of the exposure age'
+  abstract: 'At the end of the Cassini mission, Saturn''s rings have been claimed to be spectacularly
+    young compared to the age of the Solar System: their unusual ice-rich composition corresponds to initially
+    pure ice rings polluted by interplanetary dust particles for 100 to 400 Myr. Since then, this exposure
+    age has been commonly accepted as the real age of the rings. In this paper, we review the processes
+    that are involved in determining the exposure age. We aim to see how the exposure age depends on various
+    parameters and how relevant it is to define the real rings age. First, a new expression for the gravitational
+    focusing onto planar rings, important parameter but crudely defined in the literature, is derived.
+    Then, an analytical formula describing how the dust fraction varies with time in static or viscously
+    evolving rings is provided, including possible vaporisation at impact. Finally, we introduce a cleaning
+    process from space weathering to possibly alter dust and reduce its amount to make rings look younger
+    than they are. We first found that the gravitational focusing is 5 times less important than previously
+    thought, which automatically increases the exposure age from 0.5 to 2 Gyr. Moreover, depending on
+    the impact properties (vaporisation rate, space weathering efficiency), several billion years can
+    easily be reached. Finally, we find that the dust fraction in the rings converges towards a finite
+    value which, in particular with an efficient space weathering mechanism, can be close to the observed
+    one in the current rings. In this case, neither the age nor the initial composition of the rings can
+    be derived, and the measure of the dust fraction and bombardment rate only constrains the physical
+    parameters of the impacts and the efficiency of the space weathering. As long as the latter parameters
+    are not known, the exposure age argument in favour of young rings is completely undercut.'
+  judges:
+    qwen2.5_7b:
+      grade: 0
+      reason: The paper focuses on the age of Saturn's rings and processes affecting their composition,
+        which is not relevant to stellar angular momentum loss or spin-down.
+    gemma4_12b:
+      grade: 0
+      reason: The paper discusses the age and composition of Saturn's rings, which is unrelated to stellar
+        evolution or the angular momentum loss of stars.
+  final_grade: 0
+  your_grade: null

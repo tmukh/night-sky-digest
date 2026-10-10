@@ -1,6 +1,7 @@
-"""python -m night_sky_digest.evals {pool,judge,agree}"""
+"""python -m night_sky_digest.evals {pool,judge,agree,resolve,audit,score}"""
 
 import argparse
+import json
 import logging
 from collections import Counter
 from pathlib import Path
@@ -14,8 +15,13 @@ from night_sky_digest.evals.jsonl import read_jsonl, write_jsonl
 from night_sky_digest.evals.judge import OllamaJudge, judge_pool, judgments_path
 from night_sky_digest.evals.pool import build_pool
 from night_sky_digest.evals.queries import EVAL_DIR, load_queries
+from night_sky_digest.evals.resolve import audit_sample, resolve, write_audit
+from night_sky_digest.evals.score import score
 
 POOL = EVAL_DIR / "pool.jsonl"
+QRELS = EVAL_DIR / "qrels.jsonl"
+JUDGES = ("qwen2.5:7b", "gemma4:12b")
+TIEBREAKER = "llama3.1:8b"
 
 
 def main() -> None:
@@ -27,6 +33,10 @@ def main() -> None:
     p_agree = sub.add_parser("agree", help="agreement between two judges")
     p_agree.add_argument("model_a")
     p_agree.add_argument("model_b")
+    sub.add_parser("resolve", help=f"final labels: {JUDGES} plus {TIEBREAKER} where they differ")
+    sub.add_parser("audit", help="write eval/audit.yaml, a random sample of labels to check")
+    p_score = sub.add_parser("score", help="recall@k, nDCG@k, MRR per search mode")
+    p_score.add_argument("-k", type=int, default=10)
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -53,6 +63,35 @@ def main() -> None:
         logging.info("judged %d new pairs with %s", n, args.model)
     elif args.command == "agree":
         report_agreement(judgments_path(args.model_a), judgments_path(args.model_b))
+    elif args.command == "resolve":
+        judge = OllamaJudge(TIEBREAKER)
+        with connect() as conn:
+            qrels = resolve(
+                conn, queries, read_jsonl(POOL),
+                judgments_path(JUDGES[0]), judgments_path(JUDGES[1]),
+                judge, judgments_path(TIEBREAKER),
+            )  # fmt: skip
+        judge.close()
+        write_jsonl(QRELS, qrels)
+        logging.info(
+            "qrels: %d labels, %s, grades %s",
+            len(qrels),
+            dict(Counter(r["source"] for r in qrels)),
+            dict(sorted(Counter(r["grade"] for r in qrels).items())),
+        )
+    elif args.command == "audit":
+        paths = [judgments_path(m) for m in (*JUDGES, TIEBREAKER)]
+        with connect() as conn:
+            items = audit_sample(conn, queries, read_jsonl(QRELS), paths)
+        write_audit(EVAL_DIR / "audit.yaml", items)
+        logging.info("wrote %d items to eval/audit.yaml", len(items))
+    elif args.command == "score":
+        embedder = OllamaEmbedder()
+        with connect() as conn:
+            result = score(conn, embedder, queries, read_jsonl(QRELS), k=args.k)
+        embedder.close()
+        (EVAL_DIR / "results.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
+        print_summary(result)
 
 
 def report_agreement(path_a: Path, path_b: Path) -> None:
@@ -71,6 +110,23 @@ def report_agreement(path_a: Path, path_b: Path) -> None:
     m = confusion(ga, gb)
     for x in (0, 1, 2):
         print(f"  {x}: " + "  ".join(f"{m[(x, y)]:5d}" for y in (0, 1, 2)))
+
+
+def print_summary(result: dict) -> None:
+    k, summary = result["k"], result["summary"]
+    cols = (f"recall@{k}", f"ndcg@{k}", "rr")
+    sections = (
+        ("overall", {"all": summary["overall"]}),
+        ("by kind", summary["by_kind"]),
+        ("by subfield", summary["by_subfield"]),
+    )
+    for section, rows in sections:
+        print(f"\n{section}: recall@{k} / nDCG@{k} / MRR")
+        for name, modes in rows.items():
+            cells = "   ".join(
+                f"{m}: " + " / ".join(f"{modes[m][c]:.2f}" for c in cols) for m in modes
+            )
+            print(f"  {name:<11} n={next(iter(modes.values()))['n']:<3} {cells}")
 
 
 if __name__ == "__main__":
