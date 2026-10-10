@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2026-10-09T10:50:38Z</responseDate>
+  <request verb="ListRecords" metadataPrefix="arXiv" from="2026-09-01" until="2026-10-08" set="physics:astro-ph">http://oaipmh.arxiv.org/oai</request>
+  <ListRecords>
+<record>
+                <header>
+        <identifier>oai:arXiv.org:2406.10062</identifier>
+        <datestamp>2026-10-08</datestamp>
+            <setSpec>physics:gr-qc</setSpec>
+            <setSpec>physics:astro-ph:HE</setSpec>
+            <setSpec>physics:math-ph</setSpec>
+            <setSpec>math:math:MP</setSpec>
+    </header>
+
+            <metadata>
+                        <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ https://oaipmh.arxiv.org/OAI/arXiv.xsd">
+        <id>2406.10062</id>
+        <created>2024-07-02</created>
+            <updated>2026-10-08</updated>
+        <authors>
+                <author>
+                    <keyname>Ladino</keyname>
+                        <forenames>Jose M.</forenames>
+                </author>
+                <author>
+                    <keyname>Romero-Figueroa</keyname>
+                        <forenames>Carlos E.</forenames>
+                </author>
+                <author>
+                    <keyname>Quevedo</keyname>
+                        <forenames>Hernando</forenames>
+                </author>
+        </authors>
+        <title>Phase transitions, shadows, and microstructure of Reissner-Nordström-Anti-de-Sitter black holes from a geometrothermodynamic perspective</title>
+            <categories>gr-qc astro-ph.HE math-ph math.MP</categories>
+            <comments>References and comments added, Typos corrected</comments>
+            <license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+            <abstract>We study the thermodynamic properties of the Reissner-Nordström black hole with cosmological constant, expressed in terms of the curvature radius, by using the approach of shadow thermodynamics and the formalism of geometrothermodynamics. We derive explicit expressions for the shadow radius in terms of the horizon, photon sphere, and observer radii. The phase transition structure turns out to strongly depend on the value of the curvature radius, including configurations with zero, one, or two phase transitions. We also analyze the black hole microscopic structure and find differences between the approaches of thermodynamic geometry and geometrothermodynamics, which are due to the presence of the curvature radius. We impose the important condition that the black hole is a quasi-homogeneous thermodynamic system to guarantee the consistency of the geometrothermodynamic approach.</abstract>
+    </arXiv>
+
+            </metadata>
+        </record>
+<record>
+                <header>
+        <identifier>oai:arXiv.org:2411.16879</identifier>
+        <datestamp>2026-10-08</datestamp>
+            <setSpec>physics:astro-ph:EP</setSpec>
+    </header>
+
+            <metadata>
+                        <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ https://oaipmh.arxiv.org/OAI/arXiv.xsd">
+        <id>2411.16879</id>
+        <created>2026-10-07</created>
+            <updated>2026-10-08</updated>
+        <authors>
+                <author>
+                    <keyname>Burn</keyname>
+                        <forenames>Remo</forenames>
+                </author>
+                <author>
+                    <keyname>Bali</keyname>
+                        <forenames>Komal</forenames>
+                </author>
+                <author>
+                    <keyname>Dorn</keyname>
+                        <forenames>Caroline</forenames>
+                </author>
+                <author>
+                    <keyname>Luque</keyname>
+                        <forenames>Rafael</forenames>
+                </author>
+                <author>
+                    <keyname>Grimm</keyname>
+                        <forenames>Simon L.</forenames>
+                </author>
+        </authors>
+        <title>Water-rich sub-Neptunes and rocky super Earths around different Stars: Radii shaped by Volatile Partitioning, Formation, and Evolution</title>
+            <categories>astro-ph.EP</categories>
+            <comments>29 pages, 18 figures, accepted for publication in A&amp;A, data available at https://doi.org/10.5281/zenodo.22960286</comments>
+            <license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+            <abstract>The nature of sub-Neptunes remains unknown due to degeneracies in interior structure solutions. However, a statistical set of small planets with measured masses and radii can be used to test the planet formation theory prediction of large water reservoirs on sub-Neptunes. Here, we investigate whether water is included in photoevaporative mass loss and how much can partition into the rocky and metallic interior. We couple the result of a planetary formation model to evolution models which assume perfect mixing of water with H/He in the envelope or a layered structure. For the mixed envelopes, we also include fractionation during photoevaporative mass-loss. Further, the effect of equilibrium dissolution of water into an assumed magma ocean and into the metallic core is studied for the first time in coupled formation-evolution models. Out of the four tested scenarios, the mass-radius relation of exoplanets is relatively well matched by all scenarios except the one with layered H/He above water. The agreement depends on mass, with better consistency for the model without dissolution below 3 Earth masses and hints of the opposite at higher masses. In contrast to the significant effect of water dissolution, fractionation is not found to alter the properties of the planets for our initial conditions due to initially massive envelopes on all planets. For all scenarios, we quantify the radius valley location and scaling with stellar mass and conclude that water-rich sub-Neptunes mass-radius relations are broadly consistent with observations. Statistical surveys in mass and radius are required for distinction of the scenarios. The mixed-composition loss of different volatiles, their dissolution into the planetary interior, and the solidification of the magma ocean are natural next steps toward a comprehensive atmosphere-interior evolution model. (abridged)</abstract>
+    </arXiv>
+
+            </metadata>
+        </record>
+<record>
+                <header>
+        <identifier>oai:arXiv.org:2509.02895</identifier>
+        <datestamp>2026-10-08</datestamp>
+            <setSpec>physics:astro-ph:SR</setSpec>
+            <setSpec>physics:physics:plasm-ph</setSpec>
+    </header>
+
+            <metadata>
+                        <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ https://oaipmh.arxiv.org/OAI/arXiv.xsd">
+        <id>2509.02895</id>
+        <created>2026-10-07</created>
+            <updated>2026-10-08</updated>
+        <authors>
+                <author>
+                    <keyname>Silva</keyname>
+                        <forenames>Suzana S. A.</forenames>
+                </author>
+                <author>
+                    <keyname>Dakanalis</keyname>
+                        <forenames>Ioannis</forenames>
+                </author>
+                <author>
+                    <keyname>Schiavo</keyname>
+                        <forenames>Luiz A. C. A.</forenames>
+                </author>
+                <author>
+                    <keyname>Tziotziou</keyname>
+                        <forenames>Kostas</forenames>
+                </author>
+                <author>
+                    <keyname>Ballai</keyname>
+                        <forenames>Istvan</forenames>
+                </author>
+                <author>
+                    <keyname>Jafarzadeh</keyname>
+                        <forenames>Shahin</forenames>
+                </author>
+                <author>
+                    <keyname>Pereira</keyname>
+                        <forenames>Tiago M. D.</forenames>
+                </author>
+                <author>
+                    <keyname>Tsiropoula</keyname>
+                        <forenames>Georgia</forenames>
+                </author>
+                <author>
+                    <keyname>Verth</keyname>
+                        <forenames>Gary</forenames>
+                </author>
+                <author>
+                    <keyname>Esnaola</keyname>
+                        <forenames>Iñaki</forenames>
+                </author>
+                <author>
+                    <keyname>McLaughlin</keyname>
+                        <forenames>James A.</forenames>
+                </author>
+                <author>
+                    <keyname>Botha</keyname>
+                        <forenames>Gert J. J.</forenames>
+                </author>
+                <author>
+                    <keyname>Fedun</keyname>
+                        <forenames>Viktor</forenames>
+                </author>
+        </authors>
+        <title>Solar Vortices as Conduits for Magnetoacoustic Waves: Multi-Layer Coupling and Their Role in Atmospheric Heating</title>
+            <categories>astro-ph.SR physics.plasm-ph</categories>
+            <comments>Accepted for publication in ApJ</comments>
+            <license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+            <abstract>Vortices are widespread throughout the solar atmosphere and commonly interpreted as channels for Alfvén wave energy transport. However, this interpretation has mostly been inferred from the apparent alignment of rotating plasma structures with the magnetic field, rather than direct evidence of the nature of the waves involved. We present observational and numerical evidence that solar vortices act as coherent waveguides dominated by magnetoacoustic waves in the lower atmosphere, combining high-resolution SST observations and Bifrost simulation data. Using Normalised Mutual Information and Jensen-Shannon Divergence as coupling diagnostics, we provide the first observational identification of a solar vortex footpoint through information-theoretic metrics, locating it in the photospheric region of highest shared information with the chromospheric swirl. Spectral Proper Orthogonal Decomposition separates dominant dynamical patterns, allowing us to identify sausage, kink, and helical wave modes propagating along vortex structures. In the Bifrost simulation, we find no evidence for torsional Alfvén waves supported by vortices below 1 Mm. Instead, the waves supported by vortices are magnetoacoustic, and their energy transport is predominantly compressive in the lower atmosphere, with the magnetic component becoming dominant only at greater heights. Even the compressive wave component alone reaches nanoflare-level magnitudes ($\sim10^{25}$~erg), indicating that vortex-associated compressive perturbations may provide an energetically relevant contribution in regimes where magnetic-energy transport dominates. The recovery of sausage and helical modes in temperature perturbations shows that these modes carry a thermal signature, further supporting their relevance for chromospheric energy transport and localised heating.</abstract>
+    </arXiv>
+
+            </metadata>
+        </record>
+<resumptionToken expirationDate='2026-10-11T00:00:00Z'>verb%3DListRecords%26metadataPrefix%3DarXiv%26from%3D2026-09-11%26until%3D2026-10-08%26set%3Dphysics%253Aastro-ph%26skip%3D57</resumptionToken>
+  </ListRecords>
+</OAI-PMH>

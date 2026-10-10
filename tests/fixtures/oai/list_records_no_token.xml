@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2026-10-09T10:50:38Z</responseDate>
+  <request verb="ListRecords" metadataPrefix="arXiv" from="2026-09-01" until="2026-10-08" set="physics:astro-ph">http://oaipmh.arxiv.org/oai</request>
+  <ListRecords>
+<record>
+                <header>
+        <identifier>oai:arXiv.org:2601.00692</identifier>
+        <datestamp>2026-10-08</datestamp>
+            <setSpec>physics:astro-ph:HE</setSpec>
+    </header>
+
+            <metadata>
+                        <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ https://oaipmh.arxiv.org/OAI/arXiv.xsd">
+        <id>2601.00692</id>
+        <created>2026-05-15</created>
+            <updated>2026-10-08</updated>
+        <authors>
+                <author>
+                    <keyname>Sahoo</keyname>
+                        <forenames>Sonali</forenames>
+                </author>
+                <author>
+                    <keyname>Roy</keyname>
+                        <forenames>Ankan</forenames>
+                </author>
+                <author>
+                    <keyname>Yadav</keyname>
+                        <forenames>Kritika</forenames>
+                </author>
+                <author>
+                    <keyname>Moharana</keyname>
+                        <forenames>Reetanjali</forenames>
+                </author>
+        </authors>
+        <title>Hadronic Origin of Sub-PeV Gamma-Ray Emission from LHAASO J0621+3755</title>
+            <categories>astro-ph.HE</categories>
+            <comments>8 pages, 5 figures, 1 table</comments>
+            <journal-ref>Phys. Rev. D 113, 123016 (2026)</journal-ref>
+            <doi>10.1103/q1m6-95c3</doi>
+            <license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+            <abstract>Very High Energy (VHE) gamma-rays in pulsars, and their surrounding halos, are interpreted to originate from the leptonic channel, electromagnetic interactions through electron inverse Compton (IC) scattering. In the hadronic scenario, TeV-PeV gamma-rays are generated from the decay of neutral pions, which are produced from cosmic rays(CR) protons interacting with the ambient medium. Recent observations of sub-PeV gamma-rays from the halo of the pulsar PSR J0622+3749 by the Large High Altitude Air Shower Observatory Kilometer-Square Array (LHAASO-KM2A) provide an opportunity to investigate the underlying emission mechanisms. Previous studies have shown that the observed emission can be consistently explained within a leptonic framework by the slow diffusion of electrons. In this work, we explore an alternative explanation based on the hadronic scenario through the proton-proton ($pp$) interaction channel, incorporating the observation of VHE gamma-rays at 7 TeV by the High-Altitude Water Cherenkov detector (HAWC). To model the observed gamma-ray spectrum, ranging from $\sim 7~\mathrm{TeV}$ up to $200~\mathrm{TeV}$, the required CR proton luminosity is found to be $η_p \sim 0.14$ of the spin-down luminosity of PSR J0622+3749. This scenario assumes that protons propagate in a one-zone superdiffusive environment, characterized by a diffusion index $α= 1.05$, within an ambient of density, $1~\mathrm{cm}^{-3}$.</abstract>
+    </arXiv>
+
+            </metadata>
+        </record>
+  </ListRecords>
+</OAI-PMH>

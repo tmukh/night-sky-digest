@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2026-10-09T10:50:38Z</responseDate>
+  <request verb="ListRecords" metadataPrefix="arXiv" from="2026-09-01" until="2026-10-08" set="physics:astro-ph">http://oaipmh.arxiv.org/oai</request>
+  <error code="noRecordsMatch">No records match the request</error>
+</OAI-PMH>
