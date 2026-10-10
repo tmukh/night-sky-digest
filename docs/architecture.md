@@ -30,10 +30,12 @@ Same pattern as application-tracker: the app repo publishes images, homelab-dev 
 
 - Ollama runs on the Windows PC's GPU, outside the cluster: [ADR 0002](adr/0002-ollama-on-windows-gpu.md).
 
+- Backfill via OAI-PMH, not the bulk snapshot: 2 years of astro-ph is ~95k records in ~75 pages of
+  ~1,300, so about 15 minutes at 1 request / 3 s (measured 2026-10-10: one page ≈ 5 MB, ≈ 10 s to generate).
+
 ## Open decisions
 
 | Question | Decide by | Notes |
 |---|---|---|
 | Embedding dimension and index type (HNSW vs IVFFlat) | M2 | bge-m3 dense = 1024 dims. |
-| Backfill window and source (Kaggle arXiv snapshot vs OAI-PMH) | M1 | ~2 years of astro-ph is roughly 30k papers. |
 | How the frozen eval snapshot gets into CI (pg_dump artifact vs fixture) | M3 | Must be small and deterministic. |

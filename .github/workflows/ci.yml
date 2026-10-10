@@ -11,6 +11,21 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-24.04
+    services:
+      # Same image and digest as the cluster's night-sky Postgres (homelab-dev).
+      postgres:
+        image: pgvector/pgvector:pg16@sha256:7b822b0aac60967beb1ea5e576b8602c94c300a157d187f385ae3e0da199b90a
+        env:
+          POSTGRES_USER: night_sky
+          POSTGRES_DB: night_sky_test
+          # No password: the container lives only for this job and only the job can reach it.
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U night_sky -d night_sky_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://night_sky@localhost:5432/night_sky_test
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0

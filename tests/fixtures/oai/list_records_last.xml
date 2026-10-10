@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2026-10-09T10:50:38Z</responseDate>
+  <request verb="ListRecords" resumptionToken="...">http://oaipmh.arxiv.org/oai</request>
+  <ListRecords>
+<record>
+                <header>
+        <identifier>oai:arXiv.org:2512.19652</identifier>
+        <datestamp>2026-10-08</datestamp>
+            <setSpec>physics:astro-ph:SR</setSpec>
+            <setSpec>physics:astro-ph:GA</setSpec>
+            <setSpec>physics:astro-ph:IM</setSpec>
+    </header>
+
+            <metadata>
+                        <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ https://oaipmh.arxiv.org/OAI/arXiv.xsd">
+        <id>2512.19652</id>
+        <created>2026-10-06</created>
+            <updated>2026-10-08</updated>
+        <authors>
+                <author>
+                    <keyname>Saad</keyname>
+                        <forenames>Serat M.</forenames>
+                </author>
+                <author>
+                    <keyname>Ting</keyname>
+                        <forenames>Yuan-Sen</forenames>
+                </author>
+        </authors>
+        <title>High-Precision Differential Radial Velocities of C3PO Wide Binaries: A Test of Modified Newtonian Dynamics (MOND)</title>
+            <categories>astro-ph.SR astro-ph.GA astro-ph.IM</categories>
+            <comments>23 pages, 15 figures, 5 tables. Published in the Open Journal of Astrophysics</comments>
+            <journal-ref>The Open Journal of Astrophysics, Vol. 9, 2026</journal-ref>
+            <doi>10.33232/001c.172194</doi>
+            <license>http://creativecommons.org/licenses/by/4.0/</license>
+            <abstract>Wide-binary stars, separated by thousands of AU, reside in low-acceleration regimes where Modified Newtonian Dynamics (MOND) predicts deviation from Newtonian gravity. However, Gaia radial velocities (RVs) lack the precision to resolve the small velocity differences expected in these systems, limiting previous MOND analyses to two-dimensional kinematics. In this paper, we introduce a technique to measure differential RVs of wide binary stars using high resolution, high signal-to-noise spectra. We apply this method to measure differential RVs of 85 wide-binaries from the C3PO survey and achieved precisions of $\sim$8-15 m/s per binary pair, a $\sim 10$-$100\times$ improvement (median $\sim 24\times$) over Gaia DR3. After applying a selection criterion based on the scaled velocity, we retain 57 gravitationally bound systems for further analysis. Combining these measurements with Gaia astrometry, we construct a hierarchical Bayesian model to infer the orbital elements of all wide-binary pairs and the global MOND acceleration scale ($a_0$). We test two commonly used interpolating functions in MOND formulation: the simple form ($b=1$, $μ= x/(1+x)$) and the standard form ($b=2$, $μ= x/\sqrt{1+x^2}$). Our results indicate tension with MOND at the presently accepted $a_0$ value: for $b=1$, the canonical value is excluded at $2.5σ$, while for $b=2$, the exclusion is at $1.5σ$. We discuss how systematic uncertainties in the external field effect treatment, particularly in the transition regime, may affect these conclusions.</abstract>
+    </arXiv>
+
+            </metadata>
+        </record>
+<record>
+  <header status="deleted">
+    <identifier>oai:arXiv.org:2510.00001</identifier>
+    <datestamp>2026-10-08</datestamp>
+    <setSpec>physics:astro-ph:GA</setSpec>
+  </header>
+</record>
+<resumptionToken/>
+  </ListRecords>
+</OAI-PMH>
