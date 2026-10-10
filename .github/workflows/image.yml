@@ -30,13 +30,27 @@ jobs:
           echo "TAG=$TAG" >> "$GITHUB_ENV"
           docker build -t "$IMAGE:$TAG" .
 
-      - name: Scan with Trivy
+      # Two Trivy steps on purpose: one shows everything, one decides.
+      # Report: every severity, fixed or not, so unfixed CVEs stay visible. Never fails.
+      - name: Trivy report (all findings)
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           image-ref: ${{ env.IMAGE }}:${{ env.TAG }}
           format: table
-          # Report only for now. TODO(M0, Tarik): turn this into the gate.
           exit-code: "0"
+
+      # Gate: fail only on HIGH/CRITICAL findings that have a fixed version, i.e. ones we can
+      # act on by bumping the base digest or a dependency. Unfixed CVEs can't be fixed from
+      # this repo; blocking on them would make every build red until Debian ships a patch.
+      - name: Trivy gate (fixable HIGH/CRITICAL)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ env.IMAGE }}:${{ env.TAG }}
+          format: table
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"
+          skip-setup-trivy: true   # reuse the Trivy binary from the report step
 
       - name: Generate SBOM with Syft
         uses: anchore/sbom-action@66cbf4bc1f1c0d2edc94016e65bc221b6bb0ad6c # v0.24.3

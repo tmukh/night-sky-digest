@@ -22,7 +22,10 @@ RUN uv sync --locked --no-dev --no-editable
 
 # Runtime stage: no uv, no build tools, just the venv on the same base.
 FROM ${PYTHON_IMAGE}
-RUN useradd --uid 10001 --no-create-home --shell /usr/sbin/nologin app
+# pip ships in the base image but the app never installs anything at runtime.
+# Removing it drops the only Python CVEs in the image and a tool an attacker could use.
+RUN python -m pip uninstall --yes --root-user-action=ignore pip \
+ && useradd --uid 10001 --no-create-home --shell /usr/sbin/nologin app
 COPY --from=build /app/.venv /app/.venv
 ENV PATH=/app/.venv/bin:$PATH \
     PYTHONUNBUFFERED=1
