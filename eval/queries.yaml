@@ -1,0 +1,553 @@
+- id: q001
+  query: cosmic birefringence from CMB polarization
+  intent: >
+    Papers that measure, constrain or interpret isotropic or anisotropic cosmic birefringence (rotation
+    of the CMB polarization plane, EB correlations), including work on miscalibrated polarization angles
+    and axion-like field explanations. Not relevant: general CMB polarization or B-mode searches for
+    primordial gravitational waves that do not address polarization rotation.
+  subfield: CO
+  kind: topical
+
+- id: q002
+  query: primordial black holes as dark matter constraints
+  intent: >
+    Papers that constrain or argue for primordial black holes making up some or all of the dark matter,
+    using microlensing, gravitational waves, CMB, dwarf galaxy dynamics or evaporation limits. Not
+    relevant: PBH formation models with no dark matter abundance constraint, or astrophysical black hole
+    populations.
+  subfield: CO
+  kind: topical
+
+- id: q003
+  query: DESI DR2 neutrino mass bound
+  intent: >
+    Papers that derive upper limits or preferences on the sum of neutrino masses using DESI DR2 BAO data,
+    alone or combined with CMB and supernovae, including discussion of the preference for negative or
+    very small effective neutrino mass. Not relevant: DESI dark energy analyses that do not report
+    neutrino mass results, or laboratory neutrino experiments.
+  subfield: CO
+  kind: identifier
+
+- id: q004
+  query: ACT DR6 lensing
+  intent: >
+    Papers that use or present CMB lensing measurements from the Atacama Cosmology Telescope Data Release
+    6, including cross-correlations with galaxy surveys and the resulting constraints on S8, neutrino
+    mass or structure growth. Not relevant: Planck- or SPT-only lensing analyses, or ACT papers on
+    clusters or primary CMB with no lensing.
+  subfield: CO
+  kind: identifier
+
+- id: q005
+  query: why is the Hubble constant from Cepheids higher than from the CMB
+  intent: >
+    Papers that examine the Hubble tension between local distance-ladder measurements and early-universe
+    inferences, either by measuring H0 or by proposing or testing physical explanations. Not relevant:
+    papers that only use H0 as a fixed input, or general dark energy constraints with no H0 discussion.
+  subfield: CO
+  kind: question
+
+- id: q006
+  query: can the 21cm signal tell us about the first stars
+  intent: >
+    Papers that model, forecast or measure the global or fluctuating 21-cm signal from cosmic dawn and
+    the epoch of reionization, and interpret it in terms of first stars, X-ray heating or early galaxy
+    properties. Not relevant: low-redshift 21-cm intensity mapping for BAO, or purely instrumental
+    calibration papers.
+  subfield: CO
+  kind: question
+
+- id: q007
+  query: matter in the universe less clumpy than planck predicts
+  intent: >
+    Papers on the S8 or sigma8 tension: weak lensing, cluster counts or CMB lensing measurements of
+    structure growth compared with Planck, and proposed explanations such as baryonic feedback or new
+    physics. Not relevant: weak lensing method papers with no S8 result, or the Hubble tension.
+  subfield: CO
+  kind: synonym
+
+- id: q008
+  query: emulators for the nonlinear matter power spectrum
+  intent: >
+    Papers that build or validate emulators (Gaussian processes, neural networks, polynomial chaos) for
+    nonlinear matter or galaxy power spectra or related statistics, trained on N-body or hydrodynamical
+    simulations. Not relevant: emulators for CMB spectra only, or simulation suites with no emulator.
+  subfield: CO
+  kind: method
+
+- id: q009
+  query: field level inference galaxy clustering
+  intent: >
+    Papers that perform or develop field-level (map-level) Bayesian inference of cosmological parameters
+    or initial conditions from galaxy or matter density fields, for example with forward models and
+    Hamiltonian Monte Carlo. Not relevant: standard power spectrum or bispectrum analyses, or
+    simulation-based inference on summary statistics only.
+  subfield: CO
+  kind: method
+
+- id: q010
+  query: dynamical dark energy preference is due to supernova systematics not new physics
+  intent: >
+    Papers arguing that the DESI-based preference for evolving dark energy (w0-wa) is driven by supernova
+    calibration, sample selection, data combination choices or other systematics, or that LCDM remains
+    adequate. Not relevant: papers that accept the evolving dark energy signal and build models on it,
+    or general dark energy forecasts.
+  subfield: CO
+  kind: contrarian
+
+- id: q011
+  query: helium triplet atmospheric escape hot neptunes
+  intent: >
+    Papers that observe or model escaping exoplanet atmospheres using the metastable helium 10830
+    Angstrom line, especially for Neptune-sized or sub-Neptune planets. Not relevant: escape studied only
+    with Lyman-alpha or H-alpha, or hot Jupiter atmospheric composition without escape.
+  subfield: EP
+  kind: topical
+
+- id: q012
+  query: radius valley core powered mass loss vs photoevaporation
+  intent: >
+    Papers that explain, test or measure the small-planet radius gap, comparing core-powered mass loss,
+    photoevaporation, or primordial formation scenarios, including its dependence on stellar mass or age.
+    Not relevant: individual planet discoveries that only mention the radius valley in passing.
+  subfield: EP
+  kind: topical
+
+- id: q013
+  query: K2-18b dimethyl sulfide
+  intent: >
+    Papers analysing JWST spectra of K2-18b, especially claims, re-analyses or critiques of dimethyl
+    sulfide or other biosignature gases, and models of its interior (hycean, mini-Neptune, magma ocean).
+    Not relevant: general biosignature theory or other temperate sub-Neptunes without discussing K2-18b.
+  subfield: EP
+  kind: identifier
+
+- id: q014
+  query: 3I/ATLAS activity
+  intent: >
+    Papers that observe or model the interstellar object 3I/ATLAS, including its coma, composition,
+    nucleus size, trajectory or origin. Not relevant: papers on 1I/Oumuamua or 2I/Borisov only, or
+    interstellar object population forecasts that do not discuss 3I/ATLAS.
+  subfield: EP
+  kind: identifier
+
+- id: q015
+  query: do rocky planets around red dwarfs keep their atmospheres
+  intent: >
+    Papers that test whether terrestrial planets orbiting M dwarfs retain atmospheres, through JWST
+    thermal emission or secondary eclipse measurements, transmission spectra, or escape modelling (the
+    "cosmic shoreline"). Not relevant: gas giants around M dwarfs, or habitability papers that assume an
+    atmosphere without addressing retention.
+  subfield: EP
+  kind: question
+
+- id: q016
+  query: baby planets still forming inside dust rings
+  intent: >
+    Papers reporting detections or candidates of protoplanets embedded in protoplanetary disks (e.g.
+    kinematic kinks, circumplanetary disks, direct imaging in gaps) or modelling planets carving disk
+    substructures. Not relevant: disk chemistry or dust evolution with no connection to forming planets.
+  subfield: EP
+  kind: synonym
+
+- id: q017
+  query: asteroid samples brought home by spacecraft
+  intent: >
+    Papers analysing returned asteroid samples, such as Bennu from OSIRIS-REx or Ryugu from Hayabusa2,
+    for mineralogy, organics, isotopes or physical properties. Not relevant: remote-sensing studies of
+    asteroids, or meteorites with no comparison to returned samples.
+  subfield: EP
+  kind: synonym
+
+- id: q018
+  query: gaussian process stellar activity mitigation radial velocity
+  intent: >
+    Papers developing or applying methods (Gaussian processes, line-by-line analysis, activity indicators,
+    machine learning) to separate stellar activity signals from planetary radial velocity signals. Not
+    relevant: radial velocity planet detections that apply standard techniques without methodological
+    focus.
+  subfield: EP
+  kind: method
+
+- id: q019
+  query: transit timing variations planet masses
+  intent: >
+    Papers that use transit timing variations (or transit duration variations) to detect planets or to
+    measure masses and eccentricities in multi-planet systems. Not relevant: TTVs used solely for orbital
+    decay of hot Jupiters, or planet masses from radial velocities only.
+  subfield: EP
+  kind: method
+
+- id: q020
+  query: clustering of distant kuiper belt objects is observational bias not planet nine
+  intent: >
+    Papers arguing that the apparent orbital clustering of extreme trans-Neptunian objects arises from
+    survey selection effects or other mechanisms, or that an undiscovered distant planet is not required.
+    Not relevant: papers that assume Planet Nine and predict its location or properties.
+  subfield: EP
+  kind: contrarian
+
+- id: q021
+  query: overmassive black holes high redshift black hole to stellar mass ratio
+  intent: >
+    Papers that measure or explain black holes in early galaxies that are overmassive relative to their
+    hosts compared with local scaling relations, including selection-bias analyses. Not relevant: local
+    black hole scaling relations, or high-redshift quasar luminosity functions with no host mass.
+  subfield: GA
+  kind: topical
+
+- id: q022
+  query: ultra diffuse galaxies globular clusters
+  intent: >
+    Papers that study globular cluster populations of ultra-diffuse galaxies, including counts, kinematics
+    and what they imply about halo mass and formation. Not relevant: ultra-diffuse galaxies with no
+    globular cluster analysis, or Milky Way globular clusters.
+  subfield: GA
+  kind: topical
+
+- id: q023
+  query: GN-z11
+  intent: >
+    Papers that observe or interpret the galaxy GN-z11, including its possible AGN, nitrogen enrichment,
+    surrounding Lyman-alpha halo or neighbouring galaxies. Not relevant: other z > 10 galaxies or
+    population studies that do not discuss GN-z11 specifically.
+  subfield: GA
+  kind: identifier
+
+- id: q024
+  query: mass of the Large Magellanic Cloud and its effect on the Milky Way halo
+  intent: >
+    Papers that estimate the LMC's total mass or model how its infall perturbs the Milky Way's halo,
+    stellar streams, reflex motion or dark matter wake. Not relevant: LMC star formation or stellar
+    populations with no dynamical mass or Milky Way interaction.
+  subfield: GA
+  kind: identifier
+
+- id: q025
+  query: what are the little red dots in JWST images
+  intent: >
+    Papers that characterise or explain "little red dots", the compact red sources at high redshift
+    discovered with JWST, whether as dust-reddened AGN, compact starbursts, black hole stars or dense gas
+    envelopes. Not relevant: general high-redshift AGN or dusty galaxies that do not address this
+    population.
+  subfield: GA
+  kind: question
+
+- id: q026
+  query: why are there so many bright galaxies at z>10
+  intent: >
+    Papers that address the overabundance of UV-bright galaxies at very high redshift seen by JWST,
+    through bursty star formation, high star formation efficiency, top-heavy IMF, low dust or cosmology.
+    Not relevant: high-redshift galaxy catalogues with no comparison to model expectations.
+  subfield: GA
+  kind: question
+
+- id: q027
+  query: galaxies that stopped making stars very early on
+  intent: >
+    Papers on massive quiescent galaxies at redshift 3 or above, including spectroscopic confirmation,
+    number densities, star formation histories and quenching mechanisms. Not relevant: quenching of
+    low-redshift or satellite galaxies, or dusty star-forming galaxies.
+  subfield: GA
+  kind: synonym
+
+- id: q028
+  query: Jeans anisotropic modelling IFU stellar kinematics
+  intent: >
+    Papers applying or developing Jeans anisotropic or Schwarzschild dynamical models to integral field
+    stellar kinematics to measure mass profiles, dark matter fractions, black hole masses or orbital
+    structure. Not relevant: gas kinematic modelling of rotation curves, or IFU studies of stellar
+    populations only.
+  subfield: GA
+  kind: method
+
+- id: q029
+  query: nonparametric star formation histories SED fitting
+  intent: >
+    Papers that develop, test or apply nonparametric or flexible star formation history priors in
+    spectral energy distribution fitting, and evaluate their effect on stellar masses and ages. Not
+    relevant: SED fitting with fixed parametric histories and no methodological discussion.
+  subfield: GA
+  kind: method
+
+- id: q030
+  query: evidence for modified gravity in wide binary stars
+  intent: >
+    Papers that report or support a departure from Newtonian gravity (e.g. MOND) in the relative
+    velocities of wide binary stars from Gaia. Papers finding no deviation are relevant only if they
+    engage directly with such claims. Not relevant: wide binary population studies unrelated to gravity
+    tests, or MOND applied only to galaxies.
+  subfield: GA
+  kind: contrarian
+
+- id: q031
+  query: long gamma ray bursts from neutron star mergers kilonova
+  intent: >
+    Papers on long-duration gamma-ray bursts with kilonova signatures or other evidence of a compact
+    merger origin, and models of how mergers can produce long prompt emission. Not relevant: classic
+    short GRBs or collapsar long GRBs with supernovae.
+  subfield: HE
+  kind: topical
+
+- id: q032
+  query: x-ray polarimetry corona geometry accreting black holes
+  intent: >
+    Papers that use X-ray polarization measurements (e.g. IXPE) of black hole X-ray binaries or AGN to
+    constrain coronal geometry, spin or inclination. Not relevant: X-ray polarimetry of pulsars or
+    blazar jets, or spectral-only corona modelling.
+  subfield: HE
+  kind: topical
+
+- id: q033
+  query: GW231123
+  intent: >
+    Papers about the binary black hole merger GW231123, including its very high masses and spins, formation
+    channels (hierarchical mergers, pair-instability gap) and waveform systematics. Not relevant: other
+    gravitational wave events or catalogue-wide population studies that do not discuss GW231123.
+  subfield: HE
+  kind: identifier
+
+- id: q034
+  query: KM3-230213A ultra high energy neutrino
+  intent: >
+    Papers that interpret or follow up the KM3NeT event KM3-230213A, including possible sources, cosmogenic
+    origin and tension with IceCube and Auger non-detections. Not relevant: IceCube neutrino sources or
+    neutrino telescope design without discussing this event.
+  subfield: HE
+  kind: identifier
+
+- id: q035
+  query: where do the highest energy cosmic rays come from
+  intent: >
+    Papers that identify or constrain the sources of ultra-high-energy cosmic rays using arrival direction
+    anisotropies, composition or source modelling (e.g. Auger, Telescope Array). Not relevant: Galactic
+    cosmic rays below the knee, or cosmic ray detector hardware.
+  subfield: HE
+  kind: question
+
+- id: q036
+  query: what powers ultraluminous x-ray sources
+  intent: >
+    Papers that investigate the nature of ultraluminous X-ray sources, including super-Eddington
+    accretion onto neutron stars or stellar black holes, pulsating ULXs, outflows and beaming. Not
+    relevant: ordinary sub-Eddington X-ray binaries or AGN.
+  subfield: HE
+  kind: question
+
+- id: q037
+  query: x-ray flashes repeating every few hours from galaxy nuclei
+  intent: >
+    Papers on quasi-periodic eruptions (QPEs) from galactic nuclei, including discoveries, timing and
+    models such as star-disk collisions or links to tidal disruption events. Not relevant: QPOs in X-ray
+    binaries or ordinary AGN variability.
+  subfield: HE
+  kind: synonym
+
+- id: q038
+  query: pulse profile modeling NICER neutron star radius
+  intent: >
+    Papers that infer neutron star masses and radii from X-ray pulse profile modelling (NICER, XMM) and
+    use them to constrain the dense matter equation of state. Not relevant: equation of state constraints
+    only from gravitational waves or nuclear theory.
+  subfield: HE
+  kind: method
+
+- id: q039
+  query: neural posterior estimation gravitational wave parameters
+  intent: >
+    Papers that use neural posterior estimation, normalizing flows or other machine learning methods to
+    infer compact binary source parameters from gravitational wave signals. Not relevant: machine
+    learning for glitch classification or detection only, without parameter inference.
+  subfield: HE
+  kind: method
+
+- id: q040
+  query: fast radio bursts not from magnetars
+  intent: >
+    Papers arguing that some or all fast radio bursts arise from sources other than magnetars, such as
+    old stellar populations, compact binaries, accreting systems or globular clusters, or challenging
+    magnetar models. Not relevant: papers that assume a magnetar origin, or FRB localisation without
+    source discussion.
+  subfield: HE
+  kind: contrarian
+
+- id: q041
+  query: satellite constellations radio frequency interference
+  intent: >
+    Papers measuring or mitigating radio interference from satellite megaconstellations (e.g. Starlink
+    unintended emission) at radio observatories. Not relevant: optical satellite streaks, or terrestrial
+    RFI unrelated to satellites.
+  subfield: IM
+  kind: topical
+
+- id: q042
+  query: wavefront sensing and control for high contrast imaging
+  intent: >
+    Papers developing or testing wavefront sensing, adaptive optics or coronagraph control techniques for
+    direct imaging of exoplanets at high contrast, on ground or in space. Not relevant: exoplanet imaging
+    results that do not focus on instrumentation or method.
+  subfield: IM
+  kind: topical
+
+- id: q043
+  query: Rubin Observatory LSST data preview pipeline
+  intent: >
+    Papers on the Vera C. Rubin Observatory's commissioning data, data previews or science pipelines,
+    including image processing, alert production and early validation. Not relevant: LSST science
+    forecasts that do not involve the observatory's data or software.
+  subfield: IM
+  kind: identifier
+
+- id: q044
+  query: Euclid Q1 data release
+  intent: >
+    Papers that present or use the Euclid Quick Data Release Q1, including catalogues, processing
+    validation and early science based on Q1 data. Not relevant: Euclid forecasts or Early Release
+    Observations papers that do not use Q1.
+  subfield: IM
+  kind: identifier
+
+- id: q045
+  query: how to remove galactic foregrounds from 21cm intensity mapping
+  intent: >
+    Papers developing or testing foreground removal or avoidance for 21-cm intensity mapping or EoR
+    experiments (PCA, GPR, ICA, deep learning, wedge avoidance), including instrument systematics
+    coupling. Not relevant: 21-cm cosmological interpretation that does not address foregrounds.
+  subfield: IM
+  kind: question
+
+- id: q046
+  query: telescopes on the far side of the moon
+  intent: >
+    Papers on concepts, designs or pathfinders for lunar-based telescopes, especially low-frequency radio
+    arrays on the lunar far side. Not relevant: Earth-orbiting space telescopes or lunar science
+    unrelated to astronomical observing.
+  subfield: IM
+  kind: synonym
+
+- id: q047
+  query: telling real transients from junk in survey images
+  intent: >
+    Papers on real-bogus classification, artifact rejection or vetting of transient candidates in
+    difference imaging from surveys such as ZTF, Rubin or ATLAS. Not relevant: classification of
+    confirmed transients into physical types.
+  subfield: IM
+  kind: synonym
+
+- id: q048
+  query: deep learning deblending overlapping galaxies
+  intent: >
+    Papers that develop or evaluate methods, especially neural networks, to separate blended galaxy
+    images in imaging surveys, and quantify the impact on photometry or shear. Not relevant: galaxy
+    morphology classification without blending.
+  subfield: IM
+  kind: method
+
+- id: q049
+  query: anomaly detection in alert streams
+  intent: >
+    Papers on unsupervised or semi-supervised anomaly detection to find unusual objects in time-domain
+    survey alerts or light curves, including broker implementations. Not relevant: supervised
+    classification of known transient classes only.
+  subfield: IM
+  kind: method
+
+- id: q050
+  query: large language models unreliable for astronomy research
+  intent: >
+    Papers that evaluate the limitations, errors, hallucinations or risks of large language models used
+    for astronomical research, literature review or data analysis. Not relevant: papers that only
+    present an LLM tool or agent without a critical evaluation of its failures.
+  subfield: IM
+  kind: contrarian
+
+- id: q051
+  query: stripped stars in massive binaries
+  intent: >
+    Papers on helium stars stripped of their envelopes by binary interaction, including searches,
+    spectroscopic characterisation and their role in ionizing radiation or stripped-envelope supernovae.
+    Not relevant: single-star Wolf-Rayet wind stripping without binary interaction.
+  subfield: SR
+  kind: topical
+
+- id: q052
+  query: small scale coronal heating events solar orbiter
+  intent: >
+    Papers on small-scale brightenings, nanoflares, campfires or jetlets and their contribution to
+    heating the solar corona, using Solar Orbiter or other high-resolution observations and simulations.
+    Not relevant: large flares and coronal mass ejections.
+  subfield: SR
+  kind: topical
+
+- id: q053
+  query: Betelgeuse companion
+  intent: >
+    Papers that detect, search for or model a companion star to Betelgeuse, including its link to the
+    long secondary period and the star's variability. Not relevant: Betelgeuse's Great Dimming or
+    supernova predictions with no discussion of a companion.
+  subfield: SR
+  kind: identifier
+
+- id: q054
+  query: T Coronae Borealis nova eruption
+  intent: >
+    Papers on the recurrent nova T CrB, including predictions of its next eruption, pre-eruption
+    behaviour, multiwavelength observations and system parameters. Not relevant: other recurrent novae
+    or nova population studies that do not discuss T CrB.
+  subfield: SR
+  kind: identifier
+
+- id: q055
+  query: how do stars lose spin as they get older
+  intent: >
+    Papers on stellar angular momentum loss and spin-down, including magnetic braking, weakened braking
+    in older stars and the calibration of gyrochronology. Not relevant: rotation of massive stars
+    from mergers, or stellar rotation catalogues with no spin-down analysis.
+  subfield: SR
+  kind: question
+
+- id: q056
+  query: why was solar cycle 25 stronger than predicted
+  intent: >
+    Papers analysing the amplitude and timing of solar cycle 25 relative to forecasts, or evaluating
+    solar cycle prediction methods against it. Not relevant: solar dynamo theory or historical cycles
+    without reference to cycle 25.
+  subfield: SR
+  kind: question
+
+- id: q057
+  query: starquakes reveal what's inside red giants
+  intent: >
+    Papers using asteroseismology of red giants (mixed modes, period spacing, rotational splitting) to
+    probe cores, evolutionary stages, core rotation or internal magnetic fields. Not relevant:
+    asteroseismology of solar-like main-sequence stars only, or red giant spectroscopy.
+  subfield: SR
+  kind: synonym
+
+- id: q058
+  query: machine learning solar flare forecasting from magnetograms
+  intent: >
+    Papers that forecast solar flares with machine learning applied to magnetograms or other solar
+    images, and evaluate predictive skill. Not relevant: physics-based flare models or flare statistics
+    without forecasting.
+  subfield: SR
+  kind: method
+
+- id: q059
+  query: zeeman doppler imaging starspots
+  intent: >
+    Papers that reconstruct stellar surface magnetic fields or starspot maps using Zeeman Doppler
+    imaging, Doppler imaging or spectropolarimetry. Not relevant: starspot inference from photometric
+    light curves alone.
+  subfield: SR
+  kind: method
+
+- id: q060
+  query: red supergiant problem is not real
+  intent: >
+    Papers arguing that the apparent lack of high-mass red supergiant progenitors of Type II-P supernovae
+    is a statistical or systematic artefact, or otherwise disputing the claimed missing progenitors. Not
+    relevant: papers that assume failed supernovae explain the problem, or progenitor detections without
+    population discussion.
+  subfield: SR
+  kind: contrarian
