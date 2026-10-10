@@ -1,4 +1,4 @@
-"""Command line: python -m night_sky_digest {migrate,ingest}"""
+"""Command line: python -m night_sky_digest {migrate,ingest,embed}"""
 
 import argparse
 import logging
@@ -7,6 +7,7 @@ from datetime import UTC, date, datetime
 from dotenv import load_dotenv
 
 from night_sky_digest.db import connect, migrate
+from night_sky_digest.embed import OllamaEmbedder, embed_pending
 from night_sky_digest.ingest.oai import HttpFetch, SystemClock
 from night_sky_digest.ingest.run import ingest
 
@@ -18,9 +19,11 @@ def main() -> None:
     p_ingest = sub.add_parser("ingest", help="harvest new astro-ph metadata from arXiv")
     p_ingest.add_argument("--backfill-from", type=date.fromisoformat, help="first run only")
     p_ingest.add_argument("--until", type=date.fromisoformat, help="default: yesterday (UTC)")
+    sub.add_parser("embed", help="embed new and changed papers with bge-m3 via Ollama")
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+    logging.getLogger("httpx").setLevel(logging.WARNING)  # one line per request drowns progress
     load_dotenv()  # local development; in the cluster DATABASE_URL comes from the environment
 
     with connect() as conn:
@@ -41,6 +44,12 @@ def main() -> None:
             finally:
                 fetch.close()
             logging.info("ingest done: %s", result)
+        elif args.command == "embed":
+            embedder = OllamaEmbedder()
+            try:
+                logging.info("embed done: %d papers", embed_pending(conn, embedder))
+            finally:
+                embedder.close()
 
 
 if __name__ == "__main__":

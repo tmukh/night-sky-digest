@@ -1,5 +1,8 @@
 """Fakes for harvest tests: a clock that never really sleeps and a scripted OAI server."""
 
+import hashlib
+import math
+import re
 from collections.abc import Mapping
 
 from night_sky_digest.ingest.oai import Response
@@ -41,3 +44,25 @@ def ok(body: bytes) -> Response:
 
 def unavailable(retry_after: str | None = None) -> Response:
     return Response(503, b"", {"retry-after": retry_after} if retry_after else {})
+
+
+class FakeEmbedder:
+    """Deterministic bag-of-words vectors: texts sharing words point in similar directions.
+    Good enough to test the plumbing; says nothing about real retrieval quality."""
+
+    model = "fake-bow"
+
+    def __init__(self) -> None:
+        self.calls = 0
+
+    def embed(self, texts: list[str]) -> list[list[float]]:
+        self.calls += 1
+        return [self._one(t) for t in texts]
+
+    @staticmethod
+    def _one(text: str) -> list[float]:
+        v = [0.0] * 1024
+        for word in re.findall(r"[a-z0-9]+", text.lower()):
+            v[int(hashlib.md5(word.encode()).hexdigest(), 16) % 1024] += 1.0  # noqa: S324
+        norm = math.sqrt(sum(x * x for x in v)) or 1.0
+        return [x / norm for x in v]

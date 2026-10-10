@@ -17,3 +17,9 @@ Concepts already confident in homelab-dev's ledger are not repeated here.
 | Checkpoint / high-water mark, resumable windows | M1 | new | 2026-10-10 | |
 | Schema migrations (numbered SQL, schema_migrations, advisory lock) | M1 | new | 2026-10-10 | |
 | Transactional DDL (Postgres) vs implicit commit (Oracle) | M1 | new | 2026-10-10 | |
+| Embeddings, cosine similarity, normalised vectors | M2 | new | 2026-10-10 | |
+| Cross-lingual embeddings (bge-m3) | M2 | new | 2026-10-10 | saw de/ru/ar queries score 0.62-0.71 vs 0.43 for unrelated English |
+| Full-text search: tsvector, tsquery, stemming, weights, GIN | M2 | new | 2026-10-10 | |
+| Approximate nearest neighbours: HNSW, ef_search | M2 | new | 2026-10-10 | |
+| Reciprocal-rank fusion (RRF) | M2 | new | 2026-10-10 | rrf() written by Claude on request |
+
