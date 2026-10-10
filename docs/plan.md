@@ -10,7 +10,7 @@ a line in CAREER-PLAN.md's progress log, and the ledger updated.
 | M | Deliverable | Gaps it closes | Core piece I write |
 |---|---|---|---|
 | M0 ✅ | Skeleton, CI (ruff, pytest), digest-pinned Dockerfile, Trivy + Syft SBOM + cosign, image on ghcr.io | supply chain | the CI gate: which Trivy severities fail the build, and why |
-| M1 | Polite OAI-PMH client (rate limit, resumable, idempotent), schema, ~2 yr astro-ph backfill | data pipeline | the resumption-token loop with the rate limiter |
+| M1 ✅ | Polite OAI-PMH client (rate limit, resumable, idempotent), schema, ~2 yr astro-ph backfill | data pipeline | the resumption-token loop with the rate limiter |
 | M2 | bge-m3 embeddings, pgvector + full-text search, reciprocal-rank fusion, FastAPI `/search` | RAG, FastAPI | the RRF merge |
 | M3 | 60–100 hand-labelled queries (≥20 non-English), recall@10 / nDCG@10 / MRR, CI gate (fail on >2 pt drop) | evaluation | recall@k and nDCG@k |
 | M4 | Daily digest with citations, faithfulness check, Langfuse traces (cost, latency) | LLM integration, LLM observability | the faithfulness check |

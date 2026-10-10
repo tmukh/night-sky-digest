@@ -17,3 +17,11 @@ runtime image (all 6 Python findings gone). First signed image:
 `ghcr.io/tmukh/night-sky-digest@sha256:650fb7fb397bdc061cfdf22c1bf2bb0ab81ae84aa562445e8b88fb00907697d2`.
 `cosign verify` passes with this repo's workflow identity and fails with any other.
 Required checks on main: `test`, `image`. Break-it lab skipped.
+
+M1: backfill of two years of astro-ph (2024-10-10 .. 2026-10-09) from this PC into the cluster
+Postgres over the tailnet. 52 pages in 24 windows, 51,282 papers (43,256 with astro-ph as primary
+category, the rest cross-lists), 8 min 40 s, no 503s. Recent windows are bigger than old ones because
+datestamp is the last change, so re-versioned older papers pile up in recent months.
+Second run right after: 1 request (the checkpoint day 2026-10-09 again), 166 unchanged, 0 inserted,
+0 updated. That is the idempotent upsert working.
+
