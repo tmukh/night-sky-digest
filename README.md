@@ -10,6 +10,58 @@ A learning project and portfolio piece. Not affiliated with or endorsed by arXiv
 Planning. See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
 for the design.
 
+## Architecture
+
+Target state at M5. Milestone tags show when each part arrives. Component details and open decisions: [docs/architecture.md](docs/architecture.md).
+
+### Runtime
+
+```mermaid
+flowchart LR
+    arxiv["arXiv OAI-PMH<br/>(CC0 metadata)"]
+    reader["Public reader"]
+    me["Me (tailnet)"]
+
+    subgraph k3s["k3s · namespace night-sky"]
+        ollama["Ollama<br/>bge-m3 embeddings + local LLM<br/>(M2)"]
+        ingest["ingest<br/>CronJob 02:00 (M1)"]
+        digest["digest<br/>CronJob 06:00 (M4)"]
+        api["api · FastAPI<br/>/search /digest (M2)"]
+        pg[("PostgreSQL · CloudNativePG<br/>papers · pgvector · tsvector · digests<br/>(M1, CNPG in M5)")]
+        subgraph obs["observe & recover (M4–M5)"]
+            prom[Prometheus] --> am[Alertmanager]
+            graf[Grafana]
+            loki[Loki]
+            lf[Langfuse]
+            minio[(MinIO)]
+        end
+    end
+
+    arxiv -- "≤1 req / 3 s" --> ingest
+    ingest -- "embed abstracts" --> ollama
+    digest -- "summarise" --> ollama
+    api -- "embed query" --> ollama
+    ingest -- "upsert by arXiv ID" --> pg
+    digest -- "read new, write digest" --> pg
+    api -- "vector + FTS → RRF" --> pg
+    pg -- "base backup + WAL" --> minio
+    reader -- "Cloudflare Tunnel" --> api
+    me -- "Tailscale only" --> graf
+```
+
+### Delivery
+
+```mermaid
+flowchart LR
+    repo["night-sky-digest<br/>(this repo)"] -- push --> gha["GitHub Actions<br/>lint · test · build<br/>Trivy · Syft SBOM · cosign"]
+    gha -- "signed image" --> ghcr["ghcr.io"]
+    ghcr -. "digest copied into PR" .-> hl["homelab-dev<br/>deploy/apps/night-sky-digest"]
+    hl -- "Argo CD syncs" --> cluster["k3s"]
+    cluster -- "pulls by digest" --> ghcr
+```
+
+The app repo only publishes signed images. homelab-dev decides what runs.
+
 ## Layout
 
 | Path | What lives there |
