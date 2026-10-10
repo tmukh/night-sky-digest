@@ -25,5 +25,5 @@ Concepts already confident in homelab-dev's ledger are not repeated here.
 | Pooling (TREC-style) for relevance judgements | M3 | new | 2026-10-10 | |
 | LLM-as-judge: graded relevance, structured output, reason before grade | M3 | new | 2026-10-10 | |
 | Cohen's kappa (unweighted, linear-weighted) | M3 | new | 2026-10-10 | |
-| recall@k, MRR, nDCG@k | M3 | new | 2026-10-10 | core piece: evals/metrics.py |
+| recall@k, MRR, nDCG@k | M3 | new | 2026-10-10 | metrics written by Claude on request |
 
