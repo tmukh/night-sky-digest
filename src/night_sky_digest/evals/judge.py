@@ -3,6 +3,7 @@
 import json
 import logging
 import os
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -52,26 +53,36 @@ class OllamaJudge:
             f"Query: {query.query}\n\nIntent: {query.intent.strip()}\n\n"
             f"Paper title: {title}\n\nPaper abstract: {abstract}"
         )
-        r = self._client.post(
-            f"{self._url}/api/chat",
-            json={
-                "model": self.model,
-                "messages": [
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": user},
-                ],
-                "format": _SCHEMA,
-                # Thinking models (gemma4) otherwise write hidden reasoning first: ~7x slower.
-                "think": False,
-                "stream": False,
-                "options": {"temperature": 0, "num_ctx": 4096},
-            },
-        )
-        r.raise_for_status()
-        out = json.loads(r.json()["message"]["content"])
+        payload = {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user},
+            ],
+            "format": _SCHEMA,
+            # Thinking models (gemma4) otherwise write hidden reasoning first: ~7x slower.
+            "think": False,
+            "stream": False,
+            "options": {"temperature": 0, "num_ctx": 4096},
+        }
+        out = json.loads(self._post_with_retry(payload)["message"]["content"])
         if out.get("grade") not in (0, 1, 2):
             raise ValueError(f"{self.model} returned an invalid grade: {out!r}")
         return Judgment(grade=out["grade"], reason=str(out.get("reason", "")).strip())
+
+    def _post_with_retry(self, payload: dict, attempts: int = 4) -> dict:
+        """Ollama answers 500 when the model runner crashes (e.g. CUDA out of memory) and reloads
+        the model on the next request, so server errors are retried with a growing pause."""
+        for attempt in range(1, attempts + 1):
+            r = self._client.post(f"{self._url}/api/chat", json=payload)
+            if r.status_code < 500 or attempt == attempts:
+                r.raise_for_status()
+                return r.json()
+            log.warning(
+                "%s: HTTP %d, retry %d in %ds", self.model, r.status_code, attempt, 15 * attempt
+            )
+            time.sleep(15 * attempt)
+        raise AssertionError("unreachable")
 
     def close(self) -> None:
         self._client.close()
