@@ -22,8 +22,11 @@ flowchart LR
     reader["Public reader"]
     me["Me (tailnet)"]
 
-    subgraph k3s["k3s · namespace night-sky"]
+    subgraph win["Windows PC · NVIDIA GPU (ADR 0002)"]
         ollama["Ollama<br/>bge-m3 embeddings + local LLM<br/>(M2)"]
+    end
+
+    subgraph k3s["k3s on the laptop · namespace night-sky"]
         ingest["ingest<br/>CronJob 02:00 (M1)"]
         digest["digest<br/>CronJob 06:00 (M4)"]
         api["api · FastAPI<br/>/search /digest (M2)"]
@@ -38,9 +41,9 @@ flowchart LR
     end
 
     arxiv -- "≤1 req / 3 s" --> ingest
-    ingest -- "embed abstracts" --> ollama
-    digest -- "summarise" --> ollama
-    api -- "embed query" --> ollama
+    ingest -- "embed abstracts (Tailscale)" --> ollama
+    digest -- "summarise (Tailscale)" --> ollama
+    api -- "embed query (Tailscale)" --> ollama
     ingest -- "upsert by arXiv ID" --> pg
     digest -- "read new, write digest" --> pg
     api -- "vector + FTS → RRF" --> pg
