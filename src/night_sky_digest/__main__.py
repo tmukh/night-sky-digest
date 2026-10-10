@@ -23,6 +23,7 @@ def main() -> None:
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+    logging.getLogger("httpx").setLevel(logging.WARNING)  # one line per request drowns progress
     load_dotenv()  # local development; in the cluster DATABASE_URL comes from the environment
 
     with connect() as conn:

@@ -57,13 +57,17 @@ class Hit:
 def rrf(rankings: list[list[str]], k: int = 60) -> list[tuple[str, float]]:
     """Reciprocal-rank fusion: merge ranked lists of IDs into one ranking.
 
-    TODO(M2, Tarik): implement. Spec in tests/test_rrf.py.
+    Spec in tests/test_rrf.py.
 
     Each list is ordered best first. An ID at 1-based position r in a list earns 1 / (k + r)
     from that list; its fused score is the sum over all lists it appears in. Return
     (id, score) pairs sorted by score, highest first; break ties by ID so results are stable.
     """
-    raise NotImplementedError
+    scores: dict[str, float] = {}
+    for ranking in rankings:
+        for rank, arxiv_id in enumerate(ranking, start=1):
+            scores[arxiv_id] = scores.get(arxiv_id, 0.0) + 1.0 / (k + rank)
+    return sorted(scores.items(), key=lambda item: (-item[1], item[0]))
 
 
 def search(
