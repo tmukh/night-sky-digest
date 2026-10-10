@@ -7,7 +7,7 @@ A learning project and portfolio piece. Not affiliated with or endorsed by arXiv
 
 ## Status
 
-M0 in progress. See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
+M0 done (signed image on ghcr.io). See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
 for the design.
 
 ## Architecture
@@ -87,6 +87,18 @@ uv sync
 uv run uvicorn night_sky_digest.api:app --reload   # http://127.0.0.1:8000/healthz
 uv run pytest
 uv run ruff check . && uv run ruff format --check .
+```
+
+## Verify an image
+
+Images are signed in CI with keyless cosign; the signature is tied to this repo's workflow on `main`.
+
+```
+IMAGE=ghcr.io/tmukh/night-sky-digest@sha256:<digest>
+ID=https://github.com/tmukh/night-sky-digest/.github/workflows/image.yml@refs/heads/main
+ISSUER=https://token.actions.githubusercontent.com
+cosign verify --certificate-identity "$ID" --certificate-oidc-issuer "$ISSUER" "$IMAGE"
+cosign verify-attestation --type spdxjson --certificate-identity "$ID" --certificate-oidc-issuer "$ISSUER" "$IMAGE"
 ```
 
 ## Data rules

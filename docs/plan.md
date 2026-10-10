@@ -9,7 +9,7 @@ a line in CAREER-PLAN.md's progress log, and the ledger updated.
 
 | M | Deliverable | Gaps it closes | Core piece I write |
 |---|---|---|---|
-| M0 | Skeleton, CI (ruff, pytest), digest-pinned Dockerfile, Trivy + Syft SBOM + cosign, image on ghcr.io | supply chain | the CI gate: which Trivy severities fail the build, and why |
+| M0 ✅ | Skeleton, CI (ruff, pytest), digest-pinned Dockerfile, Trivy + Syft SBOM + cosign, image on ghcr.io | supply chain | the CI gate: which Trivy severities fail the build, and why |
 | M1 | Polite OAI-PMH client (rate limit, resumable, idempotent), schema, ~2 yr astro-ph backfill | data pipeline | the resumption-token loop with the rate limiter |
 | M2 | bge-m3 embeddings, pgvector + full-text search, reciprocal-rank fusion, FastAPI `/search` | RAG, FastAPI | the RRF merge |
 | M3 | 60–100 hand-labelled queries (≥20 non-English), recall@10 / nDCG@10 / MRR, CI gate (fail on >2 pt drop) | evaluation | recall@k and nDCG@k |
@@ -29,7 +29,7 @@ Each step is a PR on a branch, the same way homelab-dev works.
 4. **Supply chain.** Trivy scan (fail on fixable HIGH/CRITICAL), Syft SBOM (SPDX JSON) attached as an
    attestation, keyless cosign signing via GitHub OIDC. Verify the signature locally with `cosign verify`.
 
-Break-it lab for M0: bump the base image to an old digest with known CVEs, watch Trivy fail the build,
+Break-it lab for M0 (skipped on 2026-10-10, can be done later): bump the base image to an old digest with known CVEs, watch Trivy fail the build,
 read the report, fix with `git revert`.
 
 New concepts in M0 (taught when we start): image digest vs tag (builds on homelab-dev's open
