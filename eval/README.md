@@ -13,4 +13,5 @@ How the eval set is built (decision: [ADR 0003](../docs/adr/0003-llm-generated-e
 
 | File | Made by | Date |
 |---|---|---|
-| queries.yaml (q001–q060, English) | _model + date go here_ | |
+| queries.yaml (q001–q060, English) | Claude Opus 5.5 (claude.ai, medium effort, no web search), prompt `prompts/generate_queries_en.md` | 2026-10-10 |
+| pool.jsonl (1,571 pairs) | `python -m night_sky_digest.evals pool`: top 20 of lexical, semantic, hybrid | 2026-10-10 |
