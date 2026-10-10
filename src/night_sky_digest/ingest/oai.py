@@ -202,7 +202,7 @@ def harvest(
 ) -> Iterator[Page]:
     """Yield every page of a ListRecords harvest, politely.
 
-    TODO(M1, Tarik): implement. Each rule is pinned down by a test in tests/test_harvest.py.
+    Each rule is pinned down by a test in tests/test_harvest.py.
 
     1. First request: verb=ListRecords, metadataPrefix=arXiv, set, from, and until if given.
        Dates as YYYY-MM-DD.
@@ -218,4 +218,51 @@ def harvest(
     Parse each body with parse_page() and yield the Page before fetching the next one,
     so the caller can store each page before the next request goes out.
     """
-    raise NotImplementedError
+    params: dict[str, str] = {
+        "verb": "ListRecords",
+        "metadataPrefix": "arXiv",
+        "set": set_spec,
+        "from": from_.isoformat(),
+    }
+    if until is not None:
+        params["until"] = until.isoformat()
+
+    last_start: float | None = None  # monotonic time the previous request went out
+
+    while True:  # one iteration per page
+        retries = 0
+        server_wait = 0.0  # extra wait the server asked for (Retry-After)
+
+        while True:  # one iteration per attempt at this page
+            if last_start is not None:
+                remaining = min_interval - (clock.monotonic() - last_start)
+                pause = max(remaining, server_wait)
+                if pause > 0:
+                    clock.sleep(pause)
+            last_start = clock.monotonic()
+            response = fetch(params)
+
+            if response.status == 200:
+                break
+            if response.status != 503:
+                raise HarvestError(f"HTTP {response.status} for {params}")
+            if retries == max_retries:
+                raise HarvestError(f"still HTTP 503 after {max_retries} retries for {params}")
+            retries += 1
+            server_wait = _retry_after(response, default=min_interval)
+
+        page = parse_page(response.body)
+        yield page
+        if page.resumption_token is None:
+            return
+        # OAI-PMH: the token carries the whole query, so it must be the only argument.
+        params = {"verb": "ListRecords", "resumptionToken": page.resumption_token}
+
+
+def _retry_after(response: Response, default: float) -> float:
+    """Seconds from Retry-After, never below the politeness interval. HTTP-date values and a
+    missing header fall back to the default."""
+    try:
+        return max(float(response.headers.get("retry-after", "")), default)
+    except ValueError:
+        return default

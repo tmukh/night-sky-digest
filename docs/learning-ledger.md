@@ -10,3 +10,6 @@ Concepts already confident in homelab-dev's ledger are not repeated here.
 | CVE scanning and severity gates (Trivy) | M0 | confident | 2026-10-10 | re-quiz correct: a Debian fix turns an ignored finding into a fixable one, the gate goes red, we bump the digest |
 | SBOM (SPDX, Syft) | M0 | confident | 2026-10-10 | re-quiz correct: SBOM is bound to one digest; a Dockerfile builds different images over time |
 | Keyless signing (OIDC → Fulcio → Rekor, cosign) | M0 | new | 2026-10-10 | re-quiz: didn't know the stolen-password case. Weak spot, lab candidate |
+| OAI-PMH: verbs, sets, datestamp, resumption tokens | M1 | new | 2026-10-10 | harvest() written by Claude on request; needs explain-back |
+| Polite rate limiting (interval between request starts, monotonic clock, Retry-After) | M1 | new | 2026-10-10 | harvest() written by Claude on request |
+| Dependency injection for testability (fake clock, scripted server) | M1 | new | 2026-10-10 | |
