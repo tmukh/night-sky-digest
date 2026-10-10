@@ -25,3 +25,14 @@ datestamp is the last change, so re-versioned older papers pile up in recent mon
 Second run right after: 1 request (the checkpoint day 2026-10-09 again), 166 unchanged, 0 inserted,
 0 updated. That is the idempotent upsert working.
 
+M2: embedded all 51,282 abstracts with bge-m3 on the RTX 3060 Ti (~20 min, ~43/s). First queries
+against /search on this PC (cluster Postgres over the tailnet):
+- "Gravitationswellen von verschmelzenden Neutronensternen": lexical 0 hits (English stemming can't
+  match German words), semantic top 5 all about gravitational waves from neutron-star mergers.
+- "GW170817": lexical matches the exact token, including papers that only cite it as a constraint;
+  semantic finds afterglow/jet papers; hybrid puts papers found by both first (lex 6 / sem 3 etc.).
+- Russian FRB-localisation query: top 3 all FRB localisation. Arabic "dark matter in dwarf galaxies":
+  dark-matter papers, only one about dwarf spheroidals. Weakest language, matches the lower cosine
+  seen earlier (0.62). M3 needs non-English queries to measure this properly.
+- Latency 16-230 ms per query, mostly the query embedding.
+

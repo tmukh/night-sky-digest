@@ -7,7 +7,7 @@ A learning project and portfolio piece. Not affiliated with or endorsed by arXiv
 
 ## Status
 
-M1 done: 51k astro-ph abstracts ingested via polite OAI-PMH. See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
+M2 done: hybrid multilingual search over 51k astro-ph abstracts. See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
 for the design.
 
 ## Architecture
@@ -107,9 +107,21 @@ cosign verify-attestation --type spdxjson --certificate-identity "$ID" --certifi
 uv run python -m night_sky_digest migrate                                # apply schema migrations
 uv run python -m night_sky_digest ingest --backfill-from 2024-10-10      # first run only
 uv run python -m night_sky_digest ingest                                 # afterwards: since the checkpoint
+uv run python -m night_sky_digest embed                                  # embed new/changed papers (Ollama, bge-m3)
 ```
 
-`DATABASE_URL` comes from the environment or `.env`. Runs are recorded in `harvest_runs`.
+`DATABASE_URL` and `OLLAMA_URL` (default `http://localhost:11434`) come from the environment or `.env`.
+Runs are recorded in `harvest_runs`.
+
+## Search
+
+```
+uv run uvicorn night_sky_digest.api:app --reload
+```
+
+- `GET /search?q=fast+radio+burst+localisation&k=10&mode=hybrid` (or `lexical` / `semantic`)
+- Each hit carries `lexical_rank` and `semantic_rank`, so you can see why it ranked where it did.
+- Interactive API docs at `/docs`.
 
 ## Data rules
 
