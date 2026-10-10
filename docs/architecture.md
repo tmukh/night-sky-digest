@@ -33,9 +33,16 @@ Same pattern as application-tracker: the app repo publishes images, homelab-dev 
 - Backfill via OAI-PMH, not the bulk snapshot: 2 years of astro-ph is ~95k records in ~75 pages of
   ~1,300, so about 15 minutes at 1 request / 3 s (measured 2026-10-10: one page ≈ 5 MB, ≈ 10 s to generate).
 
+- Embeddings in their own table `paper_embeddings` (bge-m3, `vector(1024)`, cosine), so a model change
+  is a new table instead of a rewrite of `papers`. Re-embedded when `papers.modified_at` is newer.
+- HNSW index over IVFFlat: no training step and handles nightly inserts; `hnsw.ef_search = 100`
+  per query so a 50-candidate search isn't capped at the default 40.
+- Lexical half: stored `tsvector` (title weight A, abstract weight B, English stemming) with a GIN
+  index, queried with `websearch_to_tsquery`. Non-English queries rely on the embeddings.
+- Fusion: reciprocal-rank fusion with k = 60 over the top 50 of each half.
+
 ## Open decisions
 
 | Question | Decide by | Notes |
 |---|---|---|
-| Embedding dimension and index type (HNSW vs IVFFlat) | M2 | bge-m3 dense = 1024 dims. |
 | How the frozen eval snapshot gets into CI (pg_dump artifact vs fixture) | M3 | Must be small and deterministic. |
