@@ -7,7 +7,7 @@ A learning project and portfolio piece. Not affiliated with or endorsed by arXiv
 
 ## Status
 
-Planning. See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
+M0 in progress. See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
 for the design.
 
 ## Architecture
@@ -76,6 +76,15 @@ The app repo only publishes signed images. homelab-dev decides what runs.
 
 Deployment manifests do **not** live here. They live in
 [homelab-dev](https://github.com/tmukh/homelab-dev) under `deploy/apps/night-sky-digest/`, synced by Argo CD.
+
+## Run locally
+
+```
+uv sync
+uv run uvicorn night_sky_digest.api:app --reload   # http://127.0.0.1:8000/healthz
+uv run pytest
+uv run ruff check . && uv run ruff format --check .
+```
 
 ## Data rules
 
