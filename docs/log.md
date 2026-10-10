@@ -11,3 +11,9 @@ First Trivy scan of the image (python:3.12-slim-trixie, Debian 13.7):
 - Debian: 166 findings, 0 CRITICAL, 44 HIGH. The 44 HIGH are only 8 distinct CVEs, because util-linux
   builds 9 binary packages and Trivy counts each one. None of the 44 has a fixed version yet.
 - Python: 6 (MEDIUM/LOW), all in the base image's pip 25.0.1. Our own dependencies: 0.
+
+M0 shipped. Trivy gate: fail on fixable HIGH/CRITICAL only, full report alongside. Removed pip from the
+runtime image (all 6 Python findings gone). First signed image:
+`ghcr.io/tmukh/night-sky-digest@sha256:650fb7fb397bdc061cfdf22c1bf2bb0ab81ae84aa562445e8b88fb00907697d2`.
+`cosign verify` passes with this repo's workflow identity and fails with any other.
+Required checks on main: `test`, `image`. Break-it lab skipped.
