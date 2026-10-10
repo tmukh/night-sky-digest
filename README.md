@@ -7,7 +7,7 @@ A learning project and portfolio piece. Not affiliated with or endorsed by arXiv
 
 ## Status
 
-M0 done (signed image on ghcr.io). See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
+M1 done: 51k astro-ph abstracts ingested via polite OAI-PMH. See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
 for the design.
 
 ## Architecture
@@ -100,6 +100,16 @@ ISSUER=https://token.actions.githubusercontent.com
 cosign verify --certificate-identity "$ID" --certificate-oidc-issuer "$ISSUER" "$IMAGE"
 cosign verify-attestation --type spdxjson --certificate-identity "$ID" --certificate-oidc-issuer "$ISSUER" "$IMAGE"
 ```
+
+## Ingest
+
+```
+uv run python -m night_sky_digest migrate                                # apply schema migrations
+uv run python -m night_sky_digest ingest --backfill-from 2024-10-10      # first run only
+uv run python -m night_sky_digest ingest                                 # afterwards: since the checkpoint
+```
+
+`DATABASE_URL` comes from the environment or `.env`. Runs are recorded in `harvest_runs`.
 
 ## Data rules
 
