@@ -33,3 +33,6 @@ jobs:
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run pytest
+      # Retrieval eval on the frozen snapshot: fails if hybrid recall@10 or nDCG@10 drops > 2 points.
+      - name: Eval gate
+        run: uv run python -m night_sky_digest.evals gate

@@ -8,7 +8,12 @@ How the eval set is built (decision: [ADR 0003](../docs/adr/0003-llm-generated-e
 3. **Judge**: two local Ollama models label each pooled paper 0 (not relevant), 1 (partly), 2 (relevant).
 4. **Resolve**: where the two judges differ, a third (`llama3.1:8b`) grades too; the median wins.
    A random sample of 30 final labels is audited by hand.
-5. **Metrics**: recall@10, nDCG@10, MRR on a frozen snapshot, gated in CI.
+5. **Metrics**: recall@10, nDCG@10, MRR.
+6. **CI gate**: `snapshot/` freezes the 1,551 pooled papers, 2,000 random distractors, their bge-m3
+   embeddings (float16) and the query embeddings, about 9 MB. CI loads it into its Postgres container
+   and runs `python -m night_sky_digest.evals gate`, which fails if hybrid recall@10 or nDCG@10 drops
+   more than 0.02 below `baseline.json`. After an intended improvement, run `gate --update-baseline`
+   and commit the new baseline with the change that caused it.
 
 ## Provenance
 

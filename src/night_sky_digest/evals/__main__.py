@@ -1,14 +1,16 @@
-"""python -m night_sky_digest.evals {pool,judge,agree,resolve,audit,score}"""
+"""python -m night_sky_digest.evals <command>; see --help for the list."""
 
 import argparse
 import json
 import logging
+import sys
 from collections import Counter
 from pathlib import Path
 
+import psycopg
 from dotenv import load_dotenv
 
-from night_sky_digest.db import connect
+from night_sky_digest.db import connect, test_database_url
 from night_sky_digest.embed import OllamaEmbedder
 from night_sky_digest.evals.agreement import cohen_kappa, confusion
 from night_sky_digest.evals.jsonl import read_jsonl, write_jsonl
@@ -17,11 +19,20 @@ from night_sky_digest.evals.pool import build_pool
 from night_sky_digest.evals.queries import EVAL_DIR, load_queries
 from night_sky_digest.evals.resolve import audit_report, audit_sample, resolve, write_audit
 from night_sky_digest.evals.score import score
+from night_sky_digest.evals.snapshot import (
+    GATED_METRICS,
+    GATED_MODE,
+    TOLERANCE,
+    export_snapshot,
+    run_gate,
+)
 
 POOL = EVAL_DIR / "pool.jsonl"
 QRELS = EVAL_DIR / "qrels.jsonl"
 JUDGES = ("qwen2.5:7b", "gemma4:12b")
 TIEBREAKER = "llama3.1:8b"
+SNAPSHOT = EVAL_DIR / "snapshot"
+BASELINE = EVAL_DIR / "baseline.json"
 
 
 def main() -> None:
@@ -38,6 +49,9 @@ def main() -> None:
     sub.add_parser("audit-report", help="agreement between your audit grades and the labels")
     p_score = sub.add_parser("score", help="recall@k, nDCG@k, MRR per search mode")
     p_score.add_argument("-k", type=int, default=10)
+    sub.add_parser("snapshot", help="freeze papers, embeddings and query vectors for CI")
+    p_gate = sub.add_parser("gate", help="score the snapshot, fail on a regression vs baseline")
+    p_gate.add_argument("--update-baseline", action="store_true")
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -97,6 +111,26 @@ def main() -> None:
         embedder.close()
         (EVAL_DIR / "results.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
         print_summary(result)
+    elif args.command == "snapshot":
+        embedder = OllamaEmbedder()
+        with connect() as conn:
+            manifest = export_snapshot(conn, embedder, queries, read_jsonl(POOL), SNAPSHOT)
+        embedder.close()
+        logging.info("snapshot: %s", manifest)
+    elif args.command == "gate":
+        url = test_database_url()
+        if url is None:
+            sys.exit("gate needs TEST_DATABASE_URL or DATABASE_URL")
+        with psycopg.connect(url) as conn:
+            passed, current, baseline = run_gate(
+                conn, SNAPSHOT, queries, read_jsonl(QRELS), BASELINE, args.update_baseline
+            )
+        for m in GATED_METRICS:
+            now = current[GATED_MODE][m]
+            was = f"baseline {baseline[GATED_MODE][m]:.3f}" if baseline else "baseline written"
+            print(f"{GATED_MODE} {m}: {now:.3f} ({was}, tolerance {TOLERANCE})")
+        if not passed:
+            sys.exit("eval gate failed: a gated metric dropped more than the tolerance")
 
 
 def report_agreement(path_a: Path, path_b: Path) -> None:
