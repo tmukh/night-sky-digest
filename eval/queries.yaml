@@ -551,3 +551,219 @@
     population discussion.
   subfield: SR
   kind: contrarian
+- id: q061
+  lang: de
+  query: warum ist die hubble-konstante aus cepheiden höher als aus dem CMB
+  intent: >
+    Papers that examine the Hubble tension between local distance-ladder measurements and early-universe
+    inferences, either by measuring H0 or by proposing or testing physical explanations. Not relevant:
+    papers that only use H0 as a fixed input, or general dark energy constraints with no H0 discussion.
+  subfield: CO
+  kind: question
+  translation_of: q005
+
+- id: q062
+  lang: de
+  query: babyplaneten die noch in staubringen um junge sterne entstehen
+  intent: >
+    Papers reporting detections or candidates of protoplanets embedded in protoplanetary disks (e.g.
+    kinematic kinks, circumplanetary disks, direct imaging in gaps) or modelling planets carving disk
+    substructures. Not relevant: disk chemistry or dust evolution with no connection to forming planets.
+  subfield: EP
+  kind: synonym
+  translation_of: q016
+
+- id: q063
+  lang: de
+  query: Was sind die Little Red Dots auf den JWST-Bildern?
+  intent: >
+    Papers that characterise or explain "little red dots", the compact red sources at high redshift
+    discovered with JWST, whether as dust-reddened AGN, compact starbursts, black hole stars or dense gas
+    envelopes. Not relevant: general high-redshift AGN or dusty galaxies that do not address this
+    population.
+  subfield: GA
+  kind: question
+  translation_of: q025
+
+- id: q064
+  lang: de
+  query: fast radio bursts die nicht von magnetaren stammen
+  intent: >
+    Papers arguing that some or all fast radio bursts arise from sources other than magnetars, such as
+    old stellar populations, compact binaries, accreting systems or globular clusters, or challenging
+    magnetar models. Not relevant: papers that assume a magnetar origin, or FRB localisation without
+    source discussion.
+  subfield: HE
+  kind: contrarian
+  translation_of: q040
+
+- id: q065
+  lang: de
+  query: Sternbeben verraten das Innere Roter Riesen
+  intent: >
+    Papers using asteroseismology of red giants (mixed modes, period spacing, rotational splitting) to
+    probe cores, evolutionary stages, core rotation or internal magnetic fields. Not relevant:
+    asteroseismology of solar-like main-sequence stars only, or red giant spectroscopy.
+  subfield: SR
+  kind: synonym
+  translation_of: q057
+
+- id: q066
+  lang: de
+  query: Lithiumproblem der primordialen Nukleosynthese
+  intent: >
+    Papers on the cosmological lithium problem, the mismatch between Big Bang nucleosynthesis predictions
+    of lithium-7 and abundances measured in old metal-poor stars, including nuclear, stellar depletion or
+    new-physics explanations. Not relevant: BBN constraints on deuterium or helium alone, or lithium in
+    young stars and planets with no link to the primordial abundance.
+  subfield: CO
+  kind: topical
+
+- id: q067
+  lang: de
+  query: massenkalibrierung von galaxienhaufen mit schwachem gravitationslinseneffekt
+  intent: >
+    Papers that calibrate galaxy cluster masses or mass-observable relations using weak gravitational
+    lensing, including stacked shear profiles and systematics such as miscentring or source dilution,
+    often for cluster cosmology. Not relevant: strong lensing mass models of individual clusters, or
+    cluster masses from X-ray or SZ data only.
+  subfield: CO
+  kind: method
+
+- id: q068
+  lang: de
+  query: Quasar-Dipol widerlegt das kosmologische Prinzip
+  intent: >
+    Papers arguing that the dipole in the number counts of distant quasars or radio galaxies is too large
+    to be a kinematic effect, implying a violation of large-scale isotropy or of the cosmological
+    principle. Papers finding consistency with the CMB dipole are relevant only if they directly test
+    this anomaly. Not relevant: the CMB dipole alone, or general tests of statistical isotropy in the CMB.
+  subfield: CO
+  kind: contrarian
+
+- id: q069
+  lang: de
+  query: DART Einschlag Dimorphos Auswurfmaterial
+  intent: >
+    Papers on the outcome of the DART impact on Dimorphos, including ejecta, the debris tail, momentum
+    transfer, changes to the binary orbit or shape, and preparation for the Hera mission. Not relevant:
+    general planetary defence studies or other binary asteroids with no reference to DART or Dimorphos.
+  subfield: EP
+  kind: identifier
+
+- id: q070
+  lang: de
+  query: gibt es plattentektonik auf super-erden
+  intent: >
+    Papers that model or constrain the tectonic regime (plate tectonics, stagnant lid, episodic overturn)
+    of rocky exoplanets, especially super-Earths, and its dependence on mass, composition or interior
+    heating. Not relevant: plate tectonics on Earth only, or exoplanet interior structure without
+    tectonics.
+  subfield: EP
+  kind: question
+
+- id: q071
+  lang: de
+  query: Exoplaneten direkt beobachten mit optischer Interferometrie GRAVITY
+  intent: >
+    Papers that use optical or near-infrared long-baseline interferometry, especially VLTI/GRAVITY, to
+    detect, characterise or measure orbits and spectra of exoplanets or brown dwarf companions. Not
+    relevant: single-telescope coronagraphic imaging, or interferometry of stars or AGN without companions.
+  subfield: EP
+  kind: method
+
+- id: q072
+  lang: de
+  query: sterne die aus dem zentrum der milchstraße herausgeschleudert werden
+  intent: >
+    Papers on hypervelocity stars and other high-velocity stars ejected from the Galactic Centre, for
+    example via the Hills mechanism, including searches, kinematic origins and constraints on Sgr A* or
+    the Galactic potential. Not relevant: runaway stars from supernova kicks in the disk, or stellar
+    orbits close to Sgr A* without ejection.
+  subfield: GA
+  kind: synonym
+
+- id: q073
+  lang: de
+  query: Gaia-Enceladus-Sausage Verschmelzung
+  intent: >
+    Papers studying the Gaia-Enceladus/Sausage accretion event, including its stellar debris, chemistry,
+    mass, timing and influence on the formation of the Milky Way's inner halo and thick disk, or arguing
+    whether it was a single merger. Not relevant: other Milky Way accretion events or stellar streams that
+    do not discuss Gaia-Enceladus.
+  subfield: GA
+  kind: identifier
+
+- id: q074
+  lang: de
+  query: galaktische PeVatrone und Mikroquasare
+  intent: >
+    Papers that identify or model Galactic sources accelerating cosmic rays to PeV energies, especially
+    microquasars and other candidates detected at ultra-high gamma-ray energies (e.g. LHAASO, HAWC). Not
+    relevant: extragalactic gamma-ray sources, or microquasars studied only in X-rays without particle
+    acceleration.
+  subfield: HE
+  kind: topical
+
+- id: q075
+  lang: de
+  query: Röntgen-Reverberation-Mapping bei aktiven Galaxienkernen
+  intent: >
+    Papers that use X-ray reverberation (time lags between continuum and reflected emission such as the
+    iron K line) to map the inner accretion flow, corona height or black hole spin in AGN. Not relevant:
+    optical broad-line region reverberation mapping, or X-ray reverberation in stellar-mass binaries only.
+  subfield: HE
+  kind: method
+
+- id: q076
+  lang: de
+  query: Kalibrierung photometrischer Rotverschiebungen mit Clustering-Redshifts
+  intent: >
+    Papers that calibrate or validate photometric redshift distributions using clustering (cross-
+    correlation) redshifts with spectroscopic samples, for example for weak lensing surveys. Not relevant:
+    photometric redshift estimation by template fitting or machine learning without clustering-based
+    calibration.
+  subfield: IM
+  kind: method
+
+- id: q077
+  lang: de
+  query: Einstein-Teleskop Standort
+  intent: >
+    Papers on the Einstein Telescope gravitational wave observatory concerning site selection,
+    seismic and Newtonian noise at candidate sites, or detector configuration choices (triangle versus two
+    L-shaped detectors). Not relevant: Einstein Telescope science forecasts with no site or design content,
+    or Cosmic Explorer only.
+  subfield: IM
+  kind: identifier
+
+- id: q078
+  lang: de
+  query: satellitenspuren in optischen teleskopaufnahmen
+  intent: >
+    Papers that measure, model or mitigate the brightness and streaks of satellites in optical and
+    infrared astronomical images, including detection and masking algorithms. Not relevant: radio
+    interference from satellites, or space debris tracking that is not about effects on astronomy.
+  subfield: IM
+  kind: topical
+
+- id: q079
+  lang: de
+  query: Kristallisation und Abkühlung Weißer Zwerge
+  intent: >
+    Papers on core crystallization in white dwarfs and its effect on cooling, including the Gaia Q branch,
+    phase separation, sedimentation and cooling delays used in age dating. Not relevant: white dwarf
+    planetary debris or binaries without cooling physics.
+  subfield: SR
+  kind: topical
+
+- id: q080
+  lang: de
+  query: wie entstehen switchbacks im sonnenwind
+  intent: >
+    Papers that observe or explain magnetic field reversals called switchbacks in the solar wind, for
+    example with Parker Solar Probe or Solar Orbiter, and their link to interchange reconnection,
+    turbulence or supergranulation. Not relevant: solar wind turbulence or heating studies that do not
+    discuss switchbacks.
+  subfield: SR
+  kind: question

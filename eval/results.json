@@ -3,265 +3,265 @@
   "summary": {
     "overall": {
       "lexical": {
-        "recall@10": 0.217,
-        "ndcg@10": 0.447,
-        "rr": 0.701,
-        "n": 60
+        "recall@10": 0.163,
+        "ndcg@10": 0.335,
+        "rr": 0.526,
+        "n": 80
       },
       "semantic": {
-        "recall@10": 0.471,
-        "ndcg@10": 0.691,
-        "rr": 0.917,
-        "n": 60
+        "recall@10": 0.51,
+        "ndcg@10": 0.686,
+        "rr": 0.895,
+        "n": 80
       },
       "hybrid": {
-        "recall@10": 0.493,
-        "ndcg@10": 0.738,
-        "rr": 0.933,
-        "n": 60
+        "recall@10": 0.527,
+        "ndcg@10": 0.722,
+        "rr": 0.907,
+        "n": 80
       }
     },
     "by_kind": {
       "contrarian": {
         "lexical": {
-          "recall@10": 0.019,
-          "ndcg@10": 0.023,
-          "rr": 0.042,
-          "n": 6
+          "recall@10": 0.014,
+          "ndcg@10": 0.017,
+          "rr": 0.031,
+          "n": 8
         },
         "semantic": {
-          "recall@10": 0.604,
-          "ndcg@10": 0.509,
-          "rr": 0.756,
-          "n": 6
+          "recall@10": 0.593,
+          "ndcg@10": 0.486,
+          "rr": 0.654,
+          "n": 8
         },
         "hybrid": {
-          "recall@10": 0.53,
-          "ndcg@10": 0.484,
-          "rr": 0.721,
-          "n": 6
+          "recall@10": 0.537,
+          "ndcg@10": 0.467,
+          "rr": 0.628,
+          "n": 8
         }
       },
       "identifier": {
         "lexical": {
-          "recall@10": 0.391,
-          "ndcg@10": 0.771,
-          "rr": 0.903,
-          "n": 12
+          "recall@10": 0.313,
+          "ndcg@10": 0.617,
+          "rr": 0.722,
+          "n": 15
         },
         "semantic": {
-          "recall@10": 0.419,
-          "ndcg@10": 0.787,
-          "rr": 0.944,
-          "n": 12
+          "recall@10": 0.462,
+          "ndcg@10": 0.796,
+          "rr": 0.956,
+          "n": 15
         },
         "hybrid": {
-          "recall@10": 0.451,
-          "ndcg@10": 0.85,
-          "rr": 0.958,
-          "n": 12
+          "recall@10": 0.488,
+          "ndcg@10": 0.847,
+          "rr": 0.967,
+          "n": 15
         }
       },
       "method": {
         "lexical": {
-          "recall@10": 0.276,
-          "ndcg@10": 0.556,
-          "rr": 1.0,
-          "n": 12
+          "recall@10": 0.207,
+          "ndcg@10": 0.417,
+          "rr": 0.75,
+          "n": 16
         },
         "semantic": {
-          "recall@10": 0.454,
-          "ndcg@10": 0.677,
-          "rr": 0.958,
-          "n": 12
+          "recall@10": 0.524,
+          "ndcg@10": 0.643,
+          "rr": 0.917,
+          "n": 16
         },
         "hybrid": {
-          "recall@10": 0.519,
-          "ndcg@10": 0.776,
-          "rr": 1.0,
-          "n": 12
+          "recall@10": 0.572,
+          "ndcg@10": 0.717,
+          "rr": 0.948,
+          "n": 16
         }
       },
       "question": {
         "lexical": {
-          "recall@10": 0.098,
-          "ndcg@10": 0.235,
-          "rr": 0.55,
-          "n": 10
+          "recall@10": 0.07,
+          "ndcg@10": 0.168,
+          "rr": 0.393,
+          "n": 14
         },
         "semantic": {
-          "recall@10": 0.474,
-          "ndcg@10": 0.698,
-          "rr": 0.883,
-          "n": 10
+          "recall@10": 0.473,
+          "ndcg@10": 0.716,
+          "rr": 0.857,
+          "n": 14
         },
         "hybrid": {
-          "recall@10": 0.463,
-          "ndcg@10": 0.672,
-          "rr": 0.883,
-          "n": 10
+          "recall@10": 0.466,
+          "ndcg@10": 0.697,
+          "rr": 0.857,
+          "n": 14
         }
       },
       "synonym": {
         "lexical": {
-          "recall@10": 0.058,
-          "ndcg@10": 0.071,
-          "rr": 0.25,
-          "n": 8
+          "recall@10": 0.042,
+          "ndcg@10": 0.052,
+          "rr": 0.182,
+          "n": 11
         },
         "semantic": {
-          "recall@10": 0.612,
-          "ndcg@10": 0.623,
-          "rr": 0.854,
-          "n": 8
+          "recall@10": 0.636,
+          "ndcg@10": 0.617,
+          "rr": 0.848,
+          "n": 11
         },
         "hybrid": {
-          "recall@10": 0.634,
-          "ndcg@10": 0.627,
-          "rr": 0.917,
-          "n": 8
+          "recall@10": 0.652,
+          "ndcg@10": 0.62,
+          "rr": 0.894,
+          "n": 11
         }
       },
       "topical": {
         "lexical": {
-          "recall@10": 0.29,
-          "ndcg@10": 0.654,
-          "rr": 0.958,
-          "n": 12
+          "recall@10": 0.217,
+          "ndcg@10": 0.49,
+          "rr": 0.719,
+          "n": 16
         },
         "semantic": {
-          "recall@10": 0.376,
-          "ndcg@10": 0.739,
+          "recall@10": 0.446,
+          "ndcg@10": 0.749,
           "rr": 1.0,
-          "n": 12
+          "n": 16
         },
         "hybrid": {
-          "recall@10": 0.422,
-          "ndcg@10": 0.845,
+          "recall@10": 0.48,
+          "ndcg@10": 0.828,
           "rr": 1.0,
-          "n": 12
+          "n": 16
         }
       }
     },
     "by_subfield": {
       "CO": {
         "lexical": {
-          "recall@10": 0.223,
-          "ndcg@10": 0.5,
-          "rr": 0.7,
-          "n": 10
+          "recall@10": 0.16,
+          "ndcg@10": 0.357,
+          "rr": 0.5,
+          "n": 14
         },
         "semantic": {
-          "recall@10": 0.449,
-          "ndcg@10": 0.679,
-          "rr": 0.867,
-          "n": 10
+          "recall@10": 0.521,
+          "ndcg@10": 0.691,
+          "rr": 0.81,
+          "n": 14
         },
         "hybrid": {
-          "recall@10": 0.47,
-          "ndcg@10": 0.768,
-          "rr": 0.933,
-          "n": 10
+          "recall@10": 0.536,
+          "ndcg@10": 0.755,
+          "rr": 0.857,
+          "n": 14
         }
       },
       "EP": {
         "lexical": {
-          "recall@10": 0.14,
-          "ndcg@10": 0.305,
-          "rr": 0.55,
-          "n": 10
+          "recall@10": 0.1,
+          "ndcg@10": 0.218,
+          "rr": 0.393,
+          "n": 14
         },
         "semantic": {
-          "recall@10": 0.518,
-          "ndcg@10": 0.704,
-          "rr": 0.853,
-          "n": 10
+          "recall@10": 0.534,
+          "ndcg@10": 0.656,
+          "rr": 0.8,
+          "n": 14
         },
         "hybrid": {
-          "recall@10": 0.539,
-          "ndcg@10": 0.704,
-          "rr": 0.853,
-          "n": 10
+          "recall@10": 0.549,
+          "ndcg@10": 0.656,
+          "rr": 0.8,
+          "n": 14
         }
       },
       "GA": {
         "lexical": {
-          "recall@10": 0.257,
-          "ndcg@10": 0.509,
-          "rr": 0.733,
-          "n": 10
+          "recall@10": 0.198,
+          "ndcg@10": 0.392,
+          "rr": 0.564,
+          "n": 13
         },
         "semantic": {
-          "recall@10": 0.47,
-          "ndcg@10": 0.687,
-          "rr": 0.9,
-          "n": 10
+          "recall@10": 0.519,
+          "ndcg@10": 0.737,
+          "rr": 0.923,
+          "n": 13
         },
         "hybrid": {
-          "recall@10": 0.555,
-          "ndcg@10": 0.795,
-          "rr": 0.95,
-          "n": 10
+          "recall@10": 0.585,
+          "ndcg@10": 0.82,
+          "rr": 0.962,
+          "n": 13
         }
       },
       "HE": {
         "lexical": {
-          "recall@10": 0.249,
-          "ndcg@10": 0.553,
-          "rr": 0.825,
-          "n": 10
+          "recall@10": 0.191,
+          "ndcg@10": 0.425,
+          "rr": 0.635,
+          "n": 13
         },
         "semantic": {
-          "recall@10": 0.378,
-          "ndcg@10": 0.624,
-          "rr": 0.933,
-          "n": 10
+          "recall@10": 0.425,
+          "ndcg@10": 0.604,
+          "rr": 0.887,
+          "n": 13
         },
         "hybrid": {
-          "recall@10": 0.388,
-          "ndcg@10": 0.69,
-          "rr": 0.912,
-          "n": 10
+          "recall@10": 0.433,
+          "ndcg@10": 0.655,
+          "rr": 0.871,
+          "n": 13
         }
       },
       "IM": {
         "lexical": {
-          "recall@10": 0.183,
-          "ndcg@10": 0.432,
-          "rr": 0.7,
-          "n": 10
+          "recall@10": 0.141,
+          "ndcg@10": 0.332,
+          "rr": 0.538,
+          "n": 13
         },
         "semantic": {
-          "recall@10": 0.504,
-          "ndcg@10": 0.79,
+          "recall@10": 0.531,
+          "ndcg@10": 0.759,
           "rr": 1.0,
-          "n": 10
+          "n": 13
         },
         "hybrid": {
-          "recall@10": 0.515,
-          "ndcg@10": 0.796,
+          "recall@10": 0.54,
+          "ndcg@10": 0.764,
           "rr": 1.0,
-          "n": 10
+          "n": 13
         }
       },
       "SR": {
         "lexical": {
-          "recall@10": 0.252,
-          "ndcg@10": 0.384,
-          "rr": 0.7,
-          "n": 10
+          "recall@10": 0.193,
+          "ndcg@10": 0.296,
+          "rr": 0.538,
+          "n": 13
         },
         "semantic": {
-          "recall@10": 0.508,
-          "ndcg@10": 0.663,
-          "rr": 0.95,
-          "n": 10
+          "recall@10": 0.527,
+          "ndcg@10": 0.673,
+          "rr": 0.962,
+          "n": 13
         },
         "hybrid": {
-          "recall@10": 0.492,
-          "ndcg@10": 0.675,
-          "rr": 0.95,
-          "n": 10
+          "recall@10": 0.515,
+          "ndcg@10": 0.683,
+          "rr": 0.962,
+          "n": 13
         }
       }
     }
@@ -808,6 +808,186 @@
       "rr": 0.0
     },
     {
+      "mode": "lexical",
+      "query_id": "q061",
+      "kind": "question",
+      "subfield": "CO",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q062",
+      "kind": "synonym",
+      "subfield": "EP",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q063",
+      "kind": "question",
+      "subfield": "GA",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q064",
+      "kind": "contrarian",
+      "subfield": "HE",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q065",
+      "kind": "synonym",
+      "subfield": "SR",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q066",
+      "kind": "topical",
+      "subfield": "CO",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q067",
+      "kind": "method",
+      "subfield": "CO",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q068",
+      "kind": "contrarian",
+      "subfield": "CO",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q069",
+      "kind": "identifier",
+      "subfield": "EP",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q070",
+      "kind": "question",
+      "subfield": "EP",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q071",
+      "kind": "method",
+      "subfield": "EP",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q072",
+      "kind": "synonym",
+      "subfield": "GA",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q073",
+      "kind": "identifier",
+      "subfield": "GA",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q074",
+      "kind": "topical",
+      "subfield": "HE",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q075",
+      "kind": "method",
+      "subfield": "HE",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q076",
+      "kind": "method",
+      "subfield": "IM",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q077",
+      "kind": "identifier",
+      "subfield": "IM",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q078",
+      "kind": "topical",
+      "subfield": "IM",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q079",
+      "kind": "topical",
+      "subfield": "SR",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "mode": "lexical",
+      "query_id": "q080",
+      "kind": "question",
+      "subfield": "SR",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "rr": 0.0
+    },
+    {
       "mode": "semantic",
       "query_id": "q001",
       "kind": "topical",
@@ -1348,6 +1528,186 @@
       "rr": 1.0
     },
     {
+      "mode": "semantic",
+      "query_id": "q061",
+      "kind": "question",
+      "subfield": "CO",
+      "recall@10": 0.5263157894736842,
+      "ndcg@10": 0.8969504402810679,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q062",
+      "kind": "synonym",
+      "subfield": "EP",
+      "recall@10": 0.6,
+      "ndcg@10": 0.49110535965260665,
+      "rr": 0.5
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q063",
+      "kind": "question",
+      "subfield": "GA",
+      "recall@10": 0.5263157894736842,
+      "ndcg@10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q064",
+      "kind": "contrarian",
+      "subfield": "HE",
+      "recall@10": 0.5,
+      "ndcg@10": 0.12060132331410636,
+      "rr": 0.2
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q065",
+      "kind": "synonym",
+      "subfield": "SR",
+      "recall@10": 0.5,
+      "ndcg@10": 0.5421856113257802,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q066",
+      "kind": "topical",
+      "subfield": "CO",
+      "recall@10": 0.6666666666666666,
+      "ndcg@10": 0.8803169133311917,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q067",
+      "kind": "method",
+      "subfield": "CO",
+      "recall@10": 1.0,
+      "ndcg@10": 0.4011777690819395,
+      "rr": 0.16666666666666666
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q068",
+      "kind": "contrarian",
+      "subfield": "CO",
+      "recall@10": 0.6153846153846154,
+      "ndcg@10": 0.7136540102475307,
+      "rr": 0.5
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q069",
+      "kind": "identifier",
+      "subfield": "EP",
+      "recall@10": 0.7777777777777778,
+      "ndcg@10": 0.9332323362840131,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q070",
+      "kind": "question",
+      "subfield": "EP",
+      "recall@10": 0.3333333333333333,
+      "ndcg@10": 0.19815748579474593,
+      "rr": 0.16666666666666666
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q071",
+      "kind": "method",
+      "subfield": "EP",
+      "recall@10": 0.5833333333333334,
+      "ndcg@10": 0.5184940005674225,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q072",
+      "kind": "synonym",
+      "subfield": "GA",
+      "recall@10": 1.0,
+      "ndcg@10": 0.7674759682275469,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q073",
+      "kind": "identifier",
+      "subfield": "GA",
+      "recall@10": 0.5263157894736842,
+      "ndcg@10": 0.9432379215722527,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q074",
+      "kind": "topical",
+      "subfield": "HE",
+      "recall@10": 0.5,
+      "ndcg@10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q075",
+      "kind": "method",
+      "subfield": "HE",
+      "recall@10": 0.75,
+      "ndcg@10": 0.49528543669637615,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q076",
+      "kind": "method",
+      "subfield": "IM",
+      "recall@10": 0.6,
+      "ndcg@10": 0.7441130702219045,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q077",
+      "kind": "identifier",
+      "subfield": "IM",
+      "recall@10": 0.6,
+      "ndcg@10": 0.6244446527952453,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q078",
+      "kind": "topical",
+      "subfield": "IM",
+      "recall@10": 0.6666666666666666,
+      "ndcg@10": 0.5996273050952509,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q079",
+      "kind": "topical",
+      "subfield": "SR",
+      "recall@10": 0.7777777777777778,
+      "ndcg@10": 0.6377429235461345,
+      "rr": 1.0
+    },
+    {
+      "mode": "semantic",
+      "query_id": "q080",
+      "kind": "question",
+      "subfield": "SR",
+      "recall@10": 0.5,
+      "ndcg@10": 0.9432379215722527,
+      "rr": 1.0
+    },
+    {
       "mode": "hybrid",
       "query_id": "q001",
       "kind": "topical",
@@ -1885,6 +2245,186 @@
       "subfield": "SR",
       "recall@10": 0.3333333333333333,
       "ndcg@10": 0.4692787260227565,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q061",
+      "kind": "question",
+      "subfield": "CO",
+      "recall@10": 0.5263157894736842,
+      "ndcg@10": 0.8969504402810679,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q062",
+      "kind": "synonym",
+      "subfield": "EP",
+      "recall@10": 0.6,
+      "ndcg@10": 0.49110535965260665,
+      "rr": 0.5
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q063",
+      "kind": "question",
+      "subfield": "GA",
+      "recall@10": 0.5263157894736842,
+      "ndcg@10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q064",
+      "kind": "contrarian",
+      "subfield": "HE",
+      "recall@10": 0.5,
+      "ndcg@10": 0.12060132331410636,
+      "rr": 0.2
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q065",
+      "kind": "synonym",
+      "subfield": "SR",
+      "recall@10": 0.5,
+      "ndcg@10": 0.5421856113257802,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q066",
+      "kind": "topical",
+      "subfield": "CO",
+      "recall@10": 0.6666666666666666,
+      "ndcg@10": 0.8803169133311917,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q067",
+      "kind": "method",
+      "subfield": "CO",
+      "recall@10": 1.0,
+      "ndcg@10": 0.4011777690819395,
+      "rr": 0.16666666666666666
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q068",
+      "kind": "contrarian",
+      "subfield": "CO",
+      "recall@10": 0.6153846153846154,
+      "ndcg@10": 0.7136540102475307,
+      "rr": 0.5
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q069",
+      "kind": "identifier",
+      "subfield": "EP",
+      "recall@10": 0.7777777777777778,
+      "ndcg@10": 0.9332323362840131,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q070",
+      "kind": "question",
+      "subfield": "EP",
+      "recall@10": 0.3333333333333333,
+      "ndcg@10": 0.19815748579474593,
+      "rr": 0.16666666666666666
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q071",
+      "kind": "method",
+      "subfield": "EP",
+      "recall@10": 0.5833333333333334,
+      "ndcg@10": 0.5184940005674225,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q072",
+      "kind": "synonym",
+      "subfield": "GA",
+      "recall@10": 1.0,
+      "ndcg@10": 0.7674759682275469,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q073",
+      "kind": "identifier",
+      "subfield": "GA",
+      "recall@10": 0.5263157894736842,
+      "ndcg@10": 0.9432379215722527,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q074",
+      "kind": "topical",
+      "subfield": "HE",
+      "recall@10": 0.5,
+      "ndcg@10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q075",
+      "kind": "method",
+      "subfield": "HE",
+      "recall@10": 0.75,
+      "ndcg@10": 0.49528543669637615,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q076",
+      "kind": "method",
+      "subfield": "IM",
+      "recall@10": 0.6,
+      "ndcg@10": 0.7441130702219045,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q077",
+      "kind": "identifier",
+      "subfield": "IM",
+      "recall@10": 0.6,
+      "ndcg@10": 0.6244446527952453,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q078",
+      "kind": "topical",
+      "subfield": "IM",
+      "recall@10": 0.6666666666666666,
+      "ndcg@10": 0.5996273050952509,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q079",
+      "kind": "topical",
+      "subfield": "SR",
+      "recall@10": 0.7777777777777778,
+      "ndcg@10": 0.6377429235461345,
+      "rr": 1.0
+    },
+    {
+      "mode": "hybrid",
+      "query_id": "q080",
+      "kind": "question",
+      "subfield": "SR",
+      "recall@10": 0.5,
+      "ndcg@10": 0.9432379215722527,
       "rr": 1.0
     }
   ]

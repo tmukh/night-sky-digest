@@ -38,7 +38,7 @@ BASELINE = EVAL_DIR / "baseline.json"
 def main() -> None:
     parser = argparse.ArgumentParser(prog="night_sky_digest.evals")
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("pool", help="build eval/pool.jsonl from the three search modes")
+    sub.add_parser("pool", help="add queries not yet pooled to eval/pool.jsonl")
     p_judge = sub.add_parser("judge", help="judge the pool with one Ollama model (resumable)")
     p_judge.add_argument("--model", required=True)
     p_agree = sub.add_parser("agree", help="agreement between two judges")
@@ -60,9 +60,12 @@ def main() -> None:
     queries = load_queries()
 
     if args.command == "pool":
+        # Only queries not pooled yet: existing pairs (and their judgments) stay as they are.
+        existing = read_jsonl(POOL)
+        pooled = {r["query_id"] for r in existing}
         embedder = OllamaEmbedder()
         with connect() as conn:
-            rows = build_pool(conn, embedder, queries)
+            rows = existing + build_pool(conn, embedder, [q for q in queries if q.id not in pooled])
         embedder.close()
         write_jsonl(POOL, rows)
         per_query = Counter(r["query_id"] for r in rows)

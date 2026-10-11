@@ -1,9 +1,9 @@
 {
-  "created": "2026-10-11T08:25:25+00:00",
+  "created": "2026-10-11T20:41:58+00:00",
   "model": "bge-m3",
-  "papers": 3551,
-  "pooled": 1551,
+  "papers": 3886,
+  "pooled": 1886,
   "distractors": 2000,
-  "queries": 60,
+  "queries": 80,
   "seed": "night-sky-2026"
 }
