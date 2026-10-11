@@ -42,14 +42,15 @@ Output only YAML, no commentary before or after, in exactly this shape:
 
 - id: q061
   lang: de
-  query: wie lokalisiert man schnelle radioblitze in ihren wirtsgalaxien
+  query: warum ist die hubble-konstante aus cepheiden höher als aus dem CMB
   intent: >
-    Papers that localise fast radio bursts (interferometry, VLBI, ASKAP, MeerKAT, CHIME outriggers)
-    or identify and characterise FRB host galaxies. Not relevant: FRB population statistics or
-    emission mechanisms without any localisation.
-  subfield: HE
+    Papers that examine the Hubble tension between local distance-ladder measurements and 
+    early-universe inferences, either by measuring H0 or by proposing or testing physical 
+    explanations. Not relevant: papers that only use H0 as a fixed input, or general dark energy 
+    constraints with no H0 discussion.
+  subfield: CO
   kind: question
-  translation_of: q040
+  translation_of: q005
 
 (translation_of only on q061 to q065.) Number the ids q061 to q080.
 
