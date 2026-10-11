@@ -7,7 +7,7 @@ A learning project and portfolio piece. Not affiliated with or endorsed by arXiv
 
 ## Status
 
-M2 done: hybrid multilingual search over 51k astro-ph abstracts. See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
+M3 done: hybrid search evaluated on 80 queries (60 English, 20 German), nDCG@10 0.72, gated in CI ([eval/](eval/README.md)). See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
 for the design.
 
 ## Architecture
