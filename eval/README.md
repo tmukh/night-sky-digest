@@ -6,7 +6,8 @@ How the eval set is built (decision: [ADR 0003](../docs/adr/0003-llm-generated-e
    reviewed by hand. Each query has an `intent` that defines relevance.
 2. **Pool**: top 20 from lexical, semantic and hybrid search per query, merged.
 3. **Judge**: two local Ollama models label each pooled paper 0 (not relevant), 1 (partly), 2 (relevant).
-4. **Resolve**: disagreements reviewed by hand; agreement reported as Cohen's kappa.
+4. **Resolve**: where the two judges differ, a third (`llama3.1:8b`) grades too; the median wins.
+   A random sample of 30 final labels is audited by hand.
 5. **Metrics**: recall@10, nDCG@10, MRR on a frozen snapshot, gated in CI.
 
 ## Provenance
@@ -19,3 +20,31 @@ How the eval set is built (decision: [ADR 0003](../docs/adr/0003-llm-generated-e
 **Leakage check** (2026-10-10): word overlap (Jaccard) between each query and all 51,282 corpus titles.
 Median 0.36, maximum 0.80 (q040 "fast radio bursts not from magnetars" vs "Escape of fast radio bursts
 from magnetars", which shares topic words but claims the opposite). No query looks like a paraphrased title.
+
+## Label quality (2026-10-11)
+
+| Comparison | Exact grade | Relevant (grade ≥ 1) or not | Cohen's kappa |
+|---|---|---|---|
+| qwen2.5:7b vs gemma4:12b, all 1,571 pairs | 65.3% | 83.4% | 0.47 (0.63 binary) |
+| Human audit vs final labels, 30 random pairs | 90% | 97% | 0.81 |
+| Human audit vs qwen2.5:7b alone | 67% | 90% | 0.45 |
+| Human audit vs gemma4:12b alone | 83% | 97% | 0.65 |
+
+1,026 labels came from agreement, 545 from the tie-break. Caveats: 30 audited items is a small sample
+(29/30 binary agreement still allows a true rate of roughly 83–99%), the auditor is not an astrophysicist,
+and the audit sheet showed the judges' reasons, which can anchor the auditor. Reproduce with
+`python -m night_sky_digest.evals audit-report`.
+
+## First results (2026-10-11, k = 10, 60 English queries)
+
+| Mode | recall@10 | nDCG@10 | MRR |
+|---|---|---|---|
+| lexical | 0.22 | 0.45 | 0.70 |
+| semantic | 0.47 | 0.69 | 0.92 |
+| hybrid | 0.49 | 0.74 | 0.93 |
+
+Median 17 relevant papers per query, so the best possible recall@10 is 0.64. Lexical collapses on
+contrarian (nDCG 0.02), synonym (0.07) and question (0.23) queries; on question and contrarian queries
+semantic alone beats hybrid, because RRF still mixes in weak lexical hits. Pooled judging means relevant
+papers none of the three modes found are unknown, so recall is somewhat overestimated.
+Full breakdown by kind and subfield: `results.json`.
