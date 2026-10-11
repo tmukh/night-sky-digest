@@ -36,3 +36,12 @@ against /search on this PC (cluster Postgres over the tailnet):
   seen earlier (0.62). M3 needs non-English queries to measure this properly.
 - Latency 16-230 ms per query, mostly the query embedding.
 
+## 2026-10-10 / 10-11: M3
+
+Eval set: 60 English + 20 German queries from Claude (ADR 0003), pooled from all three search modes
+(1,971 pairs), judged by qwen2.5:7b and gemma4:12b (kappa 0.47 on grades, 0.63 relevant-or-not),
+545 + 91 disagreements tie-broken by llama3.1:8b. My audit of 30 random labels: 90% exact, kappa 0.81.
+Gemma crashed once with CUDA out of memory (8.9 GB model on an 8 GB card); added retries on Ollama 5xx.
+Results: hybrid nDCG@10 0.74 English, 0.67 German; full-text search finds nothing for German. CI now
+runs an eval gate on a 9 MB frozen snapshot and fails on a > 2 point drop.
+

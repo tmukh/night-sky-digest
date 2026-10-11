@@ -12,7 +12,8 @@ a line in CAREER-PLAN.md's progress log, and the ledger updated.
 | M0 ✅ | Skeleton, CI (ruff, pytest), digest-pinned Dockerfile, Trivy + Syft SBOM + cosign, image on ghcr.io | supply chain | the CI gate: which Trivy severities fail the build, and why |
 | M1 ✅ | Polite OAI-PMH client (rate limit, resumable, idempotent), schema, ~2 yr astro-ph backfill | data pipeline | the resumption-token loop with the rate limiter |
 | M2 ✅ | bge-m3 embeddings, pgvector + full-text search, reciprocal-rank fusion, FastAPI `/search` | RAG, FastAPI | the RRF merge |
-| M3 | 60–100 hand-labelled queries (≥20 non-English), recall@10 / nDCG@10 / MRR, CI gate (fail on >2 pt drop) | evaluation | recall@k and nDCG@k |
+| M3 ✅ | 60–100 hand-labelled queries (≥20 non-English), recall@10 / nDCG@10 / MRR, CI gate (fail on >2 pt drop) | evaluation | recall@k and nDCG@k |
+<!-- M3 as built: LLM-generated queries + dual-LLM judging, see ADR 0003 -->
 | M4 | Daily digest with citations, faithfulness check, Langfuse traces (cost, latency) | LLM integration, LLM observability | the faithfulness check |
 | M5 | Argo CD from homelab-dev, CloudNativePG with MinIO backup and one tested restore, Prometheus / Grafana / Alertmanager / Loki, SLOs + error-budget panel | observability, SLOs, Postgres ops | the SLO PromQL and burn-rate alert |
 | M6 | Experiments: pgvector vs Qdrant, reranker on/off; blog post | depth, portfolio | the experiment write-up |
