@@ -47,3 +47,37 @@ def migrate(conn: psycopg.Connection) -> list[str]:
             conn.execute("INSERT INTO schema_migrations (version) VALUES (%s)", (version,))
             applied_now.append(version)
     return applied_now
+
+
+TEST_DB = "night_sky_test"
+
+
+def test_database_url() -> str | None:
+    """URL of the throwaway test database: TEST_DATABASE_URL (CI), otherwise DATABASE_URL with the
+    database name swapped for night_sky_test, created if missing. None if neither is set."""
+    from psycopg import sql
+    from psycopg.conninfo import make_conninfo
+
+    if url := os.environ.get("TEST_DATABASE_URL"):
+        return url
+    base = os.environ.get("DATABASE_URL")
+    if not base:
+        return None
+    with psycopg.connect(base, autocommit=True) as admin:  # CREATE DATABASE can't run in a tx
+        if (
+            admin.execute("SELECT 1 FROM pg_database WHERE datname = %s", (TEST_DB,)).fetchone()
+            is None
+        ):
+            admin.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(TEST_DB)))
+    return make_conninfo(base, dbname=TEST_DB)
+
+
+def reset_test_schema(conn: psycopg.Connection) -> None:
+    """Drop everything and re-run migrations. Refuses to touch a database not named *_test."""
+    dbname = conn.info.dbname
+    if not dbname.endswith("_test"):
+        raise RuntimeError(f"refusing to wipe non-test database {dbname!r}")
+    conn.execute("DROP SCHEMA public CASCADE")
+    conn.execute("CREATE SCHEMA public")
+    conn.commit()
+    migrate(conn)
