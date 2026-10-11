@@ -17,6 +17,7 @@ class Query(BaseModel):
     subfield: Subfield
     kind: Kind
     lang: str = "en"
+    translation_of: str | None = None  # id of the English query this one translates
 
 
 def load_queries(path: Path = EVAL_DIR / "queries.yaml") -> list[Query]:
