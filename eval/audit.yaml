@@ -35,7 +35,7 @@
       reason: The paper directly addresses the intent by inferring neutron star masses and radii from
         NICER data and using them to constrain the neutron star equation of state.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q026
   query: why are there so many bright galaxies at z>10
   intent: 'Papers that address the overabundance of UV-bright galaxies at very high redshift seen by JWST,
@@ -71,7 +71,7 @@
         evaluates the specific physical mechanisms (bursty star formation, top-heavy IMF, etc.) mentioned
         in the user's intent.
   final_grade: 2
-  your_grade: null
+  your_grade: 1
 - query_id: q038
   query: pulse profile modeling NICER neutron star radius
   intent: 'Papers that infer neutron star masses and radii from X-ray pulse profile modelling (NICER,
@@ -104,7 +104,7 @@
       reason: The paper directly addresses the use of NICER pulse profile modeling to infer neutron star
         properties and subsequently constrain the dense matter equation of state.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q025
   query: what are the little red dots in JWST images
   intent: 'Papers that characterise or explain "little red dots", the compact red sources at high redshift
@@ -139,7 +139,7 @@
         a specific physical model (supermassive dark stars/quasi-stars) to explain their observed spectra
         and morphology.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q022
   query: ultra diffuse galaxies globular clusters
   intent: 'Papers that study globular cluster populations of ultra-diffuse galaxies, including counts,
@@ -184,7 +184,7 @@
         on their formation pathways and comparisons to simulations, rather than directly addressing the
         intent's focus on halo mass and kinematics.
   final_grade: 1
-  your_grade: null
+  your_grade: 2
 - query_id: q004
   query: ACT DR6 lensing
   intent: 'Papers that use or present CMB lensing measurements from the Atacama Cosmology Telescope Data
@@ -223,7 +223,7 @@
       reason: The paper directly uses ACT DR6 CMB lensing data in cross-correlation with galaxy surveys
         to provide constraints on $S_8$ and neutrino mass.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q003
   query: DESI DR2 neutrino mass bound
   intent: 'Papers that derive upper limits or preferences on the sum of neutrino masses using DESI DR2
@@ -263,7 +263,7 @@
         of neutrino masses using DESI DR2 BAO data combined with CMB data, specifically discussing the
         behavior of the likelihood profiles near the physical boundary.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q027
   query: galaxies that stopped making stars very early on
   intent: 'Papers on massive quiescent galaxies at redshift 3 or above, including spectroscopic confirmation,
@@ -301,7 +301,7 @@
       reason: The paper focuses on a massive quiescent galaxy at high redshift, providing spectroscopic
         confirmation and discussing its kinematics, which aligns with the intent's requirements.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q037
   query: x-ray flashes repeating every few hours from galaxy nuclei
   intent: 'Papers on quasi-periodic eruptions (QPEs) from galactic nuclei, including discoveries, timing
@@ -330,7 +330,7 @@
       reason: The paper describes a high-mass X-ray binary (HMXB) system, which is explicitly excluded
         by the user's intent as a
   final_grade: 0
-  your_grade: null
+  your_grade: 0
 - query_id: q003
   query: DESI DR2 neutrino mass bound
   intent: 'Papers that derive upper limits or preferences on the sum of neutrino masses using DESI DR2
@@ -371,7 +371,7 @@
       reason: The paper discusses the impact of neutrino mass hierarchies on constraints using DESI data,
         but does not derive upper limits or preferences on the sum of neutrino masses as requested.
   final_grade: 1
-  your_grade: null
+  your_grade: 1
 - query_id: q053
   query: Betelgeuse companion
   intent: 'Papers that detect, search for or model a companion star to Betelgeuse, including its link
@@ -407,7 +407,7 @@
         specifically linking it to the long-period photometric modulation and providing observational
         evidence for its existence.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q001
   query: cosmic birefringence from CMB polarization
   intent: 'Papers that measure, constrain or interpret isotropic or anisotropic cosmic birefringence (rotation
@@ -442,7 +442,7 @@
         fields and the specific constraints on isotropic and anisotropic rotation of the CMB polarization
         plane.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q054
   query: T Coronae Borealis nova eruption
   intent: 'Papers on the recurrent nova T CrB, including predictions of its next eruption, pre-eruption
@@ -478,7 +478,7 @@
       reason: The paper directly addresses T CrB, specifically discussing its next eruption, multiwavelength
         (gamma-ray/neutrino) observations, and its recurrence period.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q060
   query: red supergiant problem is not real
   intent: 'Papers arguing that the apparent lack of high-mass red supergiant progenitors of Type II-P
@@ -506,7 +506,7 @@
       reason: The paper is a general review of red supergiant properties and mass loss, but it does not
         specifically address the
   final_grade: 0
-  your_grade: null
+  your_grade: 0
 - query_id: q051
   query: stripped stars in massive binaries
   intent: 'Papers on helium stars stripped of their envelopes by binary interaction, including searches,
@@ -551,7 +551,7 @@
         of the search query, and provides detailed characterization of the star's properties and its implications
         for binary evolution models.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q026
   query: why are there so many bright galaxies at z>10
   intent: 'Papers that address the overabundance of UV-bright galaxies at very high redshift seen by JWST,
@@ -584,7 +584,7 @@
       grade: 2
       reason: The paper directly addresses the
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q018
   query: gaussian process stellar activity mitigation radial velocity
   intent: 'Papers developing or applying methods (Gaussian processes, line-by-line analysis, activity
@@ -618,7 +618,7 @@
         process framework specifically designed to separate and mitigate stellar activity signals from
         planetary radial velocity signals.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q051
   query: stripped stars in massive binaries
   intent: 'Papers on helium stars stripped of their envelopes by binary interaction, including searches,
@@ -649,7 +649,7 @@
       reason: The paper discusses the tidal stripping of a neutron star by a black hole, which is a compact
         object interaction, rather than the stripping of a massive star's envelope to form a helium star.
   final_grade: 0
-  your_grade: null
+  your_grade: 0
 - query_id: q045
   query: how to remove galactic foregrounds from 21cm intensity mapping
   intent: 'Papers developing or testing foreground removal or avoidance for 21-cm intensity mapping or
@@ -682,7 +682,7 @@
       reason: The paper directly addresses the intent by evaluating and comparing two specific foreground
         mitigation techniques (Foreground Avoidance and Gaussian Process Regression) for 21-cm observations.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q040
   query: fast radio bursts not from magnetars
   intent: 'Papers arguing that some or all fast radio bursts arise from sources other than magnetars,
@@ -718,7 +718,7 @@
       reason: The paper argues that FRBs are produced by hyperactive magnetars, which directly contradicts
         the user's intent to find sources other than magnetars.
   final_grade: 0
-  your_grade: null
+  your_grade: 0
 - query_id: q009
   query: field level inference galaxy clustering
   intent: 'Papers that perform or develop field-level (map-level) Bayesian inference of cosmological parameters
@@ -759,7 +759,7 @@
         effects in clustering, rather than performing field-level Bayesian inference of cosmological parameters
         or initial conditions.
   final_grade: 0
-  your_grade: null
+  your_grade: 0
 - query_id: q036
   query: what powers ultraluminous x-ray sources
   intent: 'Papers that investigate the nature of ultraluminous X-ray sources, including super-Eddington
@@ -803,7 +803,7 @@
         NGC 4490 ULX-8, and its properties, which are directly related to the nature of ultraluminous
         X-ray sources.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q002
   query: primordial black holes as dark matter constraints
   intent: 'Papers that constrain or argue for primordial black holes making up some or all of the dark
@@ -847,7 +847,7 @@
       reason: The paper explores the use of molecular clouds to constrain primordial black holes and sub-GeV
         dark matter, which aligns with the intent of using various methods to constrain PBHs as dark matter.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q001
   query: cosmic birefringence from CMB polarization
   intent: 'Papers that measure, constrain or interpret isotropic or anisotropic cosmic birefringence (rotation
@@ -888,7 +888,7 @@
       reason: The paper specifically addresses the detection and interpretation of anisotropic cosmic
         birefringence from axion-like field explanations, which directly aligns with the intent.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q019
   query: transit timing variations planet masses
   intent: 'Papers that use transit timing variations (or transit duration variations) to detect planets
@@ -925,7 +925,7 @@
       reason: The paper directly uses transit timing variations (TTVs) in a multi-planet system to characterize
         the masses and orbital dynamics of the planets.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q019
   query: transit timing variations planet masses
   intent: 'Papers that use transit timing variations (or transit duration variations) to detect planets
@@ -968,7 +968,7 @@
         system, but focuses on the system's properties and evolution rather than the detection of planets
         or measurement of masses as a primary goal.
   final_grade: 1
-  your_grade: null
+  your_grade: 0
 - query_id: q011
   query: helium triplet atmospheric escape hot neptunes
   intent: 'Papers that observe or model escaping exoplanet atmospheres using the metastable helium 10830
@@ -1007,7 +1007,7 @@
       reason: The paper specifically targets an ultrahot Neptune and investigates atmospheric escape using
         the metastable helium 10830 Å line, even though it reports a non-detection.
   final_grade: 2
-  your_grade: null
+  your_grade: 2
 - query_id: q015
   query: do rocky planets around red dwarfs keep their atmospheres
   intent: 'Papers that test whether terrestrial planets orbiting M dwarfs retain atmospheres, through
@@ -1045,7 +1045,7 @@
       reason: The paper focuses on the habitability of tidally locked exoplanets, but does not specifically
         address the retention of atmospheres around rocky planets orbiting red dwarfs.
   final_grade: 0
-  your_grade: null
+  your_grade: 0
 - query_id: q028
   query: Jeans anisotropic modelling IFU stellar kinematics
   intent: 'Papers applying or developing Jeans anisotropic or Schwarzschild dynamical models to integral
@@ -1094,7 +1094,7 @@
         models to integral field stellar kinematics to measure mass profiles, dark matter fractions, black
         hole masses or orbital structure.
   final_grade: 1
-  your_grade: null
+  your_grade: 1
 - query_id: q055
   query: how do stars lose spin as they get older
   intent: 'Papers on stellar angular momentum loss and spin-down, including magnetic braking, weakened
@@ -1132,4 +1132,4 @@
       reason: The paper discusses the age and composition of Saturn's rings, which is unrelated to stellar
         evolution or the angular momentum loss of stars.
   final_grade: 0
-  your_grade: null
+  your_grade: 0

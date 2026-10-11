@@ -23,7 +23,7 @@ Concepts already confident in homelab-dev's ledger are not repeated here.
 | Approximate nearest neighbours: HNSW, ef_search | M2 | new | 2026-10-10 | |
 | Reciprocal-rank fusion (RRF) | M2 | new | 2026-10-10 | rrf() written by Claude on request |
 | Pooling (TREC-style) for relevance judgements | M3 | new | 2026-10-10 | |
-| LLM-as-judge: graded relevance, structured output, reason before grade | M3 | new | 2026-10-10 | |
+| LLM-as-judge: graded relevance, structured output, reason before grade | M3 | used | 2026-10-11 | audited 30 labels by hand: 90% exact, kappa 0.81 vs final labels |
 | Cohen's kappa (unweighted, linear-weighted) | M3 | new | 2026-10-10 | |
 | recall@k, MRR, nDCG@k | M3 | new | 2026-10-10 | metrics written by Claude on request |
 

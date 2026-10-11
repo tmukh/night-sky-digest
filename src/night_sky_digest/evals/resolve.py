@@ -7,6 +7,7 @@ from statistics import median
 import psycopg
 import yaml
 
+from night_sky_digest.evals.agreement import cohen_kappa
 from night_sky_digest.evals.jsonl import read_jsonl
 from night_sky_digest.evals.judge import OllamaJudge, judge_pool
 from night_sky_digest.evals.queries import Query
@@ -102,6 +103,22 @@ def write_audit(path: Path, items: list[dict]) -> None:
         encoding="utf-8",
         newline="\n",
     )
+
+
+def audit_report(path: Path) -> dict:
+    """Agreement between the human audit grades and the final labels."""
+    items = [
+        i for i in yaml.safe_load(path.read_text(encoding="utf-8")) if i["your_grade"] is not None
+    ]
+    you = [i["your_grade"] for i in items]
+    final = [i["final_grade"] for i in items]
+    return {
+        "n": len(items),
+        "exact": sum(a == b for a, b in zip(you, final, strict=True)) / len(items),
+        "relevant_or_not": sum((a >= 1) == (b >= 1) for a, b in zip(you, final, strict=True))
+        / len(items),
+        "kappa": cohen_kappa(you, final),
+    }
 
 
 def _key(p: dict) -> Key:

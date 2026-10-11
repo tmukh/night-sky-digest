@@ -15,7 +15,7 @@ from night_sky_digest.evals.jsonl import read_jsonl, write_jsonl
 from night_sky_digest.evals.judge import OllamaJudge, judge_pool, judgments_path
 from night_sky_digest.evals.pool import build_pool
 from night_sky_digest.evals.queries import EVAL_DIR, load_queries
-from night_sky_digest.evals.resolve import audit_sample, resolve, write_audit
+from night_sky_digest.evals.resolve import audit_report, audit_sample, resolve, write_audit
 from night_sky_digest.evals.score import score
 
 POOL = EVAL_DIR / "pool.jsonl"
@@ -35,6 +35,7 @@ def main() -> None:
     p_agree.add_argument("model_b")
     sub.add_parser("resolve", help=f"final labels: {JUDGES} plus {TIEBREAKER} where they differ")
     sub.add_parser("audit", help="write eval/audit.yaml, a random sample of labels to check")
+    sub.add_parser("audit-report", help="agreement between your audit grades and the labels")
     p_score = sub.add_parser("score", help="recall@k, nDCG@k, MRR per search mode")
     p_score.add_argument("-k", type=int, default=10)
     args = parser.parse_args()
@@ -85,6 +86,10 @@ def main() -> None:
             items = audit_sample(conn, queries, read_jsonl(QRELS), paths)
         write_audit(EVAL_DIR / "audit.yaml", items)
         logging.info("wrote %d items to eval/audit.yaml", len(items))
+    elif args.command == "audit-report":
+        r = audit_report(EVAL_DIR / "audit.yaml")
+        print(f"audited {r['n']}: exact {r['exact']:.0%}, relevant-or-not "
+              f"{r['relevant_or_not']:.0%}, kappa {r['kappa']:.2f}")  # fmt: skip
     elif args.command == "score":
         embedder = OllamaEmbedder()
         with connect() as conn:
