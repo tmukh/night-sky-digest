@@ -45,3 +45,14 @@ Gemma crashed once with CUDA out of memory (8.9 GB model on an 8 GB card); added
 Results: hybrid nDCG@10 0.74 English, 0.67 German; full-text search finds nothing for German. CI now
 runs an eval gate on a 9 MB frozen snapshot and fails on a > 2 point drop.
 
+## 2026-10-11 / 10-12: M4
+
+Digest: one qwen2.5:7b call per subfield with JSON-schema output, citation check with retries.
+- First digest looked fine but was wrong: 23 of 79 "new" papers were revisions of 2024/2025 papers.
+  arXiv's `created` is the latest version's date. New = announced that day + ID from that month or the one before.
+  Exposed by: `SELECT left(arxiv_id,4), count(*) ... WHERE created = '2026-10-08' GROUP BY 1`.
+- LaTeX in abstracts broke the model's JSON ("	extit" came back as a tab + "extit"). Inputs are stripped of LaTeX now.
+- 2026-10-09: 102 papers, 6 calls, 14 highlights, 0 citation problems, 36 s, 29.8k prompt tokens.
+Langfuse self-hosted on k3s (homelab-dev #22-#24): trace = 1 span + 6 generations with tokens and latency.
+Langfuse v4 runs "events only": the old /api/public/traces endpoints are off, /api/public/v2/observations works.
+

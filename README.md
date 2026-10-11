@@ -7,7 +7,7 @@ A learning project and portfolio piece. Not affiliated with or endorsed by arXiv
 
 ## Status
 
-M3 done: hybrid search evaluated on 80 queries (60 English, 20 German), nDCG@10 0.72, gated in CI ([eval/](eval/README.md)). See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
+M4 done: daily digest with faithfulness-checked citations, traced in self-hosted Langfuse. M3: hybrid search, nDCG@10 0.72 on 80 queries ([eval/](eval/README.md)). See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
 for the design.
 
 ## Architecture
@@ -108,9 +108,12 @@ uv run python -m night_sky_digest migrate                                # apply
 uv run python -m night_sky_digest ingest --backfill-from 2024-10-10      # first run only
 uv run python -m night_sky_digest ingest                                 # afterwards: since the checkpoint
 uv run python -m night_sky_digest embed                                  # embed new/changed papers (Ollama, bge-m3)
+uv run python -m night_sky_digest digest [--date 2026-10-09]             # digest of one announcement day
 ```
 
 `DATABASE_URL` and `OLLAMA_URL` (default `http://localhost:11434`) come from the environment or `.env`.
+`DIGEST_MODEL` picks the digest writer (default `qwen2.5:7b`). With `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`
+and `LANGFUSE_BASE_URL` set, every digest run is traced in Langfuse; without them tracing is off.
 Runs are recorded in `harvest_runs`.
 
 ## Search
@@ -122,6 +125,14 @@ uv run uvicorn night_sky_digest.api:app --reload
 - `GET /search?q=fast+radio+burst+localisation&k=10&mode=hybrid` (or `lexical` / `semantic`)
 - Each hit carries `lexical_rank` and `semantic_rank`, so you can see why it ranked where it did.
 - Interactive API docs at `/docs`.
+
+## Digest
+
+One LLM call per astro-ph subfield turns the day's new papers into 1–4 highlights, each citing arXiv IDs.
+A faithfulness check rejects any citation of a paper the model wasn't given; the problems go back to the
+model for up to two retries, then unfaithful highlights are dropped and counted. "New" means announced
+that day with an ID from that month or the previous one (arXiv's `created` field is the latest version's
+date). Read it at `GET /digest/latest`, `/digest/{day}` or `/digest/{day}.md`.
 
 ## Data rules
 
