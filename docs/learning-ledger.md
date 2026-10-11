@@ -26,4 +26,9 @@ Concepts already confident in homelab-dev's ledger are not repeated here.
 | LLM-as-judge: graded relevance, structured output, reason before grade | M3 | used | 2026-10-11 | audited 30 labels by hand: 90% exact, kappa 0.81 vs final labels |
 | Cohen's kappa (unweighted, linear-weighted) | M3 | new | 2026-10-10 | |
 | recall@k, MRR, nDCG@k | M3 | new | 2026-10-10 | metrics written by Claude on request |
+| Structured LLM output (JSON schema, constrained decoding) | M4 | new | 2026-10-11 | |
+| Faithfulness check: citations must come from the given context, retry with feedback | M4 | new | 2026-10-11 | written by Claude |
+| Context budgeting: per-section prompts, shortening abstracts to fit num_ctx | M4 | new | 2026-10-11 | |
+| LLM tracing: traces, generations, token usage, latency, scores (Langfuse) | M4 | new | 2026-10-11 | |
+| Data semantics: arXiv `created` = latest version; new = announced + fresh ID | M4 | new | 2026-10-11 | found from a wrong first digest |
 

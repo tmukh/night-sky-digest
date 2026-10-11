@@ -5,7 +5,8 @@ from datetime import date
 from typing import Annotated
 
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI, Query, Request
+from fastapi import Depends, FastAPI, HTTPException, Query, Request
+from fastapi.responses import PlainTextResponse
 from psycopg_pool import ConnectionPool
 from pydantic import BaseModel
 
@@ -74,3 +75,47 @@ def search_endpoint(
         mode=mode,
         hits=[SearchHit(url=h.url, **h.__dict__) for h in hits],
     )
+
+
+class DigestResponse(BaseModel):
+    date: date
+    created_at: str
+    model: str
+    sections: list[dict]
+    markdown: str
+    stats: dict
+
+
+def _digest(pool: ConnectionPool, day: date | None) -> DigestResponse:
+    with pool.connection() as conn:
+        row = conn.execute(
+            "SELECT digest_date, created_at, model, sections, markdown, stats FROM digests"
+            " WHERE (%(day)s::date IS NULL OR digest_date = %(day)s::date)"
+            " ORDER BY digest_date DESC LIMIT 1",
+            {"day": day},
+        ).fetchone()
+    if row is None:
+        raise HTTPException(status_code=404, detail="no digest for that day")
+    return DigestResponse(
+        date=row[0],
+        created_at=row[1].isoformat(),
+        model=row[2],
+        sections=row[3],
+        markdown=row[4],
+        stats=row[5],
+    )
+
+
+@app.get("/digest/latest")
+def digest_latest(pool: Annotated[ConnectionPool, Depends(get_pool)]) -> DigestResponse:
+    return _digest(pool, None)
+
+
+@app.get("/digest/{day}.md", response_class=PlainTextResponse)
+def digest_markdown(day: date, pool: Annotated[ConnectionPool, Depends(get_pool)]) -> str:
+    return _digest(pool, day).markdown
+
+
+@app.get("/digest/{day}")
+def digest_for_day(day: date, pool: Annotated[ConnectionPool, Depends(get_pool)]) -> DigestResponse:
+    return _digest(pool, day)
