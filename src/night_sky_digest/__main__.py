@@ -1,15 +1,17 @@
-"""Command line: python -m night_sky_digest {migrate,ingest,embed}"""
+"""Command line: python -m night_sky_digest {migrate,ingest,embed,digest}"""
 
 import argparse
 import logging
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, timedelta
 
 from dotenv import load_dotenv
 
 from night_sky_digest.db import connect, migrate
+from night_sky_digest.digest import OllamaChat, build_digest, save_digest
 from night_sky_digest.embed import OllamaEmbedder, embed_pending
 from night_sky_digest.ingest.oai import HttpFetch, SystemClock
 from night_sky_digest.ingest.run import ingest
+from night_sky_digest.tracing import make_tracer
 
 
 def main() -> None:
@@ -20,6 +22,10 @@ def main() -> None:
     p_ingest.add_argument("--backfill-from", type=date.fromisoformat, help="first run only")
     p_ingest.add_argument("--until", type=date.fromisoformat, help="default: yesterday (UTC)")
     sub.add_parser("embed", help="embed new and changed papers with bge-m3 via Ollama")
+    p_digest = sub.add_parser("digest", help="write the digest for one day's new papers")
+    p_digest.add_argument(
+        "--date", type=date.fromisoformat, help="submission day covered; default: yesterday (UTC)"
+    )
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -50,6 +56,15 @@ def main() -> None:
                 logging.info("embed done: %d papers", embed_pending(conn, embedder))
             finally:
                 embedder.close()
+        elif args.command == "digest":
+            day = args.date or datetime.now(UTC).date() - timedelta(days=1)
+            llm = OllamaChat()
+            try:
+                digest = build_digest(conn, llm, day, make_tracer())
+            finally:
+                llm.close()
+            save_digest(conn, digest)
+            print(digest.markdown)
 
 
 if __name__ == "__main__":
