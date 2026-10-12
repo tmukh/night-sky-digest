@@ -5,13 +5,15 @@ from datetime import date
 from typing import Annotated
 
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI, HTTPException, Query, Request
+from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response
 from fastapi.responses import PlainTextResponse
+from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 from psycopg_pool import ConnectionPool
 from pydantic import BaseModel
 
 from night_sky_digest.embed import Embedder, OllamaEmbedder
-from night_sky_digest.search import Mode, search
+from night_sky_digest.metrics import PipelineCollector, registry, track_requests
+from night_sky_digest.search import Mode, search_for_user
 
 
 @asynccontextmanager
@@ -19,14 +21,18 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     load_dotenv()  # local development; in the cluster these come from the environment
     app.state.pool = ConnectionPool(os.environ["DATABASE_URL"], min_size=1, max_size=5)
     app.state.embedder = OllamaEmbedder()
+    collector = PipelineCollector(app.state.pool)
+    registry.register(collector)
     try:
         yield
     finally:
+        registry.unregister(collector)
         app.state.pool.close()
         app.state.embedder.close()
 
 
 app = FastAPI(title="Night Sky Digest", lifespan=lifespan)
+app.middleware("http")(track_requests)
 
 
 class SearchHit(BaseModel):
@@ -44,6 +50,7 @@ class SearchHit(BaseModel):
 class SearchResponse(BaseModel):
     query: str
     mode: Mode
+    degraded: bool  # True: embedding failed, these are lexical-only results
     hits: list[SearchHit]
 
 
@@ -53,6 +60,11 @@ def get_pool(request: Request) -> ConnectionPool:
 
 def get_embedder(request: Request) -> Embedder:
     return request.app.state.embedder
+
+
+@app.get("/metrics", include_in_schema=False)
+def metrics() -> Response:
+    return Response(generate_latest(registry), media_type=CONTENT_TYPE_LATEST)
 
 
 @app.get("/healthz")
@@ -69,11 +81,12 @@ def search_endpoint(
     mode: Mode = "hybrid",
 ) -> SearchResponse:
     with pool.connection() as conn:
-        hits = search(conn, embedder, q, k=k, mode=mode)
+        result = search_for_user(conn, embedder, q, k=k, mode=mode)
     return SearchResponse(
         query=q,
         mode=mode,
-        hits=[SearchHit(url=h.url, **h.__dict__) for h in hits],
+        degraded=result.degraded,
+        hits=[SearchHit(url=h.url, **h.__dict__) for h in result.hits],
     )
 
 

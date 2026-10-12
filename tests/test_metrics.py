@@ -1,58 +1,96 @@
-"""Spec for the ranking metrics. Expected values are written as the formula, so you can check
-them by hand."""
+"""Ranking metrics live in test_eval_metrics.py; this file covers the Prometheus side."""
 
-from math import log2
+from datetime import date, datetime
 
-import pytest
+import httpx
+import psycopg
+from fastapi.testclient import TestClient
+from psycopg_pool import ConnectionPool
 
-from night_sky_digest.evals.metrics import ndcg_at_k, recall_at_k, reciprocal_rank
-
-RANKED = ["a", "b", "c", "d"]
-
-
-def test_recall_counts_relevant_in_top_k() -> None:
-    relevant = {"b", "d", "x"}  # x was never retrieved
-    assert recall_at_k(RANKED, relevant, k=2) == pytest.approx(1 / 3)
-    assert recall_at_k(RANKED, relevant, k=4) == pytest.approx(2 / 3)
+from night_sky_digest.api import app, get_embedder, get_pool
+from night_sky_digest.metrics import BERLIN, PipelineCollector, on_time_days, registry
+from night_sky_digest.search import search_for_user
+from tests.fakes import FakeEmbedder
+from tests.test_search import seed
 
 
-def test_recall_k_larger_than_list() -> None:
-    assert recall_at_k(["a"], {"a"}, k=10) == pytest.approx(1.0)
+def berlin(y: int, m: int, d: int, h: int, mi: int = 0) -> datetime:
+    return datetime(y, m, d, h, mi, tzinfo=BERLIN)
 
 
-def test_recall_undefined_without_relevant() -> None:
-    with pytest.raises(ValueError):
-        recall_at_k(RANKED, set(), k=10)
+# --- freshness SLI ----------------------------------------------------------------------------
 
 
-def test_reciprocal_rank() -> None:
-    assert reciprocal_rank(RANKED, {"c", "d"}) == pytest.approx(1 / 3)
-    assert reciprocal_rank(RANKED, {"a"}) == pytest.approx(1.0)
-    assert reciprocal_rank(RANKED, {"x"}) == 0.0
+def test_digest_written_before_seven_counts_as_on_time() -> None:
+    now = berlin(2026, 10, 15, 12)
+    digests = [
+        (date(2026, 10, 13), berlin(2026, 10, 14, 6, 5)),  # on time
+        (date(2026, 10, 14), berlin(2026, 10, 15, 7, 30)),  # late
+    ]
+    assert on_time_days(digests, now, start=date(2026, 10, 13)) == (1, 2)
 
 
-def test_ndcg_perfect_ranking_is_one() -> None:
-    grades = {"a": 2, "b": 2, "c": 1}
-    assert ndcg_at_k(["a", "b", "c"], grades, k=3) == pytest.approx(1.0)
+def test_days_before_the_deadline_or_the_start_date_are_not_counted() -> None:
+    now = berlin(2026, 10, 15, 6, 30)  # today's 07:00 deadline (for the 14th) hasn't passed yet
+    digests = [(date(2026, 10, 13), berlin(2026, 10, 14, 6, 0))]
+    assert on_time_days(digests, now, start=date(2026, 10, 13)) == (1, 1)
+    assert on_time_days(digests, now, start=None) == (0, 0)
 
 
-def test_ndcg_known_value() -> None:
-    grades = {"a": 2, "b": 1, "c": 0, "d": 2}
-    dcg = (2**1 - 1) / log2(2) + (2**2 - 1) / log2(3) + 0  # ranked: b, a, c
-    ideal = (2**2 - 1) / log2(2) + (2**2 - 1) / log2(3) + (2**1 - 1) / log2(4)  # a, d, b
-    assert ndcg_at_k(["b", "a", "c"], grades, k=3) == pytest.approx(dcg / ideal)
+def test_missing_digest_is_a_bad_day() -> None:
+    now = berlin(2026, 10, 15, 12)
+    assert on_time_days([], now, start=date(2026, 10, 14)) == (0, 1)
 
 
-def test_ndcg_unjudged_papers_count_as_zero() -> None:
-    grades = {"a": 2}
-    assert ndcg_at_k(["x", "a"], grades, k=2) == pytest.approx((3 / log2(3)) / 3)
+# --- graceful degradation -----------------------------------------------------------------------
 
 
-def test_ndcg_only_top_k_counts() -> None:
-    grades = {"a": 2}
-    assert ndcg_at_k(["x", "y", "a"], grades, k=2) == 0.0
+class DownEmbedder:
+    model = "fake-bow"
+
+    def embed(self, texts: list[str]) -> list[list[float]]:
+        raise httpx.ConnectError("ollama unreachable")
 
 
-def test_ndcg_undefined_without_relevant() -> None:
-    with pytest.raises(ValueError):
-        ndcg_at_k(RANKED, {"a": 0}, k=3)
+def test_hybrid_falls_back_to_lexical_when_embedding_fails(conn: psycopg.Connection) -> None:
+    seed(conn, FakeEmbedder())
+    result = search_for_user(conn, DownEmbedder(), "JWST")
+    assert result.degraded is True
+    assert [h.arxiv_id for h in result.hits] == ["2610.00003"]
+
+
+def test_explicit_semantic_mode_does_not_hide_the_failure(conn: psycopg.Connection) -> None:
+    seed(conn, FakeEmbedder())
+    try:
+        search_for_user(conn, DownEmbedder(), "JWST", mode="semantic")
+    except httpx.ConnectError:
+        return
+    raise AssertionError("expected the embedding error to surface")
+
+
+# --- /metrics -----------------------------------------------------------------------------------
+
+
+def test_metrics_endpoint_reports_requests_and_pipeline_state(
+    conn: psycopg.Connection, db_url: str
+) -> None:
+    seed(conn, FakeEmbedder())
+    with ConnectionPool(db_url, min_size=1, max_size=2) as pool:
+        collector = PipelineCollector(pool)
+        registry.register(collector)
+        app.dependency_overrides[get_pool] = lambda: pool
+        app.dependency_overrides[get_embedder] = FakeEmbedder
+        try:
+            client = TestClient(app)
+            assert client.get("/search", params={"q": "radio bursts"}).status_code == 200
+            body = client.get("/metrics").text
+        finally:
+            app.dependency_overrides.clear()
+            registry.unregister(collector)
+    assert (
+        'night_sky_http_request_duration_seconds_count{method="GET",route="/search",status="200"}'
+        in body
+    )
+    assert "night_sky_papers 3.0" in body
+    assert "night_sky_ingest_last_success_timestamp_seconds NaN" in body  # no ingest run yet
+    assert "night_sky_digest_expected_days 0.0" in body
