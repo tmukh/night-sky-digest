@@ -7,8 +7,10 @@ A learning project and portfolio piece. Not affiliated with or endorsed by arXiv
 
 ## Status
 
-M4 done: daily digest with faithfulness-checked citations, traced in self-hosted Langfuse. M3: hybrid search, nDCG@10 0.72 on 80 queries ([eval/](eval/README.md)). See [docs/plan.md](docs/plan.md) for milestones and [docs/architecture.md](docs/architecture.md)
-for the design.
+M5 done: runs on k3s (homelab-dev, Argo CD) with CloudNativePG (tested restore), nightly CronJobs,
+Prometheus/Grafana/Alertmanager/Loki and SLOs. Public at https://digest.takodana.dev. M3 eval:
+hybrid nDCG@10 0.72 on 80 queries ([eval/](eval/README.md)). See [docs/plan.md](docs/plan.md) and
+[docs/architecture.md](docs/architecture.md).
 
 ## Architecture
 

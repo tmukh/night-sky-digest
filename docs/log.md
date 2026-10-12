@@ -56,3 +56,18 @@ Digest: one qwen2.5:7b call per subfield with JSON-schema output, citation check
 Langfuse self-hosted on k3s (homelab-dev #22-#24): trace = 1 span + 6 generations with tokens and latency.
 Langfuse v4 runs "events only": the old /api/public/traces endpoints are off, /api/public/v2/observations works.
 
+## 2026-10-12: M5
+
+Everything moved into the cluster (homelab-dev PRs #25-#36):
+- CloudNativePG (PG 17.11 + pgvector), imported from the old StatefulSet: 51282/51282/2 rows matched.
+  Backups to SeaweedFS (MinIO CE stopped shipping images). First nightly backup failed at upload part 19:
+  SeaweedFS hit its 512 Mi limit (exposed by the plugin sidecar's log). Restore drill into a throwaway
+  cluster: 51282/51282/2.
+- Shared app chart; API + CronJobs (ingest 02:00, embed 02:30, digest 06:00 Berlin); Ollama via Tailscale
+  egress. Public via a locally managed Cloudflare Tunnel (the Zero Trust dashboard wanted a card).
+  First public 404 came from kube-lab's catch-all nginx Ingress, not Traefik.
+- /metrics with DB-derived freshness gauges, burn-rate SLO alerts to Telegram, Grafana dashboard, Loki.
+  NightSkyMetricsMissing fired for real: a commit pushed after its PR was merged never reached main.
+- Website (Jinja2, no JS). Cold bge-m3 load took ~5 s; keep_alive 1h, warm searches ~0.65 s from outside.
+To verify on 2026-10-13: first automatic night (backup, ingest, embed, digest) and the first freshness day.
+
