@@ -5,12 +5,14 @@ from datetime import date
 from typing import Annotated
 
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response
+from fastapi import Depends, FastAPI, HTTPException, Query, Response
 from fastapi.responses import PlainTextResponse
 from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 from psycopg_pool import ConnectionPool
 from pydantic import BaseModel
 
+from night_sky_digest import web
+from night_sky_digest.deps import get_embedder, get_pool
 from night_sky_digest.embed import Embedder, OllamaEmbedder
 from night_sky_digest.metrics import PipelineCollector, registry, track_requests
 from night_sky_digest.search import Mode, search_for_user
@@ -33,6 +35,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 app = FastAPI(title="Night Sky Digest", lifespan=lifespan)
 app.middleware("http")(track_requests)
+app.include_router(web.router)
 
 
 class SearchHit(BaseModel):
@@ -52,14 +55,6 @@ class SearchResponse(BaseModel):
     mode: Mode
     degraded: bool  # True: embedding failed, these are lexical-only results
     hits: list[SearchHit]
-
-
-def get_pool(request: Request) -> ConnectionPool:
-    return request.app.state.pool
-
-
-def get_embedder(request: Request) -> Embedder:
-    return request.app.state.embedder
 
 
 @app.get("/metrics", include_in_schema=False)

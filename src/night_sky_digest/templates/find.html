@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ query }}: Night Sky Digest{% endblock %}
+{% block content %}
+<h1>Results for &ldquo;{{ query }}&rdquo;</h1>
+{% if degraded %}
+  <p class="notice" role="status">Meaning-based search is unavailable right now, so these are keyword matches only.</p>
+{% endif %}
+{% if hits %}
+  <ol class="hits">
+    {% for h in hits %}
+      <li>
+        <a class="title" href="{{ h.url }}">{{ h.title }}</a>
+        {% if h.lexical_rank and h.semantic_rank %}<span class="badge" title="Found by both keyword and meaning search">both</span>
+        {% elif h.semantic_rank %}<span class="badge" title="Found by meaning-based search">meaning</span>
+        {% else %}<span class="badge" title="Found by keyword search">keyword</span>{% endif %}
+        <div class="meta">
+          {{ h.authors[:3] | join(", ") }}{% if h.authors | length > 3 %} et al.{% endif %}
+          &middot; {{ h.primary_category }} &middot; {{ h.created.isoformat() }} &middot; {{ h.arxiv_id }}
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <p>No papers found. Try fewer or different words, or switch to &ldquo;Meaning&rdquo;.</p>
+{% endif %}
+{% endblock %}

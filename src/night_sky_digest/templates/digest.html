@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Night Sky Digest: {{ day }}{% endblock %}
+{% block content %}
+{% if digest %}
+  <h1>{{ day.strftime("%A, %d %B %Y") }}</h1>
+  <p class="meta">{{ digest.stats.papers }} new papers, {{ digest.stats.highlights }} highlights. Written by {{ digest.model }}.</p>
+  {% if not digest.sections %}
+    <p>No new astro-ph papers were announced on this day.</p>
+  {% endif %}
+  {% for section in digest.sections %}
+    <h2>{{ section.title }} <span class="meta">({{ section.paper_count }} new)</span></h2>
+    {% if section.highlights %}
+      <ul class="highlights">
+        {% for h in section.highlights %}
+          <li>{{ h.summary }}
+            <span class="refs">({% for id in h.arxiv_ids %}<a href="https://arxiv.org/abs/{{ id }}">{{ id }}</a>{% if not loop.last %}, {% endif %}{% endfor %})</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="meta">No highlights passed the citation check today.</p>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <h1>No digest yet</h1>
+  <p>The first digest appears after the nightly run. Search works already.</p>
+{% endif %}
+
+{% if previous or next %}
+<nav class="days" aria-label="Other days">
+  <span>{% if previous %}<a href="/days/{{ previous }}">&larr; {{ previous }}</a>{% endif %}</span>
+  <span>{% if next %}<a href="/days/{{ next }}">{{ next }} &rarr;</a>{% endif %}</span>
+</nav>
+{% endif %}
+{% endblock %}
