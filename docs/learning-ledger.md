@@ -31,4 +31,10 @@ Concepts already confident in homelab-dev's ledger are not repeated here.
 | Context budgeting: per-section prompts, shortening abstracts to fit num_ctx | M4 | new | 2026-10-11 | |
 | LLM tracing: traces, generations, token usage, latency, scores (Langfuse) | M4 | new | 2026-10-11 | |
 | Data semantics: arXiv `created` = latest version; new = announced + fresh ID | M4 | new | 2026-10-11 | found from a wrong first digest |
+| CloudNativePG: declarative import, WAL archiving, base backups, recovery | M5 | used | 2026-10-12 | restore drill matched row counts (fast mode, no quiz) |
+| SLOs, error budgets, multiwindow burn-rate alerts | M5 | new | 2026-10-12 | fast mode |
+| Pull-from-DB metrics for short-lived jobs (vs Pushgateway) | M5 | new | 2026-10-12 | |
+| Graceful degradation (lexical fallback when embeddings are down) | M5 | new | 2026-10-12 | |
+| Cloudflare Tunnel (locally managed), ingress path rules | M5 | used | 2026-10-12 | |
+| Logs with Loki/Alloy, LogQL | M5 | new | 2026-10-12 | |
 

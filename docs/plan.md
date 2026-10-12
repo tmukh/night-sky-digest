@@ -15,7 +15,7 @@ a line in CAREER-PLAN.md's progress log, and the ledger updated.
 | M3 ✅ | 60–100 hand-labelled queries (≥20 non-English), recall@10 / nDCG@10 / MRR, CI gate (fail on >2 pt drop) | evaluation | recall@k and nDCG@k |
 <!-- M3 as built: LLM-generated queries + dual-LLM judging, see ADR 0003 -->
 | M4 ✅ | Daily digest with citations, faithfulness check, Langfuse traces (cost, latency) | LLM integration, LLM observability | the faithfulness check |
-| M5 | Argo CD from homelab-dev, CloudNativePG with MinIO backup and one tested restore, Prometheus / Grafana / Alertmanager / Loki, SLOs + error-budget panel | observability, SLOs, Postgres ops | the SLO PromQL and burn-rate alert |
+| M5 ✅ | Argo CD from homelab-dev, CloudNativePG with MinIO backup and one tested restore, Prometheus / Grafana / Alertmanager / Loki, SLOs + error-budget panel | observability, SLOs, Postgres ops | the SLO PromQL and burn-rate alert |
 | M6 | Experiments: pgvector vs Qdrant, reranker on/off; blog post | depth, portfolio | the experiment write-up |
 
 ## How to start: M0 in four steps
