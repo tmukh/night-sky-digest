@@ -134,6 +134,12 @@ model for up to two retries, then unfaithful highlights are dropped and counted.
 that day with an ID from that month or the previous one (arXiv's `created` field is the latest version's
 date). Read it at `GET /digest/latest`, `/digest/{day}` or `/digest/{day}.md`.
 
+## Website
+
+Server-rendered with Jinja2, no JavaScript: `/` shows the latest digest (with links to earlier days at
+`/days/{day}`), `/find?q=` searches and marks each hit as found by keyword, meaning or both. Public at
+https://digest.takodana.dev.
+
 ## Metrics
 
 `GET /metrics` (Prometheus): request latency and status per route (`night_sky_http_request_duration_seconds`,

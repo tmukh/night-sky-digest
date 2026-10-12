@@ -25,9 +25,15 @@ class OllamaEmbedder:
         self.model = model
         self._url = (url or os.environ.get("OLLAMA_URL", "http://localhost:11434")).rstrip("/")
         self._client = httpx.Client(timeout=timeout_s)
+        self._keep_alive = os.environ.get("OLLAMA_EMBED_KEEP_ALIVE", "1h")
 
     def embed(self, texts: list[str]) -> list[list[float]]:
-        r = self._client.post(f"{self._url}/api/embed", json={"model": self.model, "input": texts})
+        r = self._client.post(
+            f"{self._url}/api/embed",
+            # Ollama unloads idle models after 5 min; reloading bge-m3 takes ~5 s, which would
+            # make most searches on a low-traffic site miss the 800 ms latency SLO.
+            json={"model": self.model, "input": texts, "keep_alive": self._keep_alive},
+        )
         r.raise_for_status()
         vectors = r.json()["embeddings"]
         if len(vectors) != len(texts) or any(len(v) != DIM for v in vectors):
