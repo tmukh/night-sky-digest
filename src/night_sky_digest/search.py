@@ -1,13 +1,18 @@
 """Hybrid search: Postgres full-text and pgvector nearest neighbours, merged with
 reciprocal-rank fusion."""
 
+import logging
 from dataclasses import dataclass
 from datetime import date
 from typing import Literal
 
+import httpx
 import psycopg
 
 from night_sky_digest.embed import Embedder, to_pgvector
+from night_sky_digest.metrics import SEARCH_DEGRADED
+
+log = logging.getLogger(__name__)
 
 Mode = Literal["hybrid", "lexical", "semantic"]
 
@@ -113,3 +118,25 @@ def search(
         )
         for arxiv_id, score in fused
     ]
+
+
+@dataclass(frozen=True)
+class SearchResult:
+    hits: list[Hit]
+    degraded: bool  # True: embedding failed, hits are lexical only
+
+
+def search_for_user(
+    conn: psycopg.Connection, embedder: Embedder, query: str, *, k: int = 10, mode: Mode = "hybrid"
+) -> SearchResult:
+    """search() for the public API: if the embedding service is down (Ollama runs on a PC that may
+    be off, ADR 0002), hybrid search falls back to lexical results instead of failing. The eval
+    keeps calling search() directly, so it fails loudly instead of scoring degraded results."""
+    try:
+        return SearchResult(search(conn, embedder, query, k=k, mode=mode), degraded=False)
+    except (httpx.HTTPError, OSError) as exc:
+        if mode != "hybrid":
+            raise
+        log.warning("embedding failed, falling back to lexical search: %r", exc)
+        SEARCH_DEGRADED.inc()
+        return SearchResult(search(conn, embedder, query, k=k, mode="lexical"), degraded=True)

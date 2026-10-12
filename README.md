@@ -134,6 +134,14 @@ model for up to two retries, then unfaithful highlights are dropped and counted.
 that day with an ID from that month or the previous one (arXiv's `created` field is the latest version's
 date). Read it at `GET /digest/latest`, `/digest/{day}` or `/digest/{day}.md`.
 
+## Metrics
+
+`GET /metrics` (Prometheus): request latency and status per route (`night_sky_http_request_duration_seconds`,
+search SLO), `night_sky_search_degraded_total` (hybrid search answered lexical-only because Ollama was
+unreachable), and pipeline state read from Postgres at scrape time: last successful ingest and digest,
+papers indexed, tokens per digest, and on-time digest days over 28 days for the freshness SLO
+(`NIGHT_SKY_SLO_START` sets the first day that counts).
+
 ## Data rules
 
 - arXiv metadata (title, abstract, authors, categories, IDs) is CC0. That is all we store.
